@@ -1,0 +1,121 @@
+/* 設定icon與標題並列且置中 */
+.mytitle{
+    text-align: center;
+} 
+#title1,#tvIcon{
+    vertical-align: middle;
+}
+#title1{
+    font-size: 60px;
+}   
+
+
+#tvIcon{
+    width: 80px;
+    height: 80px;
+}
+
+.radioSection > ul> li:hover{
+    background-color: #E9F7F7;
+}
+
+li {
+    display: inline-block;
+    font-size: 20px;
+    width: 100px;
+    height: 40px;
+}  
+.imgAnchor img{
+    width: 400px;
+    height: 260px;
+}
+.checkboxDrama{
+    font-size: 20px;
+    font-family: "monospace";
+}
+
+.checkboxDrama > table{
+    /* background-color: #FBE7E3; */
+    background-color: #E9F7F7;
+}
+.imgAnchor img:hover {
+
+    border-radius: 90%;
+}
+body{
+
+}
+.headerArea{
+    height: 50px;
+    width: 100%;
+    background-color: #00AA90;
+}
+.JapanDrama{
+    background-color: black;
+}
+.KoreaDrama{
+    background-color: black;
+}
+.TaiDrama{
+    background-color: black;
+}
+.imgAnchor table{
+    /* background-color: #E9F7F7; */
+    background-color: black;
+    border: none;
+}
+
+
+ input,select,textarea{
+ /* width: 200px; */
+  margin: 10px;
+  background-color: #E9F7F7;
+  caret-color: #FF1744;
+  outline: none;
+  /* border:  ; */
+ }
+ fieldset{
+     background-color: #E9F7F7;
+    font-size: 24px;
+ }
+ footer{
+    background-color: #00AA90;
+    height: 70px;
+    margin-top: 0px;}
+   /* \因為通常 footer 也跟 navbar 一樣會是固定的尺寸，所以這邊可以大膽的設定高度，為了區隔上方的內容，所以用了 margin-top */
+.footerText{
+     /* float: right; */
+     text-align: center;
+     font-size: 20px;
+     /* color: ; */
+     line-height: 70px;
+     /* 針對 footer-text 的文字做設定，讓它 footer 的左邊 */
+  }
+button {
+    width: 80px;
+    height: 40px;
+    border: none;
+    color: white;
+    /* padding: 16px 32px; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  .btn {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+  }
+  
+  .btn:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+
+/* 我是分隔線 */
+

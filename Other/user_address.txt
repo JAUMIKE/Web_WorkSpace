@@ -1,0 +1,54 @@
+iframe清單:
+醫龍
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gbY_NgkRG9g?start=16" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+超連結:
+https://youtu.be/gbY_NgkRG9g
+
+半澤直樹
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uDz4UZYun7I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+超連結:
+https://youtu.be/uDz4UZYun7I
+
+BOSS
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kDGT_kfV5z4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+超連結:
+https://youtu.be/kDGT_kfV5z4
+
+天國的階梯
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BYZB2G78ePo?start=16" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+超連結:
+https://youtu.be/BYZB2G78ePo?t=16
+
+紳士的品格
+<iframe width="560" height="315" src="https://www.youtube.com/embed/I9IpXvuHexE?start=16" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+超連結:
+https://youtu.be/I9IpXvuHexE
+
+
+來自星星的你
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kk6Csgv8tK0?start=16" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+超連結:
+https://youtu.be/kk6Csgv8tK0
+
+痞子英雄
+<iframe width="560" height="315" src="https://www.youtube.com/embed/A7s19DL_q5g?start=16" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+超連結:
+https://youtu.be/A7s19DL_q5g
+
+我們與惡的距離
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WI-tq2jvU5E?start=16" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+超連結:
+https://youtu.be/WI-tq2jvU5E
+
+通靈少女
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4Nm5eiAeU2E?start=16" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+超連結:
+https://youtu.be/4Nm5eiAeU2E
