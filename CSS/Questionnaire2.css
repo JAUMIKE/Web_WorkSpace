@@ -6,7 +6,7 @@ img{
     margin: 30px auto;
     width: 400px;
     height: 280px;
-    position: relative;
+    /**position: relative;**/
     border: 20px solid;    
     border-color: #fff;
     border-bottom-width: 100px;
@@ -15,7 +15,7 @@ img{
 }
 
 .slider_container_japan {
-    position: absolute;
+    /**position: absolute;**/
     top: 0;
     left: 0;
     opacity: 0;
@@ -81,7 +81,7 @@ img{
     left: 0%;
     top: 280px;
     width: 400px;
-    height: 100px;
+    height: 280px;
     font-size: 30px;
     text-align: center;
     line-height: 100px;

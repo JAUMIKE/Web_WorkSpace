@@ -1,0 +1,32 @@
+.navBar{
+    margin:0px auto;
+    /* background-color: #FFB11B; */
+    color: black;
+    /* text-align: center; */
+   
+}
+/* img{
+    width: 20px;
+    height: 20px;
+} */
+#arrosRight{
+    transform: scaleX(-1);
+}
+/* #news::before{
+    
+    --myico: url('../image/Coffee_ico001.ico');
+   content: url(../image/Coffee_ico001.ico);
+    content:'附加指令';
+    content:
+  
+     width: 30px;
+     height: 30px;
+} */
+img[src$='.ico']{   
+    width: 30px;
+    height: 30px;
+
+}
+div[title="newTitle"]{
+    display: inline-block;
+}
