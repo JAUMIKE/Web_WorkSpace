@@ -1,0 +1,187 @@
+/* @import 'grid.css'; */
+
+/* .grid_container、.grid_container>section 將header以下分成三個區塊 navbar、article、weather */
+.grid_container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10 10px 10px 0px;  /**讓切出的section貼齊左側**/
+    grid-template-columns: 23% 57% 30%;
+    grid-auto-rows:800px;
+ 
+
+}
+.grid_container>section {
+    /* border: 1px solid black; */
+    margin: 5px;
+}
+
+
+/* 針對header調整大小、顏色 */
+.webHeader{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.63);
+    
+}
+/* 調整選單&首頁icon父層div區塊大小並將其垂直置中 */
+.menu_homepage{
+    display: flex;
+    align-items: center;
+    min-width: 208px;
+    height: 48px;
+}
+.menu_homepage > div {
+    display: flex;
+    align-items: center;
+}
+
+/* 調整搜尋引擎父層div區塊大小並將其垂直置中 */
+.findEngine{
+    display: flex;
+    align-items: center;
+    width: 840px;
+    height: 48px;
+   
+}
+/* 調整app&登入鍵的父層div區塊大小並將其內元素垂直置中(display、align-items) */
+.app_login{
+    display: flex;
+    align-items: center;
+    min-width: 208px;
+    height: 48px;
+}
+
+/* 調整menubar icon大小*/
+.webHeader > .menu_homepage > div > img[title="menubarTitle"]{
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+}
+/* 調整menubar父層div對左邊的margin */
+.webHeader > .menu_homepage > div{
+    margin-left: 10px;
+}
+/* menubar hover效果 */
+.menu_homepage > div:first-child:hover{
+    background-color: hsl(0, 0%, 88%);
+    border-radius: 200px 200px 200px 200px;   
+}
+
+/* 調整header的applist icon 大小*/
+.webHeader > .app_login > div>img{
+    width: 30px;
+    height: 30px;
+}
+
+/* .webHeader > .app_login > div{
+    width: 34px;
+    height: 34px;
+} */
+
+.webHeader > .app_login > div:hover{
+    background-color: hsl(0, 0%, 88%);
+    border-radius: 200px 200px 200px 200px;   
+}
+
+
+/* 調整表單父層的div區塊，將其水平置中 */
+.findEngine > div {
+    margin: 0px auto;
+    
+}
+
+/* header的搜尋引擎寬度*/
+.searchEngine > input[title="searchInsert"]{
+    width: 720px;
+    height: 2rem;
+    border:none
+}
+.searchEngine > input[title="Searchsubmit"]{
+    /* border: none; */
+    border-color: lightslategrey;
+    border-radius: 200px 200px 200px 200px;
+}
+
+.searchEngine {
+    background-color: #F1F3F4;
+}
+
+
+
+/* header的登入按鈕 */
+#btn_login{
+    width: 100px;
+    height: 30px;
+    background-color: hsl(125, 48%, 37%);
+    float: right ;
+    
+
+}
+
+/* 調整navbar讓整個column的元素垂直置中(display、align-item)、 以及background的大小、顏色、間距*/
+.navbar>a div{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+
+
+    /* background-color: hsl(214, 100%, 94%); */
+    border-radius: 10px 58px 59px 10px;
+    height: 42px;
+    width: 256px;
+    
+}
+/* 調整navbar的icon大小 */
+ nav > a > div >img{
+    width:24px;
+    height: 24px;
+    margin-left: 20px;
+    margin-right: 20px;
+   
+}
+nav > a > div{
+    margin-left: 20px;
+}
+
+/* 調整navSetBar的icon大小 */
+.navSetBar > a  > div >img{
+    width:16px;
+    height: 16px;
+    margin-left: 5px;
+    
+}
+
+/* 調整焦點新聞background的配色、邊框 */
+ nav > a > div[title="newsTitle"] {
+    background-color: hsl(214, 100%, 94%);
+}
+ /* 去掉navbar文字超連結的底線，調整文字顏色 */
+.navSection > nav > a  ,.navSetBar > a{
+    text-decoration: none ;
+    color: black;
+}
+/* 為navbar新增滾動條 */
+.navSection{
+    overflow:scroll;
+    font-size: 14px;
+    font-family: sans-serif;
+    float: left;
+}
+/* 調整navbar分隔線 */
+.navSection > nav> hr{
+    width: 90%;
+    size: 1px;
+    background-color: darkgrey;
+    align:center;
+    
+
+}
+/* 導覽列中設定列的margin值 */
+/* .navSetBar{
+    margin: 10px;
+} */
+

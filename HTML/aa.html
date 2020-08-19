@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .grid-container>section {
+            border: 1px solid black;
+            margin: 5px;
+        }
+
+        .grid-container {
+            /* 10. 設定 display: grid，改變指定元素的顯示方式 */
+            display: grid;
+            /* 20. grid-template-columns 指定 欄
+                   grid-template-rows    指定 列 */
+            /* grid-template-columns: 100px 100px 100px; */
+
+            /* grid-template-rows: 100px 100px 100px; */
+            /* 30. 其他設定：auto、fr、repeat(重覆幾次, 值1 值2...) */
+            grid-template-columns: 20% 60% 20%;
+            grid-auto-rows: 500px
+                /* 寫法2 */
+                /* grid-template-columns: 1fr 1fr */
+                /* 寫法3 */
+                /* grid-template-columns: repeat(2,1fr 4fr)  */
+        }
+        nav > div{
+            background-color:  hsl(125, 48%, 37%);
+            display: flex;
+            align-items: center;
+            height: 42px;
+            width: 256px;
+            margin-top:10px;
+
+        }
+
+        nav>div>img {
+            width: 30px;
+            height: 30px;
+            margin: 10px;
+        }
+        nav >a> div{
+            background-color:  hsl(125, 48%, 37%);
+            display: flex;
+            align-items: center;
+            height: 42px;
+            width: 256px;
+            margin-top:10px;
+
+        }
+        
+        nav>a>div>img {
+            width: 30px;
+            height: 30px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grid-container">
+        <section class="secNavbar">
+            <nav class="navbar">
+                <div title="newsTitle">
+                   <img src="../image/global_icon.svg" alt="new icon"><span>焦點新聞</span>
+                </div>
+            <a href="">
+                <div title="recommendTitle">
+                   <img src="../image/man_ico.svg" alt="new icon"><span>為你推薦</span>
+                </div>
+            </a>
+            <form action="">
+                <input type="submit" value="" style="border-radius:200px 200px 200px 200px ; background-color: hsl(0, 0%, 60%);">
+
+            </form>
+            </nav>
+
+        </section>
+        <section>2</section>
+        <section>3</section>
+    </div>
+</body>
+
+</html>
