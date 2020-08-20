@@ -13,6 +13,7 @@
 .grid_container>section {
     /* border: 1px solid black; */
     margin: 5px;
+    margin: 0px auto;
 }
 
 
@@ -22,6 +23,8 @@
     align-items: center;
     border-bottom: 1px solid black;
     box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.63);
+    height: 80px;
+    position: relative;
     
 }
 /* 調整選單&首頁icon父層div區塊大小並將其垂直置中 */
@@ -38,6 +41,8 @@
 
 /* 調整搜尋引擎父層div區塊大小並將其垂直置中 */
 .findEngine{
+    /* line-height: 10px; 設定line-height，vertical-align才有效果
+    vertical-align: center; */
     display: flex;
     align-items: center;
     width: 840px;
@@ -50,6 +55,9 @@
     align-items: center;
     min-width: 208px;
     height: 48px;
+    position: absolute;
+    right: 10px;
+    
 }
 
 /* 調整menubar icon大小*/
@@ -68,10 +76,17 @@
     border-radius: 200px 200px 200px 200px;   
 }
 
+
+
+
 /* 調整header的applist icon 大小*/
 .webHeader > .app_login > div>img{
     width: 30px;
     height: 30px;
+    position: absolute;
+    right: 120px;
+    bottom: 10px;
+   
 }
 
 /* .webHeader > .app_login > div{
@@ -95,7 +110,8 @@
 .searchEngine > input[title="searchInsert"]{
     width: 720px;
     height: 2rem;
-    border:none
+    border:none;
+    
 }
 .searchEngine > input[title="Searchsubmit"]{
     /* border: none; */
@@ -115,7 +131,9 @@
     height: 30px;
     background-color: hsl(125, 48%, 37%);
     float: right ;
-    
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
 
 }
 

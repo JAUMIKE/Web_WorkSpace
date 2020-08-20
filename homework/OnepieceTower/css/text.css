@@ -1,0 +1,51 @@
+body{
+    margin:0px;
+    /* position: relative; */
+    overflow: hidden;
+}
+body>div{
+    /* position: relative; */
+    /* display: block; */
+    width: 100%;
+    
+    
+}
+
+.leftArea{
+    float: left;
+    position: absolute;
+    /* width: 50%; */
+    left: 0px;
+    background-color: #5cb6e7;
+    height: 960px;
+}
+.leftArea>img{
+    object-fit: cover;
+}
+
+.rightArea{
+    height: 960px;
+    /* position: absolute; */
+    /* right: 0px; */
+    float: right;
+    overflow: scroll;
+    text-align: center;
+    padding: 50px 70px 0px 70px;
+    /* display: block; */
+    /* width: 50%; */
+}
+table{
+    /* width: 100%; */
+}
+.rightArea>p{
+    text-align: left;
+
+}
+table,th,td{
+    border: 1px solid #bbbbbb;
+    border-collapse:collapse;
+    
+}
+th{
+    background-color: #5cb6e7;
+}

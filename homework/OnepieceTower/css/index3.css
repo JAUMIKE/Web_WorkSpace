@@ -1,0 +1,30 @@
+body{
+    margin:0px;
+    height: 960px;
+}
+.left{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    border:2px solid black;
+    top:0;
+    left: 0;
+    background-image: url(../img/foreign_parts_left.png);
+    background-repeat: no-repeat;
+    background-color: #5cb6e7;
+}
+.right{
+    margin-left: 50%;
+    height: 100%;
+    background-image: url(../img/bg_dot.jpg);
+    /* overflow: auto; */
+    text-align: center;
+   
+}
+.right>div{
+    padding:50px 70px 0px 70px;
+}
+.DetailInfo{
+    text-align: left;
+}
+
