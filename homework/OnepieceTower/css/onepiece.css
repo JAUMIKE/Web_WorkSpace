@@ -19,7 +19,7 @@ body {
     width: 100%;
     height: auto;
     background-image: url(../img/bg_dot.jpg);
-    overflow: auto;
+    /* overflow: auto; */
     font-family: "Lucida Grande", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Meiryo, メイリオ", sans-serif;
     font-size: 0.85rem;
     font-weight: bold;
@@ -30,6 +30,7 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
     background-color: #5cb6e7;
+    /* position: fixed; */
 }
 
 

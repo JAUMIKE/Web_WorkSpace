@@ -1,30 +1,72 @@
 body{
     margin:0px;
-    height: 960px;
+    /* height: 960px; */
 }
+/* 引入外部字體 */
+@font-face{
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    src: url(http://ameblo.jp);
+}
+/* 設定左邊區域 */
 .left{
     position: absolute;
     height: 100%;
     width: 50%;
-    border:2px solid black;
     top:0;
     left: 0;
     background-image: url(../img/foreign_parts_left.png);
     background-repeat: no-repeat;
     background-color: #5cb6e7;
+    /* 差fixed這行，讓左方背景圖固定位置，不隨卷軸移動 */
+    position: fixed;
 }
+/* 設定右邊區域 */
 .right{
     margin-left: 50%;
     height: 100%;
-    background-image: url(../img/bg_dot.jpg);
-    /* overflow: auto; */
+    /* background-image: url(../img/bg_dot.jpg); */
     text-align: center;
+    font-size: 14.8px;
    
 }
-.right>div{
-    padding:50px 70px 0px 70px;
+/* 調整右邊區域內距 */
+.right>div:first-child{
+    padding:50px 70px 10px 70px;
+    background-image: url(../img/bg_dot.jpg);
 }
+/* 調整圖片大小 */
+.right>div>img[src*="mark_sep"]{
+    width: 100%;
+}
+
+/* 更改<p>標籤字體、並置左*/
 .DetailInfo{
     text-align: left;
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
+/* 更改h1,h2字體 */
+h1,h2{
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+/* 增加表格格線並設置寬度、標頭背景顏色 */
+table,
+th,
+td {
+    border: 1px solid #bbbbbb;
+    border-collapse: collapse;
+    padding: 20px 20px;
+}
+table{
+    width: 100%;
+}
+th{
+    background-color: #5cb6e7;
+}
+/* 幫footer背景上白色 */
+.footerArea{
+    background-color: white;
+    padding: 20px 30px;
+    
+}
+
 
