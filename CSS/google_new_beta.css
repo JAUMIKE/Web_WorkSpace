@@ -1,0 +1,190 @@
+/* @import 導入網路字型 */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap'); */
+/* font-family: 'Roboto Slab', serif; */
+body{
+    margin:0;
+}
+
+.grid_container{
+    display: grid;
+    grid-template-rows:auto 1fr auto ;
+    grid-auto-columns: auto 1fr auto;
+}
+/* -------------------------------以下為HeaderCSS-------------------------------*/
+/*header 寬高調整; 位置固定上方; 定義格線位置(1-4)*/
+header{
+    grid-column:1/4;
+    /* background-color: lightcoral; */
+    border:1px solid black;
+    height: 5rem;
+    position: relative;
+    top: 0px;
+    width: 100%;
+    position: fixed;
+}
+/* 調整header裡面icon大小 */
+header>div>img[title="menubarTitle"]{
+    width: 20px;
+    height: 20px;
+
+}
+/* 對header子層的三個div將其垂直置中並統一高度 並設定向左的間距 */
+header>div{
+    height: inherit;
+    display: flex;
+    align-items: center;
+    padding: 0px 0px 0px 30px;
+}
+/* 設定第一個div區塊的格線、位置、寬度 */
+.menu_homepage{
+    grid-column: 1/2;
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 13rem;
+
+}
+/* 設定搜尋引擎div的位置、寬度 */
+.searchEngine{
+    position: absolute;
+    top:0px;
+    right: 210px;
+    grid-column: 2/3;
+    height: inherit;
+    width: 50rem;
+    padding: 0px 10px;
+    
+   
+
+}
+/* 將搜尋引擎水平置中 */
+.searchEngine>form{
+    margin: 0 auto;
+    border:1px solid grey;
+}
+/* 調整輸入搜尋的寬、高 */
+.searchEngine>form>input[title="searchInsert"]{
+    width: 40rem;
+    height: 2rem;
+    margin: 0;
+/* 調整搜尋鈕的外觀、放置背景圖icon */
+}
+.searchEngine>form>input[title="searchSubmit"]{
+    height: 2rem;
+    width:  2rem;
+    padding: 1px 2px;
+    background-image: url(../image/find_ico.ico);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border:none;
+    background-color: white; 
+}
+/* 調整搜尋引擎的select外觀 */
+.searchEngine>form>select[title="searchfilter"]{
+    height: 2rem;
+    width:  2rem;
+    padding: 1px 2px;
+    border:none;
+   
+}
+input{
+    border: none;
+}
+
+
+/* 第三個div，調整位置靠右、寬度 */
+.app_login{
+    grid-column: 3/4;
+    width: 13rem;
+    position: absolute;
+    right:0;
+    top:0;
+    text-align: right;
+}
+.app_login>img{
+    width: 20px;
+    height: 20px;
+}
+
+/* -------------------------------以下為左側導覽列CSS-------------------------------*/
+/* 用grid-column的格線切出範圍(格線1-格線2) */
+.leftBar{
+    grid-column: 1/2;   
+    /* background-color: lightskyblue; */
+    border-right: 1px solid black ;
+    height: 100%;
+    overflow: hidden auto;
+    position: absolute;
+    margin-top:5rem;
+    position: fixed;
+}
+/* 點連結前的文字樣式 */
+a:link{
+    text-decoration: none;
+    color: black;
+    font-family: 'Google Sans',sans-serif;;
+    font-size: 14.8px;
+}
+/* 點連結之後的文字樣式 */
+a:visited{
+    color: black;
+    font-family: 'Google Sans',sans-serif;;
+    font-size: 14.8px;
+}
+a:hover{
+    color: blue;
+}
+
+/* 調整左側導覽列icon大小 */
+.leftBar>.navbar>a>div>img,.navSetBar>a>div>span>img{
+    width: 20px;
+    height: 20px;
+    margin-left: 30px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+/* 調整左側導覽列的位置(垂直置中) */
+.leftBar>.navbar>a>div{
+   display: flex;
+   align-items: center;
+}   
+.navSetBar{
+    padding: 10px 10px;
+
+}
+
+
+
+/* -------------------------------以下為中間新聞內容CSS-------------------------------*/
+.newsArea{
+    grid-column: 2/3;
+    background-color: coral;
+    position: absolute;
+    top:5.2rem;
+    left: 15rem;
+    height: 100%;
+    width: 50%;
+}
+
+/* -------------------------------以下為右側天氣資訊CSS-------------------------------*/
+.rightArea{
+    grid-column: 3/4;
+    background-color: limegreen;
+    border-left:1px solid black;
+    position: absolute;
+    top:5.2rem;
+    left: calc(15.1rem + 50%);
+    width: 30%;
+    height: 100%;
+};
+.footerArea{
+    position: absolute;
+    
+    bottom: 0;
+    height: 5rem;
+    grid-column: 1/4;
+    border: 1px solid red;
+    background-color: blue;
+
+}
+
