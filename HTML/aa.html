@@ -3,84 +3,191 @@
 
 <head>
     <meta charset="UTF-8">
-    <style>
-        .grid-container>section {
-            border: 1px solid black;
-            margin: 5px;
-        }
-
-        .grid-container {
-            /* 10. 設定 display: grid，改變指定元素的顯示方式 */
-            display: grid;
-            /* 20. grid-template-columns 指定 欄
-                   grid-template-rows    指定 列 */
-            /* grid-template-columns: 100px 100px 100px; */
-
-            /* grid-template-rows: 100px 100px 100px; */
-            /* 30. 其他設定：auto、fr、repeat(重覆幾次, 值1 值2...) */
-            grid-template-columns: 20% 60% 20%;
-            grid-auto-rows: 500px
-                /* 寫法2 */
-                /* grid-template-columns: 1fr 1fr */
-                /* 寫法3 */
-                /* grid-template-columns: repeat(2,1fr 4fr)  */
-        }
-        nav > div{
-            background-color:  hsl(125, 48%, 37%);
-            display: flex;
-            align-items: center;
-            height: 42px;
-            width: 256px;
-            margin-top:10px;
-
-        }
-
-        nav>div>img {
-            width: 30px;
-            height: 30px;
-            margin: 10px;
-        }
-        nav >a> div{
-            background-color:  hsl(125, 48%, 37%);
-            display: flex;
-            align-items: center;
-            height: 42px;
-            width: 256px;
-            margin-top:10px;
-
-        }
-        
-        nav>a>div>img {
-            width: 30px;
-            height: 30px;
-            margin: 10px;
-        }
-    </style>
+    <!-- Blue print版面 -->
+    <!-- <link href="https://unpkg.com/blueprint-css@3.1.1/dist/blueprint.min.css" rel="stylesheet" /> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="../CSS/bootstrap_css/bootstrap.min.css">
+    <script src="../JS/bootstrap_js/jquery.min.js"></script>
+    <script src="../JS/bootstrap_js/popper.min.js"></script>
+    <script src="../JS/bootstrap_js/bootstrap.min.js"></script>
 </head>
 
 <body>
-
-    <div class="grid-container">
-        <section class="secNavbar">
-            <nav class="navbar">
-                <div title="newsTitle">
-                   <img src="../image/global_icon.svg" alt="new icon"><span>焦點新聞</span>
-                </div>
-            <a href="">
-                <div title="recommendTitle">
-                   <img src="../image/man_ico.svg" alt="new icon"><span>為你推薦</span>
-                </div>
-            </a>
-            <form action="">
-                <input type="submit" value="" style="border-radius:200px 200px 200px 200px ; background-color: hsl(0, 0%, 60%);">
-
-            </form>
-            </nav>
-
-        </section>
-        <section>2</section>
-        <section>3</section>
+    <p>md 行動裝置</p>
+    <div class="row" id="mdArea">
+        <div class="col-md-1 border">1</div>
+        <div class="col-md-1 border">2</div>
+        <div class="col-md-1 border">3</div>
+        <div class="col-md-1 border">4</div>
+        <div class="col-md-1 border">5</div>
+        <div class="col-md-1 border">6</div>
+        <div class="col-md-1 border">7</div>
+        <div class="col-md-1 border">8</div>
+        <div class="col-md-1 border">9</div>
+        <div class="col-md-1 border">10</div>
+        <div class="col-md-1 border">11</div>
+        <div class="col-md-1 border">12</div>
     </div>
+    <hr>
+    <p>sm 行動裝置</p>
+    <div class="row"  id="smArea">
+        <div class="col-sm-1 border">1</div>
+        <div class="col-sm-1 border">2</div>
+        <div class="col-sm-1 border">3</div>
+        <div class="col-sm-1 border">4</div>
+        <div class="col-sm-1 border">5</div>
+        <div class="col-sm-1 border">6</div>
+        <div class="col-sm-1 border">7</div>
+        <div class="col-sm-1 border">8</div>
+        <div class="col-sm-1 border">9</div>
+        <div class="col-sm-1 border">10</div>
+        <div class="col-sm-1 border">11</div>
+        <div class="col-sm-1 border">12</div>
+    </div>
+    <hr>
+    <p>lg 行動裝置</p>
+    <div class="row"  id="lgArea">
+        <div class="col-lg-1 border">1</div>
+        <div class="col-lg-1 border">2</div>
+        <div class="col-lg-1 border">3</div>
+        <div class="col-lg-1 border">4</div>
+        <div class="col-lg-1 border">5</div>
+        <div class="col-lg-1 border">6</div>
+        <div class="col-lg-1 border">7</div>
+        <div class="col-lg-1 border">8</div>
+        <div class="col-lg-1 border">9</div>
+        <div class="col-lg-1 border">10</div>
+        <div class="col-lg-1 border">11</div>
+        <div class="col-lg-1 border">12</div>
+    </div>
+    <hr>
+    <p>xl 行動裝置</p>
+    <div class="row"  id="xlArea">
+        <div class="col-xl-1 border">1</div>
+        <div class="col-xl-1 border">2</div>
+        <div class="col-xl-1 border">3</div>
+        <div class="col-xl-1 border">4</div>
+        <div class="col-xl-1 border">5</div>
+        <div class="col-xl-1 border">6</div>
+        <div class="col-xl-1 border">7</div>
+        <div class="col-xl-1 border">8</div>
+        <div class="col-xl-1 border">9</div>
+        <div class="col-xl-1 border">10</div>
+        <div class="col-xl-1 border">11</div>
+        <div class="col-xl-1 border">12</div>
+    </div><hr>
+    <div class="row">
+        <div class="col-4 bg-danger">1</div>
+        <div class="col-4 bg-primary">2</div>
+        <div class="col-4 bg-transparent">
+            <div class="row">
+                <div class="col bg-dark">A</div>
+            </div>
+            <div class="row">
+                <div class="col bg-warning">B</div>
+            </div>
+        </div>
+    </div><hr>
+    <div class="container border">
+        <ul class="list-unstyled">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <hr>
+    <br><br>
+    <div class="table-responsive-lg">
+        <table class="table table-bordered  text-center table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>書名</th>
+                    <th>出版社</th>
+                    <th>作者</th>
+                    <th>書名</th>
+                    <th>出版社</th>
+                    <th>作者</th>
+                    <th>書名</th>
+                    <th>出版社</th>
+                    <th>作者</th>
+                    <th>書名</th>
+                    <th>出版社</th>
+                    <th>作者</th>
+                </tr>
+            </thead>
+            <tbody class="">
+                <tr class="table-primary">
+                    <td>哈利波特</td>
+                    <td>天下書坊</td>
+                    <td>J.K羅琳</td>
+                    <td>哈利波特</td>
+                    <td>天下書坊</td>
+                    <td>J.K羅琳</td>
+                </tr>
+                <tr class="table-secondary">
+                    <td>盜墓筆記</td>
+                    <td>日間書坊</td>
+                    <td>南派三叔</td>
+                    <td>盜墓筆記</td>
+                    <td>日間書坊</td>
+                    <td>南派三叔</td>
+                </tr>
+                <tr class="table-active">
+                    <td>笑傲江湖</td>
+                    <td>河南書局</td>
+                    <td>金庸</td>
+                    <td>笑傲江湖</td>
+                    <td>河南書局</td>
+                    <td>金庸</td>
+                </tr>
+                <tr class="table-success">
+                    <td>鹿鼎記</td>
+                    <td>河南書局</td>
+                    <td>金庸</td>
+                    <td>鹿鼎記</td>
+                    <td>河南書局</td>
+                    <td>金庸</td>
+                </tr>
+                <tr class="table-warning">
+                    <td>哈利波特</td>
+                    <td>天下書坊</td>
+                    <td>J.K羅琳</td>
+                    <td>哈利波特</td>
+                    <td>天下書坊</td>
+                    <td>J.K羅琳</td>
+                </tr>
+                <tr class="table-info">
+                    <td>盜墓筆記</td>
+                    <td>日間書坊</td>
+                    <td>南派三叔</td>
+                    <td>盜墓筆記</td>
+                    <td>日間書坊</td>
+                    <td>南派三叔</td>
+                </tr>
+                <tr class="table-danger">
+                    <td>笑傲江湖</td>
+                    <td>河南書局</td>
+                    <td>金庸</td>
+                    <td>笑傲江湖</td>
+                    <td>河南書局</td>
+                    <td>金庸</td>
+                </tr>
+                <tr class="table-light">
+                    <td>鹿鼎記</td>
+                    <td>河南書局</td>
+                    <td>金庸</td>
+                    <td>鹿鼎記</td>
+                    <td>河南書局</td>
+                    <td>金庸</td>
+                </tr>
+            </tbody>
+
+
+        </table>
+
+    </div>
+       
+    
 </body>
 
 </html>
