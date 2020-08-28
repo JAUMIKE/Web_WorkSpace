@@ -30,7 +30,7 @@
     </div>
     <hr>
     <p>sm 行動裝置</p>
-    <div class="row"  id="smArea">
+    <div class="row" id="smArea">
         <div class="col-sm-1 border">1</div>
         <div class="col-sm-1 border">2</div>
         <div class="col-sm-1 border">3</div>
@@ -46,7 +46,7 @@
     </div>
     <hr>
     <p>lg 行動裝置</p>
-    <div class="row"  id="lgArea">
+    <div class="row" id="lgArea">
         <div class="col-lg-1 border">1</div>
         <div class="col-lg-1 border">2</div>
         <div class="col-lg-1 border">3</div>
@@ -62,7 +62,7 @@
     </div>
     <hr>
     <p>xl 行動裝置</p>
-    <div class="row"  id="xlArea">
+    <div class="row" id="xlArea">
         <div class="col-xl-1 border">1</div>
         <div class="col-xl-1 border">2</div>
         <div class="col-xl-1 border">3</div>
@@ -75,7 +75,8 @@
         <div class="col-xl-1 border">10</div>
         <div class="col-xl-1 border">11</div>
         <div class="col-xl-1 border">12</div>
-    </div><hr>
+    </div>
+    <hr>
     <div class="row">
         <div class="col-4 bg-danger">1</div>
         <div class="col-4 bg-primary">2</div>
@@ -87,7 +88,8 @@
                 <div class="col bg-warning">B</div>
             </div>
         </div>
-    </div><hr>
+    </div>
+    <hr>
     <div class="container border">
         <ul class="list-unstyled">
             <li>1</li>
@@ -186,15 +188,161 @@
         </table>
 
     </div>
-    
+
     <form action="">
         <div class="form-group">
-            <label for="itextarea" class="control-label"></label>
-        </div>
+            <label for="itextarea" class="control-label">輸入資料 : </label>
+            <input type="text" id="itextarea" class="form-control">
+        </div><br><br>
+        <hr>
+        <p>禁止使用欄位 disabled</p>
+        <div class="form-group">
+            <label for="itextarea" class="control-label">輸入資料 : </label>
+            <input type="text" id="itextarea" class="form-control" value="forbiden" disabled>
+        </div><br><br>
+        <hr>
+        <p>唯讀屬性 readonly</p>
+        <div class="form-group">
+            <label for="itextarea" class="control-label">輸入資料 : </label>
+            <input type="text" id="itextarea" class="form-control" value="none" readonly>
+        </div><br><br>
+
+        <div class="checkbox">
+            <label><input type="checkbox" id="icheckarea">輸入資料 : </label>
+            </input>
 
 
+            <div class="form-group">
+                <label for="select1" class="control-label">下拉式選單</label>
+                <select id="select1" class="form-control">
+                    <option value="1">選項1</option>
+                    <option value="2">選項2</option>
+                    <option value="3">選項3</option>
+                    <option value="4">選項4</option>
+                    <option value="5">選項5</option>
+                </select>
+
+            </div>
     </form>
-    
+    <hr>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <button type="button" class="btn btn-block btn-danger">按鈕</button>
+        <button type="button" class="btn btn-block btn-success">按鈕</button>
+        <button type="button" class="btn btn-block btn-outline-danger active">按鈕</button>
+        <button type="button" class="btn btn-block btn-outline-success">按鈕</button>
+        <button type="button" class="btn btn-block btn-outline-warning">按鈕</button>
+        <button type="button" class="btn btn-block btn-outline-primary">按鈕</button>
+    </div>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">下拉式選單</button>
+        <div class="dropdown-menu">
+            <a href="" class="dropdown-item">Car</a>
+            <a href="" class="dropdown-item">Bus</a>
+            <a href="" class="dropdown-item">Motor</a>
+            <div class="dropdown-divider"></div>
+            <a href="" class="dropdown-item">Car</a>
+            <a href="" class="dropdown-item">Bus</a>
+            <a href="" class="dropdown-item">Motor</a>
+        </div>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-default">aaaa</button>
+        <button class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
+        <div class="dropdown-menu">
+            <a href="" class="dropdown-item">Car</a>
+            <a href="" class="dropdown-item">Bus</a>
+        </div>
+    </div>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <p>輸入群組與按鈕</p>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <button class="btn btn-default btn-secondary" type="button">搜尋</button>
+        </div>
+        <input type="text" class="form-control" placeholder="請輸入關鍵字">
+        <br>
+        <div class="input-group">
+        </div>
+    </div>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>導覽列一</p>
+    <div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" href="#">首頁</a> </li>
+            <li class="nav-item"><a class="nav-link " href="#">關於</a></li>
+            <li class="nav-item"><a class="nav-link " href="#">聯絡</a></li>
+        </ul>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>導覽列二</p>
+    <div class="container">
+        <ul class="nav nav-pills nav-justified">
+            <li class="nav-item"><a class="nav-link active" href="#">首頁</a> </li>
+            <li class="nav-item"><a class="nav-link " href="#">關於</a></li>
+            <li class="nav-item"><a class="nav-link " href="#">聯絡</a></li>
+        </ul>
+    </div>
+    <br>
+
+    <br>
+    <br>
+    <p>導覽列功能</p>
+    <!-- fixed-top 可將narbar固定在畫面上方 -->
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning ">
+            <a href="" class="navbar-brand">
+                <img  style="width:100px; height: 100px;" src="../image/TV.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a href="" class="nav-link">首頁</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">關於</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">聯絡</a></li>
+                    <li class="nav-item dropdown"><a href="" class="nav-link dropdown-toggle"
+                            data-toggle="dropdown">產品</a>
+                        <div class="dropdown-menu">
+                            <a href="" class="dropdown-item">新書介紹</a>
+                            <a href="" class="dropdown-item">總覽</a>
+                        </div>
+                    </li>
+                </ul>
+                <form action="" class="form-inline">
+                    <input type="text" class="form-control mr-1" placeholder="關鍵字">
+                    <button class="btn btn-outline-secondary" type="submit">搜尋</button>
+                </form>
+            </div>
+        </nav>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
 
 </body>
