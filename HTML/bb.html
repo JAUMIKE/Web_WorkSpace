@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #formArea{
+            /* display: none; */
+        }
+        #printNum{
+            width: 50px;
+            height: 20px;
+            color:coral;
+        }
+        p{
+            /* display: inline-block; */
+            margin: 5px;
+        }
+    </style>
+    <script src="../MyJS/practice.js?V1"></script>
+    
+</head>
+<body>
+    <p>This is first line</p>
+    <button onclick="total(3,4)">BTN</button>
+    <p>按鈕A</p>
+    <button onclick="showMsg();" id="btnShow">Hide Me</button>
+    <p>按鈕B</p>
+    <button onclick="showMsgVis();" id="btnShowOn">Hide Me Off</button>
+    
+    
+    <form action="" id="formArea">
+        <label for="userName">姓名 : </label>
+        <input type="text" id="userName">
+    </form><br>
+    <button onclick="showNum();">click Me</button>
+    <div id="printNum">  </div>
+    <script>
+        var x='2',y='3',z='4';
+        console.log(x+y+z);
+        console.log(x-y-z);
+        var numx=2;
+        function calc(){
+            var numx=5,numy=1;
+            console.log('numx show in function ' + numx)
+            console.log(numx+numy);
+        }
+        calc()
+        console.log(numx);
+        console.log('\n');
+        console.log('----- -----');
+        console.log(0.1+0.2);        
+        console.log(parseFloat(0.1+0.2)); 
+
+        console.clear();
+        var d = new Date();
+        var myToday = d.getDay();
+        switch(myToday){
+            case 0 : console.log('Today is Sunday');
+            case 1 : console.log('Today is Monday');
+            case 2 : console.log('Today is Tuesday');
+            case 3 : console.log('Today is Wednesday');
+            case 4 : console.log('Today is Thirsday');
+            case 5 : console.log('Today is Friday');
+            case 6 : console.log('Today is Saturday');
+        } 
+        // 九九乘法表:
+        for(var i = 1; i<10;i++){
+            document.write('<br>');
+            console.log('\n');
+            for(var j = 1; j < 10;j++){
+                console.log(i + ' * ' + j + ' = ' + i*j )
+                document.write('<p>' + i + ' * ' + j + ' = ' + i*j + '<p>' )
+            }
+        } 
+
+        console.clear();
+        console.log(eval('100+20'));
+        var a = 18;
+        var b = 10;
+        console.log(eval('a+b'));
+
+    </script>
+</body>
+</html>

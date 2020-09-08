@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="showNum('1')">1</button>
+    <button onclick="showNum('2')">2</button>
+    <button onclick="showNum('3')">3</button>
+    <button onclick="testCalc('+')">+</button>
+    <button onclick="testCalc('-')">-</button>
+    <button onclick="testCalc('*')">*</button>
+    <button onclick="testCalc('/')">/</button>
+    <button onclick="getResult()">=</button>
+    <p id="demo"></p>
+    <p id="demo2"></p>
+
+
+    <script>
+        var Myvalue = '';
+        var Myvalue2 = '';
+        var Myarray = [];
+        //紀錄輸入的數值
+        function showNum(num) {
+            //將傳入的參數紀錄為字串並顯示在畫面上
+            document.getElementById('demo').innerHTML += num;
+        }
+        //四則運算
+  
+            function testCalc(num){
+                //紀錄使用的運算符號，並存成一個陣列
+                Myarray.push(num)
+                //將第一次輸入的值存在Myvalue
+                Myvalue = document.getElementById('demo').innerHTML;
+                //把第一次的值顯示在暫存區demo2
+                document.getElementById('demo2').innerHTML=Myvalue;
+                //清空demo畫面
+                document.getElementById('demo').innerHTML = ''
+           
+               
+            }
+            function getResult(){
+                //使用 = 的時候執行順序如下:
+                //因為 = 的使用時機是在兩個數值皆以輸入的情況下求結果，因此畫面上會有兩個區塊
+                //Myvalue2會從demo2的畫面上取值，代表是第一次輸入的值
+                //Myvalue 會從demo的畫面上取值，代表是第二次輸入的值
+                Myvalue = parseInt(document.getElementById('demo').innerHTML);
+                Myvalue2 = parseInt(document.getElementById('demo2').innerHTML);
+                console.log(Myarray);
+                //因為四則運算符號已經在testCalc(num)裡面存到Myarray陣列裡
+                //因此使用判斷式來確認當前的Myarray陣列裡的四則運算符號是哪個，陣列裡頭紀錄著剛剛所點擊的四則運算符號
+                //代表上一次操作使用的是加法
+                if(Myarray[0] == '+'){
+                    document.getElementById('demo').innerHTML = Myvalue2+Myvalue;
+                    //這邊計算完畢後要清除陣列裡的運算符號，也代表一次運算的結束
+                    Myarray.pop();  
+                //代表上一次操作點的是減法    
+                }else if(Myarray[0] == '-'){
+                    document.getElementById('demo').innerHTML = Myvalue2-Myvalue; 
+                    Myarray.pop();  
+                //代表上一次操作點的是乘法  
+                }else if(Myarray[0] == '*'){
+                    document.getElementById('demo').innerHTML = Myvalue2*Myvalue; 
+                    Myarray.pop();  
+                //代表上一次操作點的是除法      
+                }else if(Myarray[0] == '/'){
+                    document.getElementById('demo').innerHTML = Myvalue2/Myvalue; 
+                    Myarray.pop();  
+                }   
+            }
+           
+    </script>
+</body>
+
+</html>
