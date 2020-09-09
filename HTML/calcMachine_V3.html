@@ -5,7 +5,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            background-color: darkgray;
+        }
+
+        .boxmachine01 {
+            margin: 0 auto;
+            width: 400px;
+            height: 700px;
+            border: 1px solid black;
+            /* background-color: #bdcec7; */
+            background-color: lightgray;
+            box-shadow: 1px 1px 5px 4px rgba(0, 0, 0, 0.75);
+        }
+
+        .printArea {
+            margin: 40px 20px 20px 20px;
+            height: 100px;
+            border-radius: 10px;
+            background: #bdcec7;
+            box-shadow: -5px -5px 0px #4c5250,
+                5px 5px 0px #ffffff;
+            padding: 5px;
+            display: grid;
+            grid-template: 1fr;
+            grid-auto-rows: 0.5fr 0.5fr;
+            overflow: hidden;
+        }
+
+        .btnArea {
+            margin: 0px 20px 20px 20px;
+            border: 1px solid black;
+            height: 450px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 0.4fr 1fr 1fr 1fr 1fr;
+            grid-gap: 2px;
+            background-color: lightgray;
+        }
+
+        .btnArea>div {
+            margin: 10px auto;
+
+        }
+
+        button {
+            width: 70px;
+            height: 90%;
+            background: linear-gradient(#8e9eab, #eef2f3);
+            border-radius: 5px;
+            font-size: 24px;
+            border: none;
+        }
+
+        button:hover {
+            transform: scale(0.9);
+
+        }
+
+        .boxmachine02 {
+            width: 400px;
+            height: 500px;
+            border: 1px solid black;
+        }
+
+        .btnArea02 {
+            margin: 0 20px 0 20px;
+
+        }
+
+        table {
+            /* margin: 0 20px 0 20px; */
+            /* width: 380px; */
+        }
+
+        .funcBtnOn {
+            background-color: hsl(0, 65%, 50%);
+            border-radius: 200px;
+        }
+
+        p:nth-last-of-type(1) {
+            height: 60px;
+            margin: 5px 0px 5px 5px;
+           
+            /* display: inline-block; */
+        }
+
+        p:nth-last-of-type(2) {
+            height: 25px;
+            overflow: hidden;
+            margin: 5px 5px 5px 5px;
+            display: block;
+            /* display: inline-block; */
+        }
+    </style>
 </head>
 
 <body>
@@ -33,6 +127,8 @@
             <div><button class="btnNum" onclick="clickNum('9')">9</button></div>
             <div><button onclick="calcOperator('-')">-</button></div>
             <div><button class="btnNum" onclick="clickNum('0')">0</button></div>
+            <!-- 加入小數點功能，因此把00按鍵拿掉 -->
+            <!-- <div><button class="btnNum" onclick="clickNum('00')">00</button></div> -->
             <div><button class="btnNum" onclick="clickNum('.')">.</button></div>
             <div><button onclick="getResult()">=</button></div>
             <div><button onclick="calcOperator('+')">+</button></div>
@@ -46,7 +142,7 @@
         var OperatorArray = [];
         //開機按鈕
         function powerOff(num) {
-            //取得當前demo區域文字
+            //取得當前螢幕區域文字
             var printAreaX = document.getElementById('demo').style.display;
             var printAreaY = document.getElementById('demo').innerHTML;
 
@@ -110,7 +206,6 @@
             Myvalue = document.getElementById('demo').innerHTML;
             //將第一次輸入的值也存到Myvalue2陣列中
             Myvalue2.push(Myvalue);
-            console.log(Myvalue2)
             document.getElementById('demo2').innerHTML = Myvalue;
             //清空demo畫面
             document.getElementById('demo').innerHTML = ''
@@ -135,28 +230,66 @@
             if (OperatorArray[0] == '+') {
                 document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) + Myvalue;
                 //這邊計算完畢後要清除陣列裡的運算符號，也代表一次運算的結束
-                Myvalue2=[];
+                Myvalue2.pop();
                 OperatorArray = [];
                 //代表上一次操作是減法    
             } else if (OperatorArray[0] == '-') {
                 document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) - Myvalue;
-                Myvalue2=[];
+                Myvalue2.pop();
                 OperatorArray = [];
                 //代表上一次操作是乘法  
             } else if (OperatorArray[0] == '*') {
                 document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) * Myvalue;
-                Myvalue2=[];
+                Myvalue2.pop();
                 OperatorArray = [];
                 //代表上一次操作是除法      
             } else if (OperatorArray[0] == '/') {
                 document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) / Myvalue;
-                Myvalue2=[];
+                Myvalue2.pop();
                 OperatorArray = [];
             }
         }
 
     </script>
 
+
+    <!-- <div class="boxmachine02">
+        <div class="printArea">print Area</div>
+        <div class="btnArea02">
+            <table>
+                <tr>
+                    <td><button>c</button></td>
+                    <td><button>x</button></td>
+                    <td><button>^2</button></td>
+                    <td><button>on</button></td>
+                </tr>
+                <tr>
+                    <td><button>1</button></td>
+                    <td><button>2</button></td>
+                    <td><button>3</button></td>
+                    <td><button>/</button></td>
+                </tr>
+                <tr>
+                    <td><button>4</button></td>
+                    <td><button>5</button></td>
+                    <td><button>6</button></td>
+                    <td><button>*</button></td>
+                </tr>
+                <tr>
+                    <td><button>7</button></td>
+                    <td><button>8</button></td>
+                    <td><button>9</button></td>
+                    <td><button>-</button></td>
+                </tr>
+                <tr>
+                    <td><button>0</button></td>
+                    <td><button>=</button></td>
+                    <td><button>+</button></td>
+                    <td><button>+</button></td>
+                </tr>
+            </table>
+        </div> 
+    </div>-->
 </body>
 
 </html>
