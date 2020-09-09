@@ -1,3 +1,8 @@
+<!-- 待解決議題
+    1.  0.m 數值顯示問題
+    2.  小數點不精確
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +37,7 @@
             <div><button class="btnNum" onclick="clickNum('8')">8</button></div>
             <div><button class="btnNum" onclick="clickNum('9')">9</button></div>
             <div><button onclick="calcOperator('-')">-</button></div>
-            <div><button class="btnNum" onclick="clickNum('0')">0</button></div>
+            <div><button class="btnNum" onclick="clickNum(0)">0</button></div>
             <div><button class="btnNum" onclick="clickNum('.')">.</button></div>
             <div><button onclick="getResult()">=</button></div>
             <div><button onclick="calcOperator('+')">+</button></div>
@@ -50,23 +55,25 @@
             var printAreaX = document.getElementById('demo').style.display;
             var printAreaY = document.getElementById('demo').innerHTML;
 
-   
+
             // if(printAreaX == 'block'){
-            if(printAreaX == 'block'){
+            if (printAreaX == 'block') {
                 document.getElementById('demo').style.display = 'none';
                 document.getElementById('demo2').style.display = 'none';
                 document.getElementById('btnOn').innerHTML = 'ON'
-            }else{
+                document.getElementById('btnOn').style.background = 'linear-gradient(#DCE35B,#45B649)'
+            } else {
                 document.getElementById('demo').style.display = 'block';
                 document.getElementById('demo2').style.display = 'block';
                 document.getElementById('demo').innerHTML = '0';
                 document.getElementById('demo2').innerHTML = '';
                 document.getElementById('btnOn').innerHTML = 'OFF'
+                document.getElementById('btnOn').style.background = 'linear-gradient(#e53935, #e35d5b)'
             }
-           
-         }
-            
-        
+
+        }
+
+
         //清除按鈕 c
         function clickClear() {
             document.getElementById('demo').innerHTML = 0;
@@ -76,29 +83,30 @@
         function clickBack() {
             //取得demo的值並存入Myvalue
             var Myvalue = document.getElementById('demo').innerHTML;
-            //先確認demo的值是否為'0'，若!=0 才往下操作 
-            if (document.getElementById('demo').innerHTML != '0') {
-                //當Myvalue的長度為1的時候(畫面上只有個位數)，則顯示0，其他則利用字串substr方法取字串值從0到長度減1
-                if(Myvalue.length == 1){
-                    document.getElementById('demo').innerHTML = '0';
-                }else{
-                    document.getElementById('demo').innerHTML =  Myvalue.substr(0,Myvalue.length-1);
-                }
+            //先確認demo的值是否為'0'，若!= '0' 才往下操作 
+
+            //當Myvalue的長度為1的時候(畫面上只有個位數)，則顯示0，其他則利用字串substr方法取字串值從0到長度減1
+            if (document.getElementById('demo').innerHTML != '0' && Myvalue.length == 1) {
+                document.getElementById('demo').innerHTML = '0';
+            } else {
+                document.getElementById('demo').innerHTML = Myvalue.substr(0, Myvalue.length - 1);
             }
         }
 
         //平方鍵功能
-        function clickPow(){
-            document.getElementById('demo').innerHTML = Math.pow(parseFloat(document.getElementById('demo').innerHTML),2)
+        function clickPow() {
+            document.getElementById('demo').innerHTML = Math.pow(parseFloat(document.getElementById('demo').innerHTML), 2)
         }
 
         //輸入數值按鈕功能
         function clickNum(num) {
-           //先判斷demo的值是否為0，若為0則清空，以免0與其他數值會相連(字串)
-            if (document.getElementById('demo').innerHTML == '0') {
+            //先判斷demo的值是否為0，若為0則清空，以免0與其他數值會相連(字串)，但會有問題，無法顯示0.x的數值
+            if (document.getElementById('demo').innerHTML === '0') {
                 document.getElementById('demo').innerHTML = '';
+            } else {
+                console.log('不為0')
             }
-             //將傳入的參數紀錄為字串並顯示在畫面上
+            //將傳入的參數紀錄為字串並顯示在畫面上
             document.getElementById('demo').innerHTML += num;
 
         }
@@ -106,6 +114,7 @@
         function calcOperator(num) {
             //紀錄使用的運算符號，並存於陣列OperatorArray
             OperatorArray.push(num)
+            console.log(OperatorArray)
             //將第一次輸入的值存在Myvalue
             Myvalue = document.getElementById('demo').innerHTML;
             //將第一次輸入的值也存到Myvalue2陣列中
@@ -132,27 +141,64 @@
             //因此使用判斷式來確認當前的OperatorArray陣列裡的四則運算符號是哪個，陣列裡頭紀錄著剛剛所點擊的四則運算符號
 
             //代表上一次操作是加法
-            if (OperatorArray[0] == '+') {
-                document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) + Myvalue;
-                //這邊計算完畢後要清除陣列裡的運算符號，也代表一次運算的結束
-                Myvalue2=[];
-                OperatorArray = [];
-                //代表上一次操作是減法    
-            } else if (OperatorArray[0] == '-') {
-                document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) - Myvalue;
-                Myvalue2=[];
-                OperatorArray = [];
-                //代表上一次操作是乘法  
-            } else if (OperatorArray[0] == '*') {
-                document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) * Myvalue;
-                Myvalue2=[];
-                OperatorArray = [];
-                //代表上一次操作是除法      
-            } else if (OperatorArray[0] == '/') {
-                document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) / Myvalue;
-                Myvalue2=[];
-                OperatorArray = [];
+            // if (OperatorArray[0] == '+') {
+            //     document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) + Myvalue;
+            //     //這邊計算完畢後要清除陣列裡的運算符號，也代表一次運算的結束
+            //     Myvalue2 = [];
+            //     OperatorArray = [];
+            //     //代表上一次操作是減法    
+            // } else if (OperatorArray[0] == '-') {
+            //     document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) - Myvalue;
+            //     Myvalue2 = [];
+            //     OperatorArray = [];
+            //     //代表上一次操作是乘法  
+            // } else if (OperatorArray[0] == '*') {
+            //     document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) * Myvalue;
+            //     Myvalue2 = [];
+            //     OperatorArray = [];
+            //     //代表上一次操作是除法      
+            // } else if (OperatorArray[0] == '/') {
+            //     document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) / Myvalue;
+            //     Myvalue2 = [];
+            //     OperatorArray = [];
+            // }
+
+            // switch寫法
+            switch (OperatorArray[0]) {
+                //代表上一次操作是加法
+                case '+':
+                    document.getElementById('demo').innerHTML = floatTrans((parseFloat(Myvalue2[0]) + Myvalue), 12);
+                    //這邊計算完畢後要清除陣列裡的運算符號，也代表一次運算的結束
+                    Myvalue2 = [];
+                    OperatorArray = [];
+                    break;
+                //代表上一次操作是減法  
+                case '-':
+                    document.getElementById('demo').innerHTML = floatTrans((parseFloat(Myvalue2[0]) - Myvalue), 12);
+                    Myvalue2 = [];
+                    OperatorArray = [];
+                    break;
+                //代表上一次操作是乘法 
+                case '*':
+                    document.getElementById('demo').innerHTML = floatTrans((parseFloat(Myvalue2[0]) * Myvalue), 12);
+                    Myvalue2 = [];
+                    OperatorArray = [];
+                    break;
+                //代表上一次操作是除法    
+                case '/':
+                    document.getElementById('demo').innerHTML = floatTrans((parseFloat(Myvalue2[0]) / Myvalue), 12);
+                    Myvalue2 = [];
+                    OperatorArray = [];
+                    break;
+                default:
+                    console.log('不予以計算');
             }
+        }
+        // 處裡小數點函數，最多取到小數點後12位
+
+        function floatTrans(result, digit) {
+            let numA = Math.pow(10, digit);
+            return Math.round(result * numA) / numA;
         }
 
     </script>

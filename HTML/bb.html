@@ -19,6 +19,7 @@
         }
     </style>
     <script src="../MyJS/practice.js?V1"></script>
+    <script src="../JS/decimal.js-master/decimal.min.js"></script>
     
 </head>
 <body>
@@ -77,11 +78,26 @@
 
         console.clear();
         console.log(eval('100+20'));
-        var a = '3.5';
-        var b = 2;
-        console.log(parseFloat(a));
-        console.log(parseFloat(a)+b);
-        
+        var a = 0.1;
+        var b = 0.2;
+        var c = '2';
+
+        console.log(a+b);
+
+        console.log(0.3 - 0.1 )                    // 0.19999999999999998
+        x = new Decimal(0.3)
+        x.minus(0.1)
+        console.log(x) ;  
+
+
+      Math.formatFloat = function (f, digit) {
+      // Math.pow(指数，幂指数)
+      var m = Math.pow(10, digit);
+      // Math.round（） 四舍五入
+      return Math.round(f * m, 10) / m;
+    }
+    console.log(Math.formatFloat(a+b,10));
+
     </script>
 </body>
 </html>

@@ -45,7 +45,8 @@ body {
 button {
     width: 70px;
     height: 90%;
-    background: linear-gradient(#8e9eab, #eef2f3);
+    /* background: linear-gradient(#8e9eab, #eef2f3); */
+    background: linear-gradient(#e53935, #e35d5b);
     border-radius: 5px;
     font-size: 24px;
     border: none;
@@ -90,7 +91,4 @@ p:nth-last-of-type(2) {
     margin: 5px 5px 5px 5px;
     display: block;
     /* display: inline-block; */
-}
-#btnOn{
-    background : linear-gradient(#e53935, #e35d5b);
 }
