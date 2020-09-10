@@ -144,55 +144,46 @@
             // if (OperatorArray[0] == '+') {
             //     document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) + Myvalue;
             //     //這邊計算完畢後要清除陣列裡的運算符號，也代表一次運算的結束
-            //     Myvalue2 = [];
-            //     OperatorArray = [];
+             
             //     //代表上一次操作是減法    
             // } else if (OperatorArray[0] == '-') {
             //     document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) - Myvalue;
-            //     Myvalue2 = [];
-            //     OperatorArray = [];
+            
             //     //代表上一次操作是乘法  
             // } else if (OperatorArray[0] == '*') {
             //     document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) * Myvalue;
-            //     Myvalue2 = [];
-            //     OperatorArray = [];
+             
             //     //代表上一次操作是除法      
             // } else if (OperatorArray[0] == '/') {
             //     document.getElementById('demo').innerHTML = parseFloat(Myvalue2[0]) / Myvalue;
-            //     Myvalue2 = [];
-            //     OperatorArray = [];
+               
             // }
 
-            // switch寫法
+            // switch寫法 用if/else也可以
             switch (OperatorArray[0]) {
                 //代表上一次操作是加法
                 case '+':
                     document.getElementById('demo').innerHTML = floatTrans((parseFloat(Myvalue2[0]) + Myvalue), 12);
                     //這邊計算完畢後要清除陣列裡的運算符號，也代表一次運算的結束
-                    Myvalue2 = [];
-                    OperatorArray = [];
                     break;
                 //代表上一次操作是減法  
                 case '-':
                     document.getElementById('demo').innerHTML = floatTrans((parseFloat(Myvalue2[0]) - Myvalue), 12);
-                    Myvalue2 = [];
-                    OperatorArray = [];
                     break;
                 //代表上一次操作是乘法 
                 case '*':
                     document.getElementById('demo').innerHTML = floatTrans((parseFloat(Myvalue2[0]) * Myvalue), 12);
-                    Myvalue2 = [];
-                    OperatorArray = [];
                     break;
                 //代表上一次操作是除法    
                 case '/':
                     document.getElementById('demo').innerHTML = floatTrans((parseFloat(Myvalue2[0]) / Myvalue), 12);
-                    Myvalue2 = [];
-                    OperatorArray = [];
                     break;
                 default:
                     console.log('不予以計算');
             }
+            //原本寫在各case裡面，但其實寫在外面效果一樣，code較簡潔
+            Myvalue2 = [];
+            OperatorArray = [];
         }
         // 處裡小數點函數，最多取到小數點後12位
 
