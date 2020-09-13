@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p id="wordsArea"></p>
+        <a href=""></a>
+    </div>
+    <div><button onclick="changeWords()">點我</button></div>
+
+<script>
+    let words = ['aaa','bbb','ccc','ddd','eee'];
+    let numcheck = 0;
+    
+
+
+    function changeWords() {
+       
+        let str = ''
+        let MytextArea = document.getElementById('wordsArea');
+        if(numcheck < words.length){
+            MytextArea.innerText = words[numcheck];
+            console.log(numcheck);
+            numcheck+=1;
+        }
+       
+        //紀錄點擊次數
+        
+        
+      }
+
+</script>
+</body>
+</html>

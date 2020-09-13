@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img:focus {
+            border: 1px solid blue;
+        }
+
+        img {
+            border: 3px solid black;
+        }
+
+        .TargetArea {
+            /* position: absolute; */
+        }
+    </style>
+</head>
+
+<body>
+    <p>eeee</p>
+    <div>
+        <p id="demo">
+            顯示訊息
+
+        </p>
+
+        <button onclick="attackTarget()">Click</button>
+        <button onclick="chooseTarget()">攻擊</button>
+        <br><br>
+    </div>
+    <div>
+        <p>aaa</p>
+        <div class="TargetArea">
+            <img id="imgLeft" class="NewImg" src="https://dummyimage.com/200X200/000/fff" alt="">
+            <img id="burstID" class="burst" src="" alt="">
+        </div>
+        <div class="TargetArea">
+            <img id="imgCenter" class="NewImg" src="https://dummyimage.com/200X200/ba5fba/7076d6" alt="">
+            <img class="burst" src="" alt="">
+        </div>
+        <div class="TargetArea">
+            <img id="imgRight" class="NewImg" src="https://dummyimage.com/200X200/83c0c4/7076d6" alt="">
+            <img class="burst" src="" alt="">
+        </div>
+
+
+    </div>
+    <script>
+        setTimeout(myRound, 2000)
+
+        let checkNum = 1;
+        function myRound() {
+            let demoInfo = document.getElementById('demo');
+            demoInfo.innerText = `第${checkNum}回合`
+            checkNum += 1;
+        }
+        function chooseTarget() {
+            let myId = ['imgLeft', 'imgCenter', 'imgRight'];
+            //取P標籤
+            let myWords = document.getElementsByTagName('p');
+            //取img標籤
+            let myTarget = document.getElementsByTagName('img');
+            let myObj = document.getElementById("imgLeft");
+            //當按下攻擊鍵時demo區文字改變
+            myWords[2].innerText = '請選擇目標'
+
+            console.log('進入選對象狀態');
+            //選對象時鼠標會有效果
+            for (let i = 0; i < myTarget.length; i++) {
+                //滑鼠移過物件會有cursor opacity borderColor效果
+                myTarget[i].onmouseover = function () {
+                    this.style.cursor = 'pointer';
+                    myTarget[i].style.borderColor = 'red';
+                    myTarget[i].style.opacity = '0.7';
+                }
+                //滑鼠離開物件效果恢復
+                myTarget[i].onmouseout = function () {
+                    myTarget[i].style.cursor = 'default';
+                    this.style.borderColor = 'black';
+                    this.style.opacity = '1';
+
+                }
+            }
+        }
+        function attackTarget() {
+            //取得imgTag存在myTarget
+            let myTarget = document.getElementsByTagName('img');
+            //取得特效的class存在myClass
+            let myClass = document.getElementsByClassName('burst')
+            console.log(myClass[0].id)
+            for (let i = 0; i < myTarget.length; i++) {
+                //對myTarget物件當點擊的時候會產生事件，function會去取得點擊物件的ID，只要符合ID就幫同層的class加上特效圖
+                myTarget[i].addEventListener('click', function () {
+                    console.log('我被點到了')
+                    let myId = myTarget[i].id;
+                    console.log(`我的ID是${myId}`);
+                    if (myId == 'imgLeft') {
+                        myClass[0].setAttribute('src', '../myProject_V2/image/burstV1.gif');
+
+                    } else if (myId == 'imgCenter') {
+                        myClass[1].setAttribute('src', '../myProject_V2/image/burstV1.gif');
+
+                    } else {
+                        myClass[2].setAttribute('src', '../myProject_V2/image/burstV1.gif');
+
+                    }
+                })
+                
+                // if(myClass[i].src != ''){
+                //     break;
+                // }
+          
+            }
+            console.log(myClass[0]);
+        }
+        // attackTarget();
+
+    </script>
+
+
+</body>
+
+</html>

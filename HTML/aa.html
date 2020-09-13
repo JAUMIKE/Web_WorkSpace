@@ -10,13 +10,28 @@
     <script src="../JS/bootstrap_js/jquery.min.js"></script>
     <script src="../JS/bootstrap_js/popper.min.js"></script>
     <script src="../JS/bootstrap_js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../CSS/animate.css">
+    <link rel="stylesheet" href="../CSS/loading.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        table,th,td{
+        table,
+        th,
+        td {
             border: 1px solid black;
             border-collapse: collapse;
             text-align: center;
         }
-        
+
+        img[src*="trangle.png"] {
+            width: 50px;
+            height: 50px;
+            animation-duration:4.0s
+        }
+
+        .aabb {
+            background-color: black;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -316,7 +331,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-warning ">
             <a href="" class="navbar-brand">
-                <img  style="width:100px; height: 100px;" src="../image/TV.png" alt="">
+                <img style="width:100px; height: 100px;" src="../image/TV.png" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent">
                 <span class="navbar-toggler-icon"></span>
@@ -342,77 +357,77 @@
         </nav>
 
     </div>
-   <hr>
-   <hr>
-   <hr>
-   <hr>
-   <div id="fb-root"></div>
-   <script async defer crossorigin="anonymous" 
-         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1
               &version={graph-api-version}
               &appId={your-facebook-app-id}
-              &autoLogAppEvents=1" 
-         nonce="FOKrbAYI">
-   </script>
- 
-   <!-- Your like button code -->
-   <div class="fb-like" 
-        data-href="https://www.your-domain.com/your-page.html" 
-        data-width=""
-        data-layout="standard" 
-        data-action="like" 
-        data-size="small"  
-        data-share="true">
-   </div>
-   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.203549812357!2d120.68183651486835!3d24.19964967738267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346917a1785a1bff%3A0x79462c8ef6f32237!2z6Ie65Lit5biC5rSy6Zqb5qOS55CD5aC0!5e0!3m2!1szh-TW!2stw!4v1599029867307!5m2!1szh-TW!2stw" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="true" tabindex="0"></iframe>
-   <hr>
-   <br>
-   <table>
-    <tr>
-        <th height="50"  class="text034">背號</th>
-        <th height="50"  class="text034">姓名</th>
-        <th height="50"  class="text034">慣用方式</th>
-        <th height="50"  class="text034">身高</th>
-        <th height="50"  class="text034">體重</th>
-        <th height="50"  class="text034">生日</th>
-    </tr>
-    <tr>
-        <td class="text035">17</td>
-        <td><a href="team_code.php?player_id=135" class="text037">洪宸宇</a></td>
-        <td class="text035">左投左打</td>
-        <td class="text035">175cm</td>
-        <td class="text035">97kg</td>
-        <td class="text035">1989-03-27</td>
-    </tr>
-    <tr>
-        
-        <td class="text035">18</td>
-        <td><a href="team_code.php?player_id=15" class="text037">官大元</a></td>
-        <td class="text035">右投右打</td>
-        <td class="text035">174cm</td>
-        <td class="text035">68kg</td>
-        <td class="text035">1983-09-09</td>
-        
-    </tr>
-    <tr>
-        
-        <td class="text035">19</td>
-        <td><a href="team_code.php?player_id=29" class="text037">鄭凱文</a></td>
-        <td class="text035">右投右打</td>
-        <td class="text035">176cm</td>
-        <td class="text035">80kg</td>
-        <td class="text035">1988-07-26</td>
-        
-    </tr>
-    <tr>  
-        <td class="text035">34</td>
-        <td><a href="team_code.php?player_id=157" class="text037">李振昌</a></td>
-        <td class="text035">右投右打</td>
-        <td class="text035">180cm</td>
-        <td class="text035">86kg</td>
-        <td class="text035">1986-10-21</td> 
-    </tr>
-</table>
+              &autoLogAppEvents=1" nonce="FOKrbAYI">
+            </script>
+
+    <!-- Your like button code -->
+    <div class="fb-like" data-href="https://www.your-domain.com/your-page.html" data-width="" data-layout="standard"
+        data-action="like" data-size="small" data-share="true">
+    </div>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.203549812357!2d120.68183651486835!3d24.19964967738267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346917a1785a1bff%3A0x79462c8ef6f32237!2z6Ie65Lit5biC5rSy6Zqb5qOS55CD5aC0!5e0!3m2!1szh-TW!2stw!4v1599029867307!5m2!1szh-TW!2stw"
+        width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="true"
+        tabindex="0"></iframe>
+    <hr>
+    <br>
+    <table>
+        <tr>
+            <th height="50" class="text034">背號</th>
+            <th height="50" class="text034">姓名</th>
+            <th height="50" class="text034">慣用方式</th>
+            <th height="50" class="text034">身高</th>
+            <th height="50" class="text034">體重</th>
+            <th height="50" class="text034">生日</th>
+        </tr>
+        <tr>
+            <td class="text035">17</td>
+            <td><a href="team_code.php?player_id=135" class="text037">洪宸宇</a></td>
+            <td class="text035">左投左打</td>
+            <td class="text035">175cm</td>
+            <td class="text035">97kg</td>
+            <td class="text035">1989-03-27</td>
+        </tr>
+        <tr>
+
+            <td class="text035">18</td>
+            <td><a href="team_code.php?player_id=15" class="text037">官大元</a></td>
+            <td class="text035">右投右打</td>
+            <td class="text035">174cm</td>
+            <td class="text035">68kg</td>
+            <td class="text035">1983-09-09</td>
+
+        </tr>
+        <tr>
+
+            <td class="text035">19</td>
+            <td><a href="team_code.php?player_id=29" class="text037">鄭凱文</a></td>
+            <td class="text035">右投右打</td>
+            <td class="text035">176cm</td>
+            <td class="text035">80kg</td>
+            <td class="text035">1988-07-26</td>
+
+        </tr>
+        <tr>
+            <td class="text035">34</td>
+            <td><a href="team_code.php?player_id=157" class="text037">李振昌</a></td>
+            <td class="text035">右投右打</td>
+            <td class="text035">180cm</td>
+            <td class="text035">86kg</td>
+            <td class="text035">1986-10-21</td>
+        </tr>
+    </table>
+
+    <div class="aabb ">
+        <img src="../myProject_V2/image/trangle.png"   style="animation-duration:2.0s" class="animated ld ld-bounce" alt="">
+    </div>
 </body>
 
 </html>

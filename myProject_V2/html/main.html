@@ -3,34 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/loading.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/main.css">
     <style>
-        body {
-            background-image: url(../image/placeBackImg01.jpg);
-
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-
-        #mainArea {
-            height: 960px;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr;
-        }
-
-        #mainArea>div {
-            border: 1px solid black;
-            ;
-        }
-
         #topArea {
             display: grid;
-            grid-template-columns: 25% 50% 25%;
+            grid-template-columns: 35% 50% 15%;
             grid-template-rows: 1fr;
         }
 
         #topArea>div {
-          
+
             display: flex;
             justify-content: center;
             align-items: center;
@@ -42,6 +26,7 @@
             font-family: " 標楷體";
             font-size: 20px;
             color: white;
+            height: 70%;
         }
 
         #topMidArea {
@@ -49,12 +34,30 @@
             grid-template-columns: 30% 70%;
             grid-template-rows: 1fr;
             height: 50%;
-            background-color: rgba(38, 12, 12, 0.5);
+            width: 100%;
+
         }
-        #topMidArea>div{
-            display: inline-block;
-            height: 200px;
-           
+        .talkClass{
+            margin:0px 10px 5px 0px ; 
+        }
+
+        .topMidAreaNextClass {
+           border-radius: 10px;
+            width: 100%;
+            display: none;
+            grid-template-columns: 30% 70%;
+            grid-template-rows: 1fr;
+            background-color: rgba(38, 12, 12, 0.5);
+          
+
+        }
+   
+
+        img[src*="trangle.png"] {
+            width: 20px;
+            height: 20px;
+            bottom: 15px;
+            right: 15px;
         }
 
         #mainRole {
@@ -70,6 +73,9 @@
             right: 20px;
             bottom: 10px;
         }
+        .tragleAniate{
+            text-align: right;
+        }
     </style>
 
 </head>
@@ -79,18 +85,49 @@
 <body onkeydown="movemainRole(event)">
     <main id="mainArea">
         <div id='topArea'>
-            <div></div>
-            <div id="topMidArea">
-                <div><img src="../image/anotherrole02V1.png" alt=""></div>
-                <div><p id="talkArea" class="talkClass"> 我們可以很篤定的說，這需要花很多時間來嚴謹地論證。</p></div>                    
-           </div>
-            <div></div>
-
+            <div id="topLeftArea">
+                <div>aaa</div>
+                <div id="statusArea">
+                    <div></div>
+                    <div id="statusAreaNext">
+                        <div></div>
+                        <div id="statusAreaBody">
+                            <div>111</div>
+                            <div>222</div>
+                            <div>333</div>
+                        </div>
+                        <div></div>
+                    </div>
+                    <div></div>
+                </div>
+                <div>ccc</div>
+            </div>
+            <!-- 對話框區域 -->
+            <div id="topMidArea"> 
+                <div id="topMidAreaNextId" class="topMidAreaNextClass">
+                    <!-- 大頭貼 -->
+                    <div ><img src="../image/anotherrole01V1.png" id="talkImg"  alt=""></div>
+                    <!-- 對話區 -->
+                    <div class="talkClass">
+                        <div id="talkArea">
+                            <p id="talkWords">紀姑娘，當前魔禍肆虐，我與魔尊立下戰約決一生死，此戰極度凶險，此次前來別過，，若有緣也許咱們能再一同遊歷江湖，若無緣....</p>
+                        </div>
+                        <div class="tragleAniate"><img style="animation-duration:1.5s" class="animated ld ld-bounce"
+                                src="../image/trangle.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <audio controls autoplay="autoplay">
+                    <source src="../audio/mainPage01.mp3">
+                </audio>
+            </div>    
         </div>
         <div id="bottomArea">
             <div>
-                <img id="mainRole" src="../image/MainRole_V1.png" alt="">
-                <img id="secRole" src="../image/MainRole02V1_B.png" alt="">
+                <img id="mainRole" src="../image/MainRole_V2.png" alt="">
+                <img onclick="showMsg()" id="secRole" src="../image/MainRole02V1_B.png" alt="">
             </div>
         </div>
     </main>
@@ -101,7 +138,11 @@
     <script>
         // 3. 取得 #mainRole 這個元素
         var myRole = document.getElementById('mainRole');
-
+        // 判斷圖片次數
+        let checkWordsNum = 0;
+        // 判斷對話次數變數
+        let checkImgNum = 0;
+       
         function movemainRole(evt) {
             //取得圖片全部樣式存入allStyle
             var allStyle = window.getComputedStyle(myRole);
@@ -130,14 +171,47 @@
                 //     break;
             }
         }
-       
-        function talkShow() { 
-            let myTags = document.getElementsByTagName('p');
-            for(let i =0; i < myTags[0].innerText.length;i++){
-                
-            }
+
+        function showMsg() { 
+            myMsg = document.getElementById('topMidAreaNextId');
+            myMsg.style.display = 'grid';
+            changeWords();
+
          }
+         function changePage(){
+             location.href = "http://localhost:5500/myProject_V2/html/main2.html"
+         }
+
+        function changeImg() { 
+            let myImg=['../image/anotherrole01V2.png','../image/anotherrole02V1.png'];
+            takeImg = document.getElementById('talkImg');
+            if(checkImgNum < myImg.length){
+                takeImg.setAttribute('src',`${myImg[checkImgNum]}`);
+                checkImgNum+=1;    
+            }else{
+                checkImgNum =0;
+                takeImg.setAttribute('src',`${myImg[checkImgNum]}`);
+                checkImgNum+=1; 
+            }      
+         }
+         //依照myWords陣列存取的長度來判斷要換幾次文字
+         function changeWords() {
+            let myWords = ['紀姑娘 ， 當前魔禍肆虐 ， 我與魔尊立下戰約決一生死 ， 此戰極度凶險 ， 此次前來別過，若有緣也許咱們能再一同遊歷江湖，若無緣....', '公子如此說就見外了，我們偕手度過數不清的生死關頭，此時此刻怎能少了我，我要同去，若當真魔高一丈，我們也是盡心盡力，生死無尤。','雖然姑娘的答案早已在我意料之中，仍希望姑娘留下，倘若姑娘心意已決，我與姑娘，不，我與妳........風雨同路!','呵呵，這才是我想聽的，走吧 !']
+            let takeWords = document.getElementById('talkWords');
+            if(checkWordsNum < myWords.length){
+                takeWords.innerText = myWords[checkWordsNum];
+                checkWordsNum +=1;
+                changeImg()
+            }else{
+                changePage();
+            }
+            
+         }
+       
+
+
     </script>
+
 </body>
 
 </html>

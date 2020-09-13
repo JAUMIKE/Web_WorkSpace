@@ -42,7 +42,7 @@
     <audio controls autoplay='autoplay'>
         <source src="../audio/loginPage.mp3" type="audio/mp3">
     </audio>
-    <div><button>新的旅程</button></div>
+    <div><button onclick="changePage()">新的旅程</button></div>
     <!-- <div><button>熄燈休息</button></div> -->
     <script>
         let mySound = [];
@@ -50,7 +50,9 @@
         function clickSound() {
 
         }
-        
+        function changePage(){
+             location.href = "http://127.0.0.1:5500/myProject_V2/html/main.html"
+         }
     </script>
 </body>
 
