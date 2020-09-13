@@ -1,0 +1,124 @@
+@font-face{
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    src: url(http://ameblo.jp);
+}
+
+
+/* 設定字型、把body預設margin歸零 */
+body{
+    margin: 0px;
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+/* 設定container class的相關值 */
+.container{
+    width:960px;
+    margin:0 auto;
+    background-color:white;
+    /* height: 100%; */
+    border: 1px  solid black;
+}
+/* Hearder區 */
+.headerArea {
+    height: 18vh;
+    width: 100%;
+    position:fixed ;
+    background-color: #fbcb00;
+    position: relative;
+
+}
+/* Logo區 */
+.logo{
+    width: 400px;
+    height: 100%;    
+    text-align: center;
+    position: relative;
+    margin-left:10px;
+
+
+}
+.logo>img{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* 導覽列區 */
+.navBar{
+    width: 400px;
+    height: 100%;
+    display: inline-block;
+    margin-left:30%;
+    position: absolute;
+    bottom:0px;
+    right: 5%;
+    overflow: hidden;
+}
+ .navBar>div{
+    height: inherit;
+    display: flex;  
+    justify-content: right;
+    align-items: center;
+    background-color: #fbcb00;
+    
+}
+
+ul{
+    
+    list-style-type: none;
+}
+
+ul li{
+    float: left ;
+    color: white;
+}
+
+.headerArea a{
+    font-size: 20px;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: white;
+}
+.mainArea{
+    /* width: 100vw; */
+}
+.teamsLogo{
+    width: 400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 180px;
+    margin: 0 auto;
+}
+.teamsLogo>div:nth-of-type(1){
+    /* box-shadow: 18px 26px 7px 5px rgba(0,0,0,0.71); */
+}
+.teamsLogo>div:nth-of-type(2){
+    display: flex;
+    align-items: center;
+}
+.teamsImg{
+    text-align: center;
+    background-color: #ffcc33;
+    
+}
+
+.teamsImg>img{
+    width: 960px;
+    height: 500px;
+    object-fit: cover;
+    
+}
+article>h1,article>p{
+    text-align: center;
+}
+.container>div{
+    text-align: center;
+}
+
+.footerArea{
+    display: flex;
+    background-color: #fbcb00;
+    color:white;
+    justify-content: center;
+    align-items: center;
+}

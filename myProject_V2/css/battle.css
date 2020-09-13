@@ -1,0 +1,114 @@
+body {
+    margin: 0px;
+}
+/* 設定背景圖，並將整個頁面分成三大區，topArea(音樂+資訊)、MidArea(對手圖)、bottomArea(選單+我方人物+戰鬥資訊) */
+#mainArea {
+    height: 900px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 15% 50% 25%;
+    background-image: url(../image/placeBackImg07V3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/* 上方區域 分成上下兩區，一區放音樂、一區放文字 */
+#topArea {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+/* 調整文字資訊位置，使其置中 */
+#topArea>div:nth-of-type(2){
+    display: flex;
+    justify-content: center;
+    align-items: flex-end
+    ;
+}
+/* 文字資訊裝飾，一般狀態不顯示，當攻擊鍵點擊時顯示 */
+#topInfo {
+    background-color: white;
+    margin: 0px;
+    width: 300px;
+    height: 30px;
+    font-family: "標楷體";
+    font-size: 20px;
+    display: none;
+}
+
+div {
+    border: 1px solid black;
+}
+/* 中間區域，放對手圖，平分成三塊 */
+#midArea {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+}
+/* 把三個區塊內的IMG置中 */
+#midArea>div {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+ /* 把特效圖與對手圖相疊 */
+ #midAreaMid>img {
+    position: absolute;
+}
+
+
+/* 下方區域，切成三塊，選單+我方人物+戰鬥資訊 */
+#bottomArea {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 1fr;
+
+}
+/* 人物區，讓圖水平置中、垂直靠底 */
+#roleList {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+/* 調整我方人物圖片比例 */
+#roleList>div>img {
+    height: 80%;
+    object-fit: contain;
+}
+
+/* 幫人物圖片區域上背景色 */
+#roleList>div {
+    width: 150px;
+    height: 85%;
+    border: 1px solid black;
+    /* background: linear-gradient(#CCCCB2,#757519); */
+    background: linear-gradient(#D3CBB8, #6D6027);
+    display: inline-block;
+    text-align: center;
+
+}
+/* 把選單平分成三列 */
+#battleList {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+}
+/* 把選單區的區塊設定水平等距、垂直置中 */
+#battleList>div {
+    width: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+/* 設定選單區按鈕樣式 */
+button {
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    font-family: "標楷體";
+    font-size: 20px;
+}

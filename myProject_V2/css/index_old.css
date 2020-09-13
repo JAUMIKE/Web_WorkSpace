@@ -1,0 +1,104 @@
+.container{
+    width:95%;
+    padding-right:15px;
+    padding-left:15px;
+    margin:0 auto;
+    background-color:lightgreen;
+    height: 100vh;
+}
+/* Hearder區 */
+.headerArea {
+    height: 18vh;
+    width: 100%;
+   
+    background-color: #212529;
+    position: relative;
+
+}
+/* Logo區 */
+.logo{
+    width: 400px;
+    height: 100%;    
+    text-align: center;
+    /* display: inline-block; */
+    position: relative;
+    margin-left:10px;
+
+
+}
+.logo>img{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* 導覽列區 */
+.navBar{
+    width: 400px;
+    height: 100%;
+    display: inline-block;
+    margin-left:30%;
+    position: absolute;
+    bottom:0px;
+    right: 5%;
+    overflow: hidden;
+}
+ .navBar>div{
+    height: inherit;
+    display: flex;  
+    justify-content: right;
+    align-items: center;
+   background-color: #212529;
+    
+}
+
+ul{
+    
+    list-style-type: none;
+}
+
+ul li{
+    float: left ;
+    color: white;
+}
+
+a{
+    font-size: 20px;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    background-color: #d9534f;
+    color: white;
+    border-radius: 10px;
+
+}
+
+/* 主要內容區，寬各50% */
+.mainArea {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-auto-rows: 70vh;
+    border: 1px solid black;
+    background-color: #212529;
+}
+
+.articleArea {
+    border-right: 1px solid black;
+    background-color: lightskyblue;
+    
+}
+
+.sectionArea {
+    background-color: #212529;
+
+}
+
+.footerArea {
+    background-color: lightyellow;
+    border: 2px solid black;
+    height: 10vh;
+
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #Box2,
+        #Box3,
+        #Box4 {
+            width: 400px;
+            height: 300px;
+            padding: 10px;
+            border: 1px #ccc dashed;
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="Box2" ondrop="Drop(event)" ondragover="AllowDrop(event)">
+        <img id="Img2" src="https://dummyimage.com/300x200/000/fff" draggable="true" ondragstart="Drag(event)">
+    </div>
+    <div id="Box3" ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+    <div id="Box4" ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+    <div style="clear:both;"></div>
+    <script type="text/javascript">
+        function AllowDrop(event) {
+            event.preventDefault();
+        }
+        //設定拖曳圖片
+        function Drag(event) {
+            event.dataTransfer.setData("text", event.currentTarget.id);
+        }
+        //設定放置圖片
+        function Drop(event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("text");
+            event.currentTarget.appendChild(document.getElementById(data));
+        }
+    </script>
+</body>
+
+</html>

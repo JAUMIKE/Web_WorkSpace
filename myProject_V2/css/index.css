@@ -1,0 +1,184 @@
+@font-face{
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    src: url(http://ameblo.jp);
+}
+
+
+/* 設定字型、把body預設margin歸零 */
+body{
+    margin: 0px;
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+/* 設定container class的相關值 */
+.container{
+    width:960px;
+    margin:0 auto;
+    background-color:white;
+    /* height: 100%; */
+    border: 1px  solid black;
+}
+/* Hearder區 */
+.headerArea {
+    height: 18vh;
+    width: 100%;
+    position:fixed ;
+    background-color: #212529;
+    position: relative;
+
+}
+/* Logo區 */
+.logo{
+    width: 400px;
+    height: 100%;    
+    text-align: center;
+    position: relative;
+    margin-left:10px;
+
+
+}
+.logo>img{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* 導覽列區 */
+.navBar{
+    width: 400px;
+    height: 100%;
+    display: inline-block;
+    margin-left:30%;
+    position: absolute;
+    bottom:0px;
+    right: 5%;
+    overflow: hidden;
+}
+ .navBar>div{
+    height: inherit;
+    display: flex;  
+    justify-content: right;
+    align-items: center;
+    background-color: #212529;
+    
+}
+
+ul{
+    
+    list-style-type: none;
+}
+
+ul li{
+    float: left ;
+    color: white;
+}
+
+.headerArea a{
+    font-size: 20px;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: white;
+}
+.cardSection>a>img{
+    width: 12rem;
+    height: 12rem;
+    object-fit: cover;
+}
+
+.headerArea a:hover{
+    /* background-color: #d9534f; */
+    /* color: white; */
+    border-radius: 10px;
+
+}
+
+/* 主要內容區 */
+.mainArea {
+    border: 1px solid black;
+    background-color: white;
+    height: 2000px;
+}
+
+
+/* 滑動圖片區，球隊介紹 */
+.mySlides {
+    display: none
+}
+
+.slideSection {
+    background-size: 100%;
+}
+
+
+/* 球隊簡介文字 */
+.slide-content p {
+    font-size: calc(1rem + 10 * (100vw - 375px)/ (1199 - 375));
+    font-weight: 100;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    color: black;
+    text-align: center;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.fs-slide-bg{
+    opacity: 0.3;
+}
+/* 新聞專區，設定背景顏色 */
+.NewSection{
+    height: 450px;
+    background-color: #212529;
+    text-align: center;
+}
+
+/* 新聞專區，設定寬度 */
+.NewsArea{
+    width: 960px;
+    display:flex;
+    margin: 0 auto;
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    
+    
+}
+/* 各新聞card區 */
+.cardSection{
+    display: inline-block;
+    height: 400px;
+    box-sizing: border-box;
+    border: 2px solid white;
+    width: 300px;    
+    border-radius: 20px;
+    margin: 10px 0px 10px 0px;
+  
+}
+
+/* 精選文章區 */
+.articleSection {
+    border : none;
+    margin:5px 0 5px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:150px 150px 150px;
+    grid-gap: 10px;
+    
+}
+
+.footerArea{
+    display: flex;
+    background-color: #212529;
+    color:white;
+    justify-content: center;
+    align-items: center;
+}

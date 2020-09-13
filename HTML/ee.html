@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+
+<!-- Script 區段 -->
+<script language='JavaScript' type='text/JavaScript'>
+
+
+ // 按下「X」圖隱藏遮罩層
+ $(".closeDialog").click(function() 
+ {
+    ShowModalDialog( false );
+ });
+ // 按鈕後顯示遮罩層
+ $(".btnOpenModal").click(function()
+ {
+    ShowModalDialog( true );
+ });
+ 
+ function ShowModalDialog( YesOrNo )
+ {
+    if ( true == YesOrNo )
+    {
+       $(".DivOverlapMask").css( "visibility", "visible" );
+       $(".DivDialog").css( "visibility", "visible" );
+       $(".closeDialog").css( "visibility", "visible" );
+    }
+    else
+    {
+       $(".DivOverlapMask").css( "visibility", "hidden" );
+       $(".DivDialog").css( "visibility", "hidden" );
+       $(".closeDialog").css( "visibility", "hidden" );
+    }
+ }
+
+
+</script>
+
+
+<!-- CSS 區段 -->  
+<style type="text/css">
+
+/* 只是背景 */
+.DivGround
+{
+ position: absolute;
+ width: 400px;
+ height: 300px;
+ top: 30px;
+ left: 30px;
+ border: solid;
+ background-color: #66ccff;
+ text-align:center;
+}
+
+/* 遮罩，將整個瀏覽器佈滿，讓原本背景層都無法點選 */
+.DivOverlapMask
+{
+ position:fixed;
+ top:0px;
+ left:0px;
+ height:100%;
+ width:100%;
+ margin:0;
+ padding:0;
+ background:gray;
+ opacity:0.85;
+ filter: alpha(opacity=85);
+ -moz-opacity: 0.85;
+ visibility:hidden;
+}
+
+/* Modal Dialog 層 */
+.DivDialog
+{
+ position:fixed;
+ width:200px;
+ height:100px;
+ margin:0;
+ padding:0;
+ left:100px;
+ top:100px;
+    background-color: #eeaaaa;
+ border-radius: 10px;
+ visibility:hidden;
+}
+
+
+/*「X」按鈕 */
+.closeDialog
+{
+ position:absolute;
+ width:32px;
+ height:32px;
+ right:8px;
+ top:8px;
+ cursor:pointer;
+ visibility:hidden; 
+}
+</style>
+
+
+<title>無標題文件</title>
+</head>
+
+
+
+<body>
+    <!-- Modal Dialog 的原理就是在背景層（可以很多層）之上，蓋上一層遮罩，最後給一個DIV當成對
+    話框 -->
+    
+<div class= "DivGround">
+        <button class = "btnOpenModal" > 開 啟 </button> 
+        <div class = "DivOverlapMask" >
+            <div class = "DivDialog">       
+                <img class = "closeDialog" src="img/close-button.png" ></img>            </div>
+        </div>
+    </div>
+</body>
+</html>
