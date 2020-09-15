@@ -7,7 +7,8 @@
 /* 設定字型、把body預設margin歸零 */
 body{
     margin: 0px;
-    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    /* font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; */
+    font-family: '標楷體';
 }
 /* 設定container class的相關值 */
 .container{
@@ -37,8 +38,9 @@ body{
 
 }
 .logo>img{
-    width: 100%;
-    height: 100%;
+    width: 35%;
+    height: 35%;
+    object-fit: contain;
 }
 
 
@@ -123,7 +125,7 @@ ul li{
     position: absolute;
     bottom: 2%;
     left: 50%;
-    color: black;
+    color: white;
     text-align: center;
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     z-index: 1;
@@ -132,7 +134,7 @@ ul li{
     transform: translate(-50%, -50%);
 }
 .fs-slide-bg{
-    opacity: 0.3;
+    opacity: 1;
 }
 /* 新聞專區，設定背景顏色 */
 .NewSection{
@@ -163,6 +165,13 @@ ul li{
     margin: 10px 0px 10px 0px;
   
 }
+.cardSection>a{
+    text-decoration: none;
+}
+.cardSection>a>p{
+    color: white;
+}
+
 
 /* 精選文章區 */
 .articleSection {

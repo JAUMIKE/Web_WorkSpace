@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img:focus {
+            border: 1px solid blue;
+        }
+
+        img {
+            border: 3px solid black;
+        }
+
+        .TargetArea {
+            /* position: absolute; */
+        }
+
+        #yin_yang {
+            width: 96px;
+            height: 48px;
+            background: #eee;
+            border-color: black;
+            border-style: solid;
+            border-width: 2px 2px 50px 2px;
+            border-radius: 100%;
+            position: relative;
+        }
+
+        #yin_yang:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            background: #eee;
+            border: 18px solid black;
+            border-radius: 100%;
+            width: 12px;
+            height: 12px;
+        }
+
+        #yin_yang:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: black;
+            border: 18px solid #eee;
+            border-radius: 100%;
+            width: 12px;
+            height: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>eeee</p>
+    <div>
+        <p id="demo">
+            顯示訊息
+
+        </p>
+
+        <button onclick="checkMyeffect()">choose</button>
+        <button onclick="attackTarget()">Click</button>
+        <!-- <button onclick="chooseTarget()">攻擊</button> -->
+
+        <br><br>
+
+        <div>hp</div>
+    </div>
+    <div>
+        <p id="demo2">aaa</p>
+        <div class="TargetArea">
+            <img id="imgLeft" class="NewImg" src="https://dummyimage.com/200X200/000/fff" alt="">
+            <img id="burstID" class="burst" src="" alt="">
+        </div>
+        <div class="TargetArea">
+            <img id="imgCenter" class="NewImg" src="https://dummyimage.com/200X200/ba5fba/7076d6" alt="">
+            <img class="burst" src="" alt="">
+        </div>
+        <div class="TargetArea">
+            <img id="imgRight" class="NewImg" src="https://dummyimage.com/200X200/83c0c4/7076d6" alt="">
+            <img class="burst" src="" alt="">
+        </div>
+
+        <a id="">
+            <div id="yin_yang" style="cursor: pointer;"></div>
+        </a>
+        <br>
+        <hr>
+        <div></div>
+        <button onclick="hpDecrease()">扣血</button>
+        <br>
+        <p id="showDamage"></p>
+        <label for="">hp:</label>
+        <p id="bossHp" style="display: inline;">8000</p>
+
+    </div>
+    <script>
+        // let myMonster = [bossObjCenter{},{},{}]
+
+        let bossObjCenter = {
+            'id': 'imgCenter',
+            'src': 'https://dummyimage.com/200X200/ba5fba/7076d6',
+            'hp': 3000,
+            'damage': Math.floor(Math.random() * 100)
+        }
+        let bossObjLeft = {
+            'id': 'imgLeft',
+            'src': 'https://dummyimage.com/200X200/000/fff',
+            'hp': 1000,
+            'damage': Math.floor(Math.random() * 100)
+        }
+        let bossObjRight = {
+            'id': 'imgRight',
+            'src': 'https://dummyimage.com/200X200/83c0c4/7076d6',
+            'hp': 1000,
+            'damage': Math.floor(Math.random() * 100)
+        }
+        let manPlayerObj = {
+            'hp': 999,
+            'damage': Math.floor(Math.random() * 1000)
+        }
+        let womanPlayerObj = {
+            'hp': 999,
+            'damage': Math.floor(Math.random() * 1000)
+        }
+
+
+        setTimeout(myRound, 2000)
+
+        let checkNum = 1;
+        function myRound() {
+            let demoInfo = document.getElementById('demo');
+            demoInfo.innerText = `第${checkNum}回合`
+            checkNum += 1;
+        }
+        // function chooseTarget() {
+        //     let myId = ['imgLeft', 'imgCenter', 'imgRight'];
+        //     //取P標籤
+        //     let myWords = document.getElementsByTagName('p');
+        //     //取img標籤
+        //     let myTarget = document.getElementsByTagName('img');
+        //     let myObj = document.getElementById("imgLeft");
+        //     //當按下攻擊鍵時demo區文字改變
+        //     myWords[2].innerText = '請選擇目標'
+
+        //     console.log('進入選對象狀態');
+        //     //選對象時鼠標會有效果
+        //     for (let i = 0; i < myTarget.length; i++) {
+        //         //滑鼠移過物件會有cursor opacity borderColor效果
+        //         myTarget[i].onmouseover = function () {
+        //             this.style.cursor = 'pointer';
+        //             myTarget[i].style.borderColor = 'red';
+        //             myTarget[i].style.opacity = '0.7';
+        //         }
+        //         //滑鼠離開物件效果恢復
+        //         myTarget[i].onmouseout = function () {
+        //             myTarget[i].style.cursor = 'default';
+        //             this.style.borderColor = 'black';
+        //             this.style.opacity = '1';
+
+        //         }
+        //     }
+
+        //     //呼叫函式增加特效
+        //     attackTarget();
+        //     //呼叫函式扣hp
+        //     hpDecrease();
+        // }
+
+        //撰寫對點擊對象施加特效函式
+        function attackTarget() {
+            //取得imgTag存在myTarget
+            let myTarget = document.getElementsByTagName('img');
+            //取得特效的class存在myClass
+            let myClass = document.getElementsByClassName('burst')
+            console.log(myClass[0].id)
+            for (let i = 0; i < myTarget.length; i++) {
+                //對myTarget物件當點擊的時候會產生事件，function會去取得點擊物件的ID，只要符合ID就幫同層的class加上特效圖
+                myTarget[i].addEventListener('click', function () {
+                    console.log('我被點到了')
+                    let myId = myTarget[i].id;
+                    console.log(`我的ID是${myId}`);
+                    if (myId == 'imgLeft') {
+                        myClass[0].setAttribute('src', '../myProject_V2/image/burstV1.gif');
+
+                    } else if (myId == 'imgCenter') {
+                        myClass[1].setAttribute('src', '../myProject_V2/image/burstV1.gif');
+
+                    } else {
+                        myClass[2].setAttribute('src', '../myProject_V2/image/burstV1.gif');
+                    }
+                    //設定特效在1.5秒後消失
+                    setTimeout(attackDisable, 1500);
+                },{once:true});
+
+            }
+            // setTimeout(hpDecrease, 1600);
+        }
+        //特效消失函數
+        function attackDisable() {
+            //取得附加特效的ID
+            let myClass = document.getElementsByClassName('burst');
+            for (let k = 0; k < myClass.length; k++) {
+                myClass[k].setAttribute('src', '');
+            }
+        }
+
+        function mouseOverA(){
+            let myObj = document.getElementsByClassName('NewImg');
+            for (let i = 0; i < myObj.length; i++) {
+                //滑鼠移過物件會有cursor opacity borderColor效果
+                myObj[i].onmouseover = function () {
+                    this.style.cursor = 'pointer';
+                    myObj[i].style.borderColor = 'red';
+                    myObj[i].style.opacity = '0.7';
+                }
+                //滑鼠離開物件效果恢復
+                myObj[i].onmouseout = function () {
+                    myObj[i].style.cursor = 'default';
+                    this.style.borderColor = 'black';
+                    this.style.opacity = '1';
+                }
+         
+            }
+
+        } 
+        function checkMyeffect() { 
+           let myArr = ["imgLeft","imgCenter","imgRight"];
+           let myObj = document.getElementsByClassName('NewImg');
+           let myDemo = document.getElementById('demo2');
+           let checkNum = 0;
+           myDemo.innerText = '請選擇目標'
+           mouseOverA();
+           myObj[0].addEventListener('click',attackTarget)       
+           myObj[1].addEventListener('click',attackTarget)       
+           myObj[2].addEventListener('click',attackTarget)       
+
+
+        //    for(let x = 0;x<myObj.length;x++){
+        //         myObj[x].addEventListener('click',function () { 
+        //             console.log(`被點ID的人是${myObj[x].id}`);
+        //             checkNum +=1; 
+        //             console.log(`被點擊次數${checkNum}`);
+
+        //         })
+               
+                
+        //    }
+          
+        }
+      
+
+
+        //撰寫HP扣除函式
+        // function hpDecrease() {
+        //     // let monsterHp = document.getElementById('bossHp');
+        //     let myClass = document.getElementsByClassName('NewImg');
+        //     // console.log(monsterHp);
+        //     //設定攻擊傷害
+        //     let attckValue = manPlayerObj.damage;
+        //     console.log(`本次攻擊傷害${attckValue}`);
+        //     //宣告傷害顯示資訊區域
+        //     let showDamageMsg = document.getElementById('showDamage')
+        //     for (let a = 0; a < myClass.length; a++) {
+        //         myClass[a].addEventListener('click', function () {
+        //             switch (myClass[a].id) {
+        //                 case bossObjCenter.id:
+        //                     bossObjCenter.hp = bossObjCenter.hp - attckValue;
+        //                     if (bossObjCenter.hp <= 0) {
+        //                         bossObjCenter.hp = 0;
+        //                         console.log(`${bossObjCenter}已死亡`)
+        //                     } else {
+        //                         console.log(`${myClass[a].id}剩餘HP為 ${bossObjCenter.hp}`)
+        //                     }
+        //                     break;
+        //                 case bossObjLeft.id:
+        //                     console.log(`${myClass[a].id} 收到傷害 : ${attckValue}`)
+        //                     bossObjLeft.hp = bossObjLeft.hp - attckValue;
+        //                     if (bossObjLeft.hp <= 0) {
+        //                         bossObjLeft.hp = 0;
+        //                         console.log(`${bossObjLeft}已死亡`)
+        //                     } else {
+        //                         console.log(`${myClass[a].id}剩餘HP為 ${bossObjLeft.hp}`)
+        //                     }
+        //                     break;
+        //                 case bossObjRight.id:
+        //                     console.log(`${myClass[a].id} 收到傷害 : ${attckValue}`)
+        //                     bossObjRight.hp = bossObjRight.hp - attckValue;
+        //                     if (bossObjRight.hp <= 0) {
+        //                         bossObjRight.hp = 0;
+        //                         console.log(`${bossObjRight}已死亡`)
+        //                     } else {
+        //                         console.log(`${myClass[a].id}剩餘HP為 ${bossObjRight.hp}`)
+        //                     }
+        //                     break;
+        //             }
+        //         },{once:true})
+
+
+        //     }
+        // }
+
+        //另一個函式
+        // function damageFunc() {
+        //     let myDamage = manPlayerObj.damage;
+        //     console.log('輸出為 : ' + myDamage)
+        //     let imgClass = document.getElementsByClassName('NewImg');
+        //     for (let j = 0; j < imgClass.length; j++) {
+        //         imgClass[j].addEventListener('click', function () {
+        //             console.log(`被點的人ID是 : ${imgClass[j].id}`)
+        //             if (imgClass[j].id == bossObjCenter.id) {
+        //                 bossObjCenter.hp = bossObjCenter.hp - myDamage;
+        //                 if (bossObjCenter.hp >= 0) {
+        //                     console.log('Center剩餘HP為 : ' + bossObjCenter.hp);
+        //                 } else {
+        //                     bossObjCenter.hp = 0;
+        //                     console.log('Center剩餘HP為 : ' + bossObjCenter.hp);
+        //                 }
+        //             } else if (imgClass[j].id == bossObjLeft.id) {
+        //                 bossObjLeft.hp = bossObjLeft.hp - myDamage;
+        //                 if (bossObjLeft.hp >= 0) {
+        //                     console.log('Left剩餘HP為 : ' + bossObjLeft.hp)
+        //                 } else {
+        //                     bossObjLeft.hp = 0;
+        //                     console.log('Left剩餘HP為 : ' + bossObjLeft.hp)
+        //                 }
+        //             } else {
+        //                 bossObjRight.hp = bossObjRight.hp - myDamage
+        //                 if (bossObjRight.hp >= 0) {
+        //                     console.log('Right剩餘HP為 : ' + bossObjRight.hp)
+        //                 } else {
+        //                     bossObjRight.hp = 0;
+        //                     console.log('Right剩餘HP為 : ' + bossObjRight.hp)
+        //                 }
+        //             }
+        //         },{once:true})
+        //     }
+
+            //    imgClass[0].addEventListener('click',function () {
+            //        console.log(`${imgClass[0]}我被點到了`)
+            //    })
+        // }
+        // damageFunc();
+
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,42 +1,136 @@
- <!-- <div id="topMidAreaNext1" class="topMidAreaNext">
-                    <div><img src="../image/anotherrole02V1.png" alt=""></div>
-                    <div class="talkClass">
-                        <div  >
-                            <p id="talkArea">
-                                公子如此說就見外了，我們偕手度過數不清的生死關頭，如今更不能少了我，我願與你同行，若當真魔高一丈，我們也是盡心盡力，生死無尤。
-                            </p>
-                        </div>
-                        <div class="tragleAniate"><img style="animation-duration:1.5s" class="animated ld ld-bounce"
-                                src="../image/trangle.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div id="topMidAreaNext1" class="topMidAreaNext">
-                    <div><img src="image/anotherrole01V1.png" alt=""></div>
-                    <div class="talkClass">
-                        <div  >
-                            <p id="talkArea">
-                                雖然你的答案早已在我意料之中，還是希望你能留下，但姑娘既心意已決，我與姑娘風雨同路。
-                            </p>
-                        </div>
-                        <div class="tragleAniate"><img style="animation-duration:1.5s" class="animated ld ld-bounce"
-                                src="../image/trangle.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div id="topMidAreaNext1" class="topMidAreaNext">
-                    <div><img src="../image/anotherrole02V1.png" alt=""></div>
-                    <div class="talkClass">
-                        <div  >
-                            <p id="talkArea">
-                                呵呵，這才是我想聽的，走吧 !
-                            </p>
-                        </div>
-                        <div class="tragleAniate"><img style="animation-duration:1.5s" class="animated ld ld-bounce"
-                                src="../image/trangle.png" alt="">
-                        </div>
-                    </div>
-                </div> -->
-               </div>
-               <div></div>
-   
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../myProject_V2/css/animate.css">
+    <link rel="stylesheet" href="../myProject_V2/css/loading.css">
+
+    <style>
+        button {
+            background-color: brown;
+        }
+        #manPlayer{
+            border: 1px solid lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="demo">這是展示區</p>
+    <label for="">BOSS HP:</label>
+    <p id="demo2" style="display: inline-block;">3000</p>
+    <br>
+    <label for="">fish01 HP:</label>
+    <p id="demo3" style="display: inline-block;">1000</p>
+    <br>
+    
+
+
+    <button onclick="myclick()">click</button>
+    <br>
+    <br>
+    <br>
+    <div class="TargetArea">
+        <img id="imgCenter" class="NewImg" src="https://dummyimage.com/200X200/ba5fba/7076d6" alt="">
+        <img class="burst" id="burstID" src="" alt="">
+    </div>
+    <br>
+    <hr>
+    <div>
+        <img id="manPlayer" class="animated ld ld-fade x2" src="../myProject_V2/image/anotherrole01V2.png" alt="">
+
+    </div>
+    <script>
+    
+         let bossObjCenter = {
+            'id': 'imgCenter',
+            'src': 'https://dummyimage.com/200X200/ba5fba/7076d6',
+            'hp': 3000,
+            'damage': Math.floor(Math.random() * 100)
+        }
+        let bossObjLeft = {
+            'id': 'imgLeft',
+            'src': 'https://dummyimage.com/200X200/000/fff',
+            'hp': 1000,
+            'damage': Math.floor(Math.random() * 100)
+        }
+
+        let manPlayerObj = {
+            'hp': 999,
+            'damage': Math.floor(Math.random() * 1000)
+        }
+        let checkNum=1;
+        
+        setTimeout(myRound,2000);
+        function myRound() {
+            let demoInfo = document.getElementById('demo');
+            demoInfo.innerText = `第${checkNum}回合`
+            checkNum += 1;
+        }
+
+
+        function myclick() {
+            console.log('點按鈕囉');
+            console.log('主角攻擊');
+            attack();
+        }
+        function manTurn(){
+            console.log('輪到主角攻擊!');
+            playerMan = document.getElementById('manPlayer');
+            playerMan.style.borderColor = 'red';
+            // playerMan.style.backgroundColor = 'red';
+        }
+        manTurn();
+
+        //一次攻擊流程
+        function attack() {
+            //取得BOSS物件ID
+            let myBossId = document.getElementById('imgCenter');
+            //取得HP 顯示區域ID
+            let myid2 = document.getElementById('demo2');
+            //取得特效區域
+            let getBurst = document.getElementById('burstID')
+            //在螢幕上點擊物件觸發事件監聽，呼叫三個函式 增加效果(自己新增)、效果消失(attackDisable)、生命減少(damageBOSS) 
+            myBossId.addEventListener('click',function(){
+                console.log('BOSS被點擊囉');
+                getBurst.setAttribute('src', '../myProject_V2/image/burstV1.gif')
+            }, { once: true });
+            setTimeout(attackDisable, 2000);
+            setTimeout(damageBOSS,2000);
+            setTimeout(myRound,2000);
+
+
+        }
+        //效果消失函數
+        function attackDisable() {
+            //取得附加特效的ID
+            let myClass = document.getElementsByClassName('burst');
+            for (let k = 0; k < myClass.length; k++) {
+                myClass[k].setAttribute('src', '');
+            }
+        }
+        //減HP函數
+        function damageBOSS() {
+            let mydamage = manPlayerObj.damage;
+            let bossHp = bossObjCenter.hp;
+            let mydemo2 = document.getElementById('demo2');
+            bossObjCenter.hp = bossHp - mydamage;
+            if(bossObjCenter.hp <=0){
+                bossObjCenter.hp = 0;
+                mydemo2.innerText = `當前HP : ${bossObjCenter.hp}，BOSS死亡`
+            }else{
+                mydemo2.innerText = bossObjCenter.hp;
+            }
+            
+            console.log(`對BOSS造成傷害${mydamage}，BOSS剩餘HP : ${mydemo2.innerText}`)
+            
+         }
+     
+        
+    </script>
+</body>
+
+</html>
