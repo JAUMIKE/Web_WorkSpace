@@ -1,13 +1,7 @@
-@font-face{
-    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-    src: url(http://ameblo.jp);
-}
-
 
 /* 設定字型、把body預設margin歸零 */
 body{
     margin: 0px;
-    /* font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; */
     font-family: "標楷體";
 }
 /* 設定container class的相關值 */
@@ -16,13 +10,14 @@ body{
     margin:0 auto;
     background-color:white;
     /* height: 100%; */
-    border: 1px  solid black;
+    /* border: 1px  solid black; */
 }
 /* Hearder區 */
 .headerArea {
-    height: 18vh;
+    margin: 0px;
+    height: 20vh;
     width: 100%;
-    position:fixed ;
+   
     /* background-color: #212529; */
     background: linear-gradient(#3a7bd5,#3a6073);
     position: relative;
@@ -33,7 +28,7 @@ body{
     width: 400px;
     height: 100%;    
     text-align: center;
-    position: relative;
+    /* position: relative; */
     margin-left:10px;
 
 
@@ -83,6 +78,9 @@ ul li{
     color: white;
 }
 .mainArea{
+    /* position: absolute;
+    top:150px;
+    left: 50%; */
     /* width: 100vw; */
 }
 .teamsLogo{
@@ -126,4 +124,63 @@ article>h1,article>p{
     color:white;
     justify-content: center;
     align-items: center;
+}
+
+.teamsPlayer01 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 250px;
+    grid-gap: 20px;
+    /* border:1px solid black; */
+}
+
+.teamsPlayer01>div {
+    /* border:1px solid black; */
+    border-radius: 10px;
+    /* background-color: #212529; */
+    background: linear-gradient(#3a6073, #3a7bd5);
+}
+
+.teamsPlayer01>div>a {
+    text-decoration: none;
+    color: white;
+}
+
+.teamsPlayer01>div:hover {
+    box-shadow: inset 0 0 0 3px black;
+    transform: scale(0.9);
+    opacity: 0.8;
+}
+
+.teamsPlayer01>div>img {
+    border-radius: 10px 10px 0px 0px;
+    background-image: url(../image/locallogo_002_V1.png);
+    background-size: 30%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.teamsLogo>img {
+
+    object-fit: contain;
+}
+
+#doorLocation {
+    position: absolute;
+    left: 45%;
+    top: 165%;
+    width: 60px;
+
+}
+
+#teamsIntro>p {
+    font-size: 24px;
+}
+
+.roleText {
+    border: 2px solid #3a7bd5;
+    border-radius: 10px;
+
 }

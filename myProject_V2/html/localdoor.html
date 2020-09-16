@@ -1,53 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>武俠夢</title>
     <link rel="stylesheet" href="../css/localdoor.css">
-    <style>
-
-        /* .teamsLogo>h1::before{
-            content: url(../image/baseballTeam/brothers_logo_small.png);
-        } */
-      
-        .teamsPlayer01{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: 250px;
-            grid-gap: 20px;
-            /* border:1px solid black; */
-        }
-        .teamsPlayer01>div{
-            /* border:1px solid black; */
-            border-radius: 10px;
-            /* background-color: #212529; */
-            background: linear-gradient(#3a6073,#3a7bd5);
-        }
-        .teamsPlayer01>div>a{
-         text-decoration: none;
-         color: white;
-        }
-        .teamsPlayer01>div:hover{
-           box-shadow: inset 0 0 0 3px black;
-           transform: scale(0.9);
-           opacity: 0.8;
-        }
-        .teamsPlayer01>div>a>img{
-            border-radius: 10px 10px 0px 0px;
-            background-image: url(../image/locallogo_002_V1.png);
-            background-size: 30%;
-            background-repeat: no-repeat;    
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-        }
-        .teamsLogo>img{
-           
-            object-fit: contain;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/loading.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <script src="../js/localdoor.js"></script>
 </head>
+
 <body>
     <div class="headerArea">
         <header>
@@ -66,76 +29,93 @@
             </div>
         </header>
     </div>
+
     <div class="mainArea">
+
         <div class="teamsLogo">
             <div><img src="../image/locallogo_002_V2.png" alt=""></div>
-            <div>  <h1>天雲門</h1></div>
+            <div>
+                <h1>天雲門</h1>
+            </div>
         </div>
-        <br>
-        <br>
         <div class="teamsImg">
             <img src="../image/door01V1.jpg" alt="">
         </div>
         <article class="container">
             <div class="teamsIntro">
                 <h1>門派介紹</h1>
-                <p>天雲門</p>
-                <p>創隊日期 : 兄弟象 1984 / 09 / 01 創立，中信兄弟 2013 / 12 / 03 接手</p>
-                <p>門主 : 劍聖　總教練: 丘昌榮</p>
-                <p>連絡電話 :  (02)2786-3338</p>
-                <p>聯絡地址 : 天南山</p>
-                <p>球團網站 : <a href="http://www.brothers.tw/">點我前往</a></p>
-                <p>聯絡信箱 : admin@brothers.tw</p> 
-                <h1>主球場 : 台中洲際棒球場</h1>
+                <h2>天雲門</h2>
+                <p>自古以來與魔饜山正邪不兩立，以維護武林和平為己任的組織</p>
+                <p>每每有地方受到魔禍肆虐，天雲門人便挺身而出斬妖除魔</p>
+                <p>與赤血城、無暇派相互結盟，每年舉辦武林決，決出當屆盟主</p>
+                <h1>位置 : 天雲山</h1>
                 <div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.203549812357!2d120.68183651486835!3d24.19964967738267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346917a1785a1bff%3A0x79462c8ef6f32237!2z6Ie65Lit5biC5rSy6Zqb5qOS55CD5aC0!5e0!3m2!1szh-TW!2stw!4v1599029867307!5m2!1szh-TW!2stw" width="700" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="true" tabindex="0"></iframe>
-                </div>    
+                    <!-- <img id="doorLocation" class="animated ld ld-breath" style="animation-duration:2.5s"
+                        src="../image/locallogo_002_V2.png" alt=""> -->
+                    <img id="mapImg" src="../image/map.jpg" alt="">
+                </div>
             </div>
-             <hr>
-             <h1>角色介紹</h1>
+            <br>
+            <hr>
+            <h1>角色介紹</h1>
             <div class="teamsPlayer01">
-                <div>
-                    <a href="">
-                        <img src="../image/anotherrole01V2.png" alt="">
-                        <h2>柳雲英</h2>
-                    </a>
+                <div id="roleFirst" class="rolelist" onclick="showMsg01()">
+                    <img src="../image/anotherrole04.jpg" alt="">
+                    <h2>無垠子</h2>
                 </div>
-                <div>
-                    <a href="">
-                        <img src="../image/anotherrole04.jpg" alt="">
-                        <h2>無垠子</h2>
-                    </a>
+                <div id="roleSecond" class="rolelist" onclick="showMsg02()">
+                    <img src="../image/anotherrole01V2.png" alt="">
+                    <h2>柳雲英</h2>
+
                 </div>
-                <div>
-                    <a href="">
-                        <img src="../image/anotherrole02_V1.png" alt="">
-                        <h2>晏羽</h2>
-                    </a>    
+                <div id="roleThird" class="rolelist" onclick="showMsg03()">
+                    <img src="../image/anotherrole02_V1.png" alt="">
+                    <h2>晏羽</h2>
                 </div>
-                <div>
-                    <a href="">
-                        <img src="../image/MainRole2V2.png" alt="">
-                        <h2>陸劍平</h2>
-                    </a>    
+                <div id="roleFourth" class="rolelist" onclick="showMsg04()">
+                    <img src="../image/MainRole2V2.png" alt="">
+                    <h2>陸劍平</h2>
                 </div>
                 <hr>
                 <br>
-               
+
             </div>
-            <div>
- 
-            </div>   
+            <div id="firstIntro"  style="display: none;" class="roleText">
+                <h1>無垠子</h1>
+                <p>天雲門門主，平時待人看似嚴謹寡言，實際上對徒弟們疼愛有加，一視同仁，對於維護武林的正義也是當仁不讓。</p>
+                <p>於柳雲英有一份歉疚與冀望，因為柳父也是無垠子師兄，但雲英尚在襁褓時柳父因護衛無垠子而亡，</p>
+                <p>因此對柳雲英有著傳承下任門主的冀望，對雲英的武功要求相較於其他弟子也嚴厲許多</p>
+            </div>
+            <br>
+            <br>
+            <div id="secondIntro" style="display: none;" class="roleText">
+                <h1>柳雲英</h1>
+                <p>天雲門大弟子，尚在襁褓時便被無垠子收入門下，待人謙恭有禮，在外也常常替人主持正義，極受武林人士青睞。</p>
+                <p>對於師弟妹照顧有加，對無垠子如同生父般看待，於師傅的嚴格的要求也是盡己所能的達成</p>
+                <p>天資絕頂聰明、武功高強，目前武功的火侯已於超越無垠子，與魔尊的功力也是在伯仲之間</p>
+                <p>與無暇派-紀子嫣一同遊歷過江湖，彼此暗生情愫，可惜對於情事較為被動，因此兩人仍在朋友的階段</p>
+            </div>
+            <br><br>
+            <div id="thirdIntro" style="display: none;" class="roleText">
+                <h1>晏羽</h1>
+                <p>天雲門小師妹，為人害羞而低調，相當依賴雲英，對雲英也有著別於其他師兄的情感</p>
+                <p>武功雖不高，對於奇門陣法的了解高出同門許多，天雲門許多入口陣法的排布皆出於她</p>
+            </div>
+            <br><br>
+            <div id="fourthIntro" style="display: none;" class="roleText">
+                <h1>陸劍平</h1>
+                <p>天雲門二弟子，為人豪爽直率，偶爾會捅出些樓子讓雲英得收拾善後，對於武林的事急公好義，常拖著雲英一同處理。</p>
+                <p>武功已達上流高手之林，假以時日便可躍升於頂尖高手之列</p>
+            </div>
         </article>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <br><br>
     </div>
     <div class="footerArea">
         <footer>
-            <p>Copyright © 2014 - 2020 SPORTS VISION. All Rights Reserved</p> 
+            <p>Copyright © 2014 - 2020 SPORTS VISION. All Rights Reserved</p>
         </footer>
     </div>
+
 </body>
+
 </html>

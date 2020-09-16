@@ -16,8 +16,79 @@ body {
 }
 
 #mainArea>div {
-    border: 1px solid black;
+    /* border: 1px solid black; */
    
+}
+
+
+#topArea {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 1fr;
+}
+
+#topArea>div {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+
+#talkArea {
+    padding: 0p 30px 0px 30px;
+    font-family: " 標楷體";
+    font-size: 20px;
+    color: white;
+    height: 70%;
+}
+
+#topMidArea {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 1fr;
+    height: 50%;
+    width: 100%;
+
+}
+.talkClass{
+    margin:0px 10px 5px 0px ; 
+}
+
+.topMidAreaNextClass {
+   border-radius: 10px;
+    width: 100%;
+    display: none;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 1fr;
+    background-color: rgba(38, 12, 12, 0.5);
+  
+
+}
+
+
+img[src*="trangle.png"] {
+    width: 20px;
+    height: 20px;
+    bottom: 15px;
+    right: 15px;
+}
+
+#mainRole {
+    /* 在這個範例中，只要position不是static或者fixed都可以 */
+    position: absolute;
+    left: 20%;
+    bottom: 10px;
+
+}
+
+#secRole {
+    position: absolute;
+    right: 20%;
+    bottom: 10px;
+}
+.tragleAniate{
+    text-align: right;
 }
 
 
@@ -66,3 +137,4 @@ body {
 #statusAreaBody>div{
     border: 1px solid black;
 }
+

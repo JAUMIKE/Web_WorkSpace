@@ -1,0 +1,22 @@
+body{
+    background-image: url(../image/flower3_V2.gif);
+    background-size: 120%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+   } 
+div{
+    height:540px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#mainArea{
+    height: 1080px;
+    /* display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr; */
+}
+h1{
+    font-family: "標楷體";
+    color:red
+}

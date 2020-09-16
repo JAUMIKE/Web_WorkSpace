@@ -1,103 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #formArea{
-            /* display: none; */
-        }
-        #printNum{
-            width: 50px;
-            height: 20px;
-            color:coral;
-        }
-        p{
-            /* display: inline-block; */
-            margin: 5px;
-        }
-    </style>
-    <script src="../MyJS/practice.js?V1"></script>
-    <script src="../JS/decimal.js-master/decimal.min.js"></script>
-    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
 </head>
 <body>
-    <p>This is first line</p>
-    <button onclick="total(3,4)">BTN</button>
-    <p>按鈕A</p>
-    <button onclick="showMsg();" id="btnShow">Hide Me</button>
-    <p>按鈕B</p>
-    <button onclick="showMsgVis();" id="btnShowOn">Hide Me Off</button>
-    
-    
-    <form action="" id="formArea">
-        <label for="userName">姓名 : </label>
-        <input type="text" id="userName">
-    </form><br>
-    <button onclick="showNum();">click Me</button>
-    <div id="printNum">  </div>
-    <script>
-        var x='2',y='3',z='4';
-        console.log(x+y+z);
-        console.log(x-y-z);
-        var numx=2;
-        function calc(){
-            var numx=5,numy=1;
-            console.log('numx show in function ' + numx)
-            console.log(numx+numy);
-        }
-        calc()
-        console.log(numx);
-        console.log('\n');
-        console.log('----- -----');
-        console.log(0.1+0.2);        
-        console.log(parseFloat(0.1+0.2)); 
 
-        console.clear();
-        var d = new Date();
-        var myToday = d.getDay();
-        switch(myToday){
-            case 0 : console.log('Today is Sunday');
-            case 1 : console.log('Today is Monday');
-            case 2 : console.log('Today is Tuesday');
-            case 3 : console.log('Today is Wednesday');
-            case 4 : console.log('Today is Thirsday');
-            case 5 : console.log('Today is Friday');
-            case 6 : console.log('Today is Saturday');
-        } 
-        // 九九乘法表:
-        for(var i = 1; i<10;i++){
-            document.write('<br>');
-            console.log('\n');
-            for(var j = 1; j < 10;j++){
-                console.log(i + ' * ' + j + ' = ' + i*j )
-                document.write('<p>' + i + ' * ' + j + ' = ' + i*j + '<p>' )
-            }
-        } 
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div> 
+</div>
 
-        console.clear();
-        console.log(eval('100+20'));
-        var a = 0.1;
-        var b = 0.2;
-        var c = '2';
+<h3>Dropdown Menu inside a Navigation Bar</h3>
+<p>Hover over the "Dropdown" link to see the dropdown menu.</p>
 
-        console.log(a+b);
-
-        console.log(0.3 - 0.1 )                    // 0.19999999999999998
-        x = new Decimal(0.3)
-        x.minus(0.1)
-        console.log(x) ;  
-
-
-      Math.formatFloat = function (f, digit) {
-      // Math.pow(指数，幂指数)
-      var m = Math.pow(10, digit);
-      // Math.round（） 四舍五入
-      return Math.round(f * m, 10) / m;
-    }
-    console.log(Math.formatFloat(a+b,10));
-
-    </script>
 </body>
 </html>

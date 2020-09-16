@@ -205,6 +205,11 @@ button {
     color: tomato;
     text-align: center;
 }
+
+#demo4{
+    color: aqua;
+    text-align: center;
+}
 /* 陰陽圖示按鈕 */
 #yin_yang {
     width: 100px;

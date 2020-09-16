@@ -6,81 +6,7 @@
     <link rel="stylesheet" href="../css/loading.css">
     <link rel="stylesheet" href="../css/animate.css">
     <link rel="stylesheet" href="../css/main2.css">
-    <style>
-        #topArea {
-            display: grid;
-            grid-template-columns: 25% 50% 25%;
-            grid-template-rows: 1fr;
-        }
-
-        #topArea>div {
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid black;
-        }
-
-        #talkArea {
-            padding: 0p 30px 0px 30px;
-            font-family: " 標楷體";
-            font-size: 20px;
-            color: white;
-            height: 70%;
-        }
-
-        #topMidArea {
-            display: grid;
-            grid-template-columns: 30% 70%;
-            grid-template-rows: 1fr;
-            height: 50%;
-            width: 100%;
-
-        }
-        .talkClass{
-            margin:0px 10px 5px 0px ; 
-        }
-
-        .topMidAreaNextClass {
-           border-radius: 10px;
-            width: 100%;
-            display: none;
-            grid-template-columns: 30% 70%;
-            grid-template-rows: 1fr;
-            background-color: rgba(38, 12, 12, 0.5);
-          
-
-        }
-   
-
-        img[src*="trangle.png"] {
-            width: 20px;
-            height: 20px;
-            bottom: 15px;
-            right: 15px;
-        }
-
-        #mainRole {
-            /* 在這個範例中，只要position不是static或者fixed都可以 */
-            position: absolute;
-            left: 10px;
-            bottom: 10px;
-
-        }
-
-        #secRole {
-            position: absolute;
-            right: 20px;
-            bottom: 10px;
-            width: 200px;
-            height: 250px;
-            transform: scaleX(-1);
-        }
-        .tragleAniate{
-            text-align: right;
-        }
-    </style>
-
+    
 </head>
 
 <!-- 1. 幫body掛一個事件，for 偵測鍵盤 是否有點上下左右按鍵 -->
@@ -89,21 +15,7 @@
     <main id="mainArea">
         <div id='topArea'>
             <div id="topLeftArea">
-                <div>aaa</div>
-                <!-- <div id="statusArea">
-                    <div></div>
-                    <div id="statusAreaNext">
-                        <div></div>
-                        <div id="statusAreaBody">
-                            <div>111</div>
-                            <div>222</div>
-                            <div>333</div>
-                        </div>
-                        <div></div>
-                    </div>
-                    <div></div>
-                </div>
-                <div>ccc</div> -->
+                <div></div>
             </div>
             <!-- 對話框區域 -->
             <div id="topMidArea"> 
@@ -113,7 +25,7 @@
                     <!-- 對話區 -->
                     <div class="talkClass">
                         <div id="talkArea">
-                            <p id="talkWords">魔尊，今日之戰，只能有一方離開!</p>
+                            <p id="talkWords"></p>
                         </div>
                         <div class="tragleAniate"><img style="animation-duration:1.5s" class="animated ld ld-bounce"
                                 src="../image/trangle.png" alt="">
@@ -122,99 +34,19 @@
                 </div>
             </div>
             <div>
-                <audio controls autoplay="autoplay">
-                    <source src="../audio/mainPage01.mp3">
+                <audio controls autoplay="autoplay" hidden>
+                    <source src="../audio/main2Page.mp3">
                 </audio>
             </div>    
         </div>
         <div id="bottomArea">
             <div>
-                <img id="mainRole" src="../image/MainRole_V1.png" alt="">
+                <img id="mainRole" src="../image/MainRole_V2.png" alt="">
                 <img onclick="showMsg()" id="secRole" src="../image/BOSSV1.png" alt="">
             </div>
         </div>
     </main>
-
-    <!-- 2. 放入一張圖片 -->
-
-
-    <script>
-        // 3. 取得 #mainRole 這個元素
-        var myRole = document.getElementById('mainRole');
-        // 判斷圖片次數
-        let checkWordsNum = 0;
-        // 判斷對話次數變數
-        let checkImgNum = 0;
-       
-        function movemainRole(evt) {
-            //取得圖片全部樣式存入allStyle
-            var allStyle = window.getComputedStyle(myRole);
-            //取得圖片left的樣式
-            var elmLeft = allStyle.getPropertyValue('left');
-            var elmTop = allStyle.getPropertyValue('top');
-            switch (evt.keyCode) {
-                case 37:
-                    myRole.style.left = (parseInt(elmLeft) - 10) + 'px';
-                    myRole.style.transform = 'scaleX(-1)';
-                    break;
-                // case 38:
-                //     myRole.style.top = (parseInt(elmTop) - 10) + 'px';
-                //     // myRole.style.transform = 'scaleY(1)';
-                //     break;
-                case 39:
-                    // 卡波往右邊移動，依目前位置+10px
-                    myRole.style.transform = 'scaleX(1)';
-                    myRole.style.left = (parseInt(elmLeft) + 10) + 'px';
-
-                    break;
-                // case 40:
-
-                //     myRole.style.top = (parseInt(elmTop) + 10) + 'px';
-                //     // myRole.style.transform = 'scaleY(-1)';
-                //     break;
-            }
-        }
-
-        function showMsg() { 
-            myMsg = document.getElementById('topMidAreaNextId');
-            myMsg.style.display = 'grid';
-            changeWords();
-
-         }
-         function changePage(){
-             location.href = "battle_update.html"
-         }
-
-        function changeImg() { 
-            let myImg=['../image/anotherrole01V1.png','../image/anotherrole02V1.png'];
-            takeImg = document.getElementById('talkImg');
-            if(checkImgNum < myImg.length){
-                takeImg.setAttribute('src',`${myImg[checkImgNum]}`);
-                checkImgNum+=1;    
-            }else{
-                checkImgNum =0;
-                takeImg.setAttribute('src',`${myImg[checkImgNum]}`);
-                checkImgNum+=1; 
-            }      
-         }
-         //依照myWords陣列存取的長度來判斷要換幾次文字
-         function changeWords() {
-            let myWords = ['魔尊 ， 今日之戰 ， 只能有一方離開 ! 話說...你的畫風跟我們也差太多了吧 !?', '哼 ! 今日之戰你們只有敗亡的份 ， 還有 ， 我是BOSS ! 畫風給點VIP待遇也是理所當然的 !','從一開始就佔盡優勢 ， 挺卑鄙的阿','公子 ， 別跟他廢話 我們上吧 !']
-            let takeWords = document.getElementById('talkWords');
-            if(checkWordsNum < myWords.length){
-                takeWords.innerHTML = myWords[checkWordsNum];
-                checkWordsNum +=1;
-                changeImg()
-            }else{
-                changePage();
-            }
-            
-         }
-       
-
-
-    </script>
-
+    <script src="../js/main2.js"></script>
 </body>
 
 </html>

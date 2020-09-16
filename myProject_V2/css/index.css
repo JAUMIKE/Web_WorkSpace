@@ -16,11 +16,11 @@ body{
     margin:0 auto;
     background-color:white;
     /* height: 100%; */
-    border: 1px  solid black;
+    border: 2px  solid black;
 }
 /* Hearder區 */
 .headerArea {
-    height: 18vh;
+    height: 20vh;
     width: 100%;
     position:fixed ;
     background-color: #212529;
@@ -170,6 +170,8 @@ ul li{
 }
 .cardSection>a>p{
     color: white;
+    margin: 10px;
+    font-size: 20px;
 }
 
 
@@ -190,4 +192,40 @@ ul li{
     color:white;
     justify-content: center;
     align-items: center;
+}
+
+.articleArea{
+           
+}
+.articleArea>div>div img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin:0;
+
+}
+.articleArea>div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:10px;
+    grid-template-rows: 100%;
+    /* border:1px solid black; */
+}
+.articleArea>div>div:nth-of-type(2)>a>p{
+    color: black;
+   margin-top: 0;
+   font-weight: 600;
+}
+.articleArea>div>div:nth-of-type(2)>a{
+    text-decoration: none;
+   
+}
+.articleArea>div>div:nth-of-type(2)>p{
+    color:gray;
+    font-size: 14px;
+    font-weight: 600px;
+}
+.fb-like{
+    margin-top:30px;
+
 }
