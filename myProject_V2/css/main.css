@@ -1,13 +1,15 @@
 body {
-    background-image: url(../image/placeBackImg01.jpg);
+    
 
-    background-size: cover;
-    background-repeat: no-repeat;
+    overflow: hidden;
     margin: 0;
 }
 
 #mainArea {
-    height: 960px;
+    background-image: url(../image/placeBackImg01V2.png);
+    background-size: cover ;
+    background-repeat: no-repeat;
+    height: 900px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 70% 30%;

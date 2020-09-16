@@ -35,15 +35,20 @@
             <audio controls autoplay="autoplay" hidden>
                 <source src="../audio/endPage.mp3">
             </audio>
-            <h1>大俠請重新來過</h1>
+            <h1 onclick="replayGames()" id="replayGame">大俠請重新來過</h1>
+         
         </div>
-        <!-- <div >
-            
-        </div> -->
-
 
     </main>
- 
+    <script>
+        function replayGames(){
+            let myid= document.getElementById('replayGame');
+            let linkFunc = function(){
+                location.href ="battle_update.html";
+            }
+            setTimeout(linkFunc,1000);
+        }
+    </script>
     
 </body>
 </html>

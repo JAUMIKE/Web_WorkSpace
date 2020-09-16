@@ -1,29 +1,32 @@
 body {
     margin: 0px;
 }
+
 /* 設定背景圖，並將整個頁面分成三大區，topArea(音樂+資訊)、MidArea(對手圖)、bottomArea(選單+我方人物+戰鬥資訊) */
 #mainArea {
     height: 900px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 15% 48% 27%;
-    background-image: url(../image/placeBackImg07V3.png);
+    grid-template-rows: 15% 40% 27%;
+    background-image: url(../image/placeBackImg07V4.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 /* 上方區域 分成上下兩區，一區放音樂、一區放文字 */
 #topArea {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
 }
+
 /* 調整文字資訊位置，使其置中 */
-#topArea>div:nth-of-type(2){
+#topArea>div:nth-of-type(2) {
     display: flex;
     justify-content: center;
-    align-items: flex-end
-    ;
+    align-items: flex-end;
 }
+
 /* 文字資訊裝飾，一般狀態不顯示，當攻擊鍵點擊時顯示 */
 #topInfo {
     background-color: white;
@@ -35,9 +38,6 @@ body {
     display: none;
 }
 
-div {
-    /* border: 1px solid black; */
-}
 /* 中間區域，放對手圖，平分成三塊 */
 #midArea {
     display: grid;
@@ -45,15 +45,17 @@ div {
     grid-template-rows: 1fr;
 
 }
+
 /* 把三個區塊內的IMG置中 */
 #midArea>div {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
- /* 把特效圖與對手圖相疊 */
- #midAreaMid>img {
+
+/* 把特效圖與對手圖相疊 */
+#midAreaMid>img {
     position: absolute;
 }
 
@@ -63,27 +65,28 @@ div {
     display: grid;
     grid-template-columns: 25% 50% 25%;
     grid-template-rows: 1fr;
+    border: 1px solid black;
+
 
 }
-
-/* 調整我方人物圖片比例 */
 
 /* 把選單平分成三列 */
 #battleList {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 25% 50% 25%;
 
 }
+
 /* 把選單區的區塊設定水平等距、垂直置中 */
 #battleList>div {
     width: inherit;
     display: flex;
     align-items: center;
     justify-content: space-around;
-
 }
+
 /* 設定選單區按鈕樣式 */
 button {
     width: 100px;
@@ -91,5 +94,149 @@ button {
     border-radius: 10px;
     font-family: "標楷體";
     font-size: 20px;
-    background-color:#fcb70a;
+    background-color: #fcb70a;
+}
+
+/* 點攻擊時的上方選擇目標資訊文字 */
+#topInfo {
+    position: absolute;
+    top: 10px;
+    background-color: rgba(38, 12, 12, 0.5);
+    color: tomato;
+    display: none;
+}
+
+/* 戰鬥資訊區 */
+#battleInfo {
+    margin: 20px;
+    background-color: rgba(38, 12, 12, 0.5);
+    color: white;
+    border-radius: 20px;
+}
+
+/* BOSS攻擊特效 指定位置 */
+#bossEffect {
+    position: absolute;
+    bottom: 10%;
+}
+
+/* 當前人物狀態切分，分成圖片、hp文字、hp生命條 */
+#anotherRoleplay01 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80% 5% 15%;
+
+}
+
+/* 調整我方人物圖片比例 */
+.myRole {
+    height: 80%;
+    object-fit: contain;
+}
+
+/* 幫人物圖片區域上背景色 */
+#roleList>div {
+    width: 200px;
+    height: 95%;
+    border: 2px solid black;
+    /* background: linear-gradient(#CCCCB2,#757519); */
+    background: linear-gradient(#D3CBB8, #6D6027);
+    display: inline-block;
+    text-align: center;
+
+}
+
+/* 人物區，讓圖水平置中、垂直靠底 justify-content: space-around 當人物>1名時才啟用 */
+#roleList {
+    display: flex;
+    /* justify-content: space-around; */
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+
+}
+
+/* 生命條黑色區塊 */
+#hpArea {
+    width: 100%;
+    height: 15px;
+    border-radius: 20px;
+    background-color: rgba(38, 12, 12, 0.5);
+}
+
+/* 生命條紅色區塊 */
+#myHpArea {
+    border-radius: 20px;
+    background-color: red;
+    width: 100%;
+    height: 15px;
+
+}
+
+/* 生命值文字 */
+#myHp {
+    display: inline-block;
+    margin: 0px 0px 0px 0px;
+}
+
+/* 戰鬥勝利宣告區域 */
+#winGameArea {
+    position: absolute;
+    width: 600px;
+    height: 200px;
+    top: 20%;
+    left: 27%;
+
+}
+
+/* 戰鬥資訊區 demo1 => 回合 demo2 => 我方傷害資訊 demo3 => BOSS傷害資訊 */
+#demo1 {
+    text-align: center;
+    font-size: 24px;
+    margin: 0;
+}
+
+#demo2 {
+    color: #f4a83a;
+    text-align: center;
+}
+
+#demo3 {
+    color: tomato;
+    text-align: center;
+}
+/* 陰陽圖示按鈕 */
+#yin_yang {
+    width: 100px;
+    height: 100px;
+    background: #eee;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px 2px 50px 2px;
+    border-radius: 100%;
+    position: relative;
+}
+
+#yin_yang:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: #eee;
+    border: 18px solid black;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+}
+
+#yin_yang:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: black;
+    border: 18px solid #eee;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
 }

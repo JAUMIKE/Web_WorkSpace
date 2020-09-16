@@ -8,98 +8,29 @@
     <link rel="stylesheet" href="../css/battle.css">
     <link rel="stylesheet" href="../css/loading.css">
     <link rel="stylesheet" href="../css/animate.css">
+    <script src="../js/battle.js"></script>
 
     <style>
-        #topInfo {
-
-            position: absolute;
-            top: 10px;
-            background-color: rgba(38, 12, 12, 0.5);
-            color: tomato;
-            display: none;
-
-        }
-
-        #battleInfo {
-            margin: 20px;
-            background-color: rgba(38, 12, 12, 0.5);
-            color: white;
-        }
-
-        #bossEffect {
-            position: absolute;
-            bottom: 10%;
-        }
-
-        #anotherRoleplay01 {
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 80% 5% 15%;
-
-        }
-
-        .myRole {
-            height: 80%;
-            object-fit: contain;
-        }
-
-        /* 幫人物圖片區域上背景色 */
-        #roleList>div {
-            width: 200px;
-            height: 95%;
-            border: 2px solid black;
-            /* background: linear-gradient(#CCCCB2,#757519); */
-            background: linear-gradient(#D3CBB8, #6D6027);
-            /* background-color: #fcb70a; */
-
-            display: inline-block;
+        #demo4{
+            color: aqua;
             text-align: center;
-
-        }
-
-        /* 人物區，讓圖水平置中、垂直靠底 justify-content: space-around 當人物>1才啟用 */
-        #roleList {
-            display: flex;
-            /* justify-content: space-around; */
-            justify-content: center;
-            align-items: flex-end;
-            width: 100%;
-        }
-
-        #hpArea {
-            width: 100%;
-            height: 15px;
-            border-radius: 20px;
-            background-color: rgba(38, 12, 12, 0.5);
-        }
-        #myHpArea {
-            border-radius: 20px;
-            background-color: red;
-            width: 100%;
-            height: 15px;
-
-        }
-
-        #myHp {
-            display: inline-block;
-            margin: 0px 0px 0px 0px;
         }
     </style>
 </head>
 
 <body>
+    <div id="winGameArea">
+        <img id="winGame" onclick="goodEndFunc()" style="animation-duration:2.0s" class="" src="">
+    </div>
     <main id="mainArea">
+        <!-- 播放音樂 -->
         <div id="topArea">
             <div>
-                <audio controls autoplay="">
+                <!-- <audio controls autoplay="">
                     <source src="../audio/battle.mp3" type="audio/mp3">
-                </audio>
+                </audio> -->
             </div>
-
-            <div>
-
-            </div>
-
+        <!-- 主要顯示區 -->
         </div>
         <div id="midArea">
             <div id="midAreaLeft">
@@ -120,10 +51,12 @@
             <div id="battleList">
                 <div><button id="normalFight" onclick="hitBtn()">攻擊</button></div>
                 <div>
-                    <button>物品</button>
-                    <button onclick="utlBtn()">絕學</button>
+                    <button id="myObj" onclick="myObjBtn()">物品</button>
+                    <button id="yin_yang" onclick="showBtn()" style="cursor: pointer;"></button>
+                    <button id="specialFight" onclick="utlBtn()">絕學</button>
+                    
                 </div>
-                <div><button>逃跑</button></div>
+                <div><button id="run" onclick="runBtn()">逃跑</button></div>
 
             </div>
             <div id="roleList">
@@ -134,8 +67,8 @@
                         <p id="myHp">999</p>
                         <label for=""> / 999</label>
                     </div>
-                        <div id="hpArea">
-                            <div id="myHpArea"><span>-</span>
+                    <div id="hpArea">
+                        <div id="myHpArea"><span>-</span>
                         </div>
                     </div>
                 </div>
@@ -146,264 +79,16 @@
                 <img id="bossEffect" src="" alt="">
             </div>
             <div id="battleInfo">
-                <p id="demo1"></p>
+                <p id="demo1">我方回合</p>
                 <p id="demo2"></p>
                 <p id="demo3"></p>
+                <p id="demo4"></p>
             </div>
         </div>
 
     </main>
     <script>
-        //設定BOSS屬性
-        let bossObjCenter = {
-            'id': 'imgCenter',
-            'src': 'https://dummyimage.com/200X200/ba5fba/7076d6',
-            'hp': 3000,
-            'damage': Math.floor(Math.random() * 100)
-        }
-        //設定男主屬性
-        let manPlayerObj = {
-            'hp': 999,
-            'damage': Math.floor(Math.random() * 1000)
-        }
-        // 計算次數
-        let checkNum = 1;
-        setTimeout(myRound, 2000);
-        function myRound() {
-            let demoInfo = document.getElementById('demo1');
-            demoInfo.innerText = `第${checkNum}回合`
-            checkNum += 1;
-        }
-        // 因為特效結束後會有殘影留在圖上，所以要再把特效圖片清空
-        function clearEffect() {
-            document.getElementById('hitEffect01').setAttribute('src', '');
-        }
-        //對方回合  
-        function opponentTurn() {
-            console.log('輪到對手回合')
-            let myRoleHp01 = manPlayerObj.hp;
-            let bossDamage = Math.floor(Math.random() * 1000);
-            let mydemo3 = document.getElementById('demo3');
-            let opponentEffect = document.getElementById('bossEffect');
-            let myRoleArea = document.getElementById('anotherRoleplay01');
-            let showMyHp = document.getElementById('myHp');
-            let myHpWidth = document.getElementById('myHpArea')
-            let changePage = function () {
-                location.href = "http://localhost:5500/myProject_V2/html/endPage.html"
-            }
-            //附加我方特效函式
-            let changeMyRoleStyle = function () {
-                myRoleArea.style.filter = 'grayscale(1)';
-            }
-            //清除特效函式
-            let clearbossEffect = function () {
-                opponentEffect.setAttribute('src', '');
-            }
-            //攻擊特效附加、並於指定秒數後清除特效
-            let attackEffect = function () {
-                opponentEffect.setAttribute('src', '../image/burstV1.gif');
-                setTimeout(clearbossEffect, 1500);
-            }
-            //受到BOSS攻擊後HP減少
-            let myhpDecrease = function () {
-                //當前HP - BOSS攻擊
-                manPlayerObj.hp = manPlayerObj.hp - bossDamage;
-                if (manPlayerObj.hp <= 0) {
-                    manPlayerObj.hp = 0;
-                    mydemo3.innerText = `受到Boss給予傷害${bossDamage}，目前HP剩下 : ${manPlayerObj.hp}，角色死亡`;
-                    showMyHp.innerText = manPlayerObj.hp;
-                    myHpWidth.style.width = Math.floor((manPlayerObj.hp/999)*100) +'%'
-                    //當hp<=0時加上濾鏡(黑白)
-                    myRoleArea.style.filter = 'grayscale(1)';
-                    setTimeout(changePage, 1500)
-                 
-                } else if (manPlayerObj.hp > 0 && manPlayerObj.hp <= 400) {
 
-                    mydemo3.innerText = `受到Boss給予傷害${bossDamage}，目前HP剩下 : ${manPlayerObj.hp}`;
-                    showMyHp.innerText = manPlayerObj.hp;
-                    myHpWidth.style.width = Math.floor((manPlayerObj.hp/999)*100) +'%'
-                      //當hp>0 && hp<=400 時加上濾鏡(另一種)
-                    myRoleArea.style.filter = 'saturate(0.3)';
-                } else {
-                    mydemo3.innerText = `受到Boss給予傷害${bossDamage}，目前HP剩下 : ${manPlayerObj.hp}`;
-                    showMyHp.innerText = manPlayerObj.hp;
-                    myHpWidth.style.width = Math.floor((manPlayerObj.hp/999)*100) +'%'
-                }
-
-            }
-            //判斷BOSS血量>0的情況下才開始執行BOSS戰鬥階段
-            if (bossObjCenter.hp > 0) {
-                attackEffect();
-                setTimeout(myhpDecrease, 2000);
-
-            } else {
-                clearbossEffect();
-            }
-
-        }
-        // 我方回合函式，暫時用不上
-        function myTurn() {
-            let mySelf = document.getElementsByClassName('myRole');
-            for (let i = 0; i < myRole.length; i++) {
-                mySelf.style.borderColor = "red"
-            }
-        }
-        //按下去進攻擊階段
-        function hitBtn() {
-            //取得按鈕元素
-            let btnDisplay = document.getElementById('normalFight');
-            //取得上方資訊列
-            let topInfoDisplay = document.getElementById('topInfo');
-            //點擊按鈕的時候改變按鈕文字
-            chengeWords();
-            showTopInfo();
-            //一次攻擊流程
-            attack();
-            bossDie();
-        }
-        //絕學按鈕
-        function utlBtn() {
-            //取得按鈕元素
-            let btnDisplay = document.getElementById('normalFight');
-            //取得上方資訊列
-            let topInfoDisplay = document.getElementById('topInfo');
-            //點擊按鈕的時候改變按鈕文字
-            chengeWords();
-            showTopInfo();
-            //一次攻擊流程
-            attackUtl();
-            bossDie();
-
-        }
-
-        //顯示上方對話框
-        function showTopInfo() {
-            let topInfoDisplay = document.getElementById('topInfo')
-            let btnDisplay = document.getElementById('normalFight');
-            let myBossId = document.getElementById('centerImg');
-            //當涵式被呼叫時會顯示上方對話框
-            topInfoDisplay.style.display = 'block';
-            //點選物件之後對話框消失
-            myBossId.addEventListener('click', function () {
-                topInfoDisplay.style.display = 'none';
-            }, { once: true })
-
-        }
-
-        //改變按鈕文字
-        function chengeWords() {
-            let btnDisplay = document.getElementById('normalFight');
-            //當按鈕點擊時會改變文字顯示
-            if (btnDisplay.innerText != '攻擊') {
-                btnDisplay.innerText = '攻擊'
-
-            } else {
-                btnDisplay.innerText = '取消'
-            }
-        }
-        //攻擊觸發
-        function attack() {
-            let btnDisplay = document.getElementById('normalFight');
-            let topInfoDisplay = document.getElementById('topInfo')
-            //取得BOSS物件ID
-            let myBossId = document.getElementById('centerImg');
-            //取得HP 顯示區域ID
-            let myid2 = document.getElementById('demo2');
-            //取得特效區域
-            let getBurst = document.getElementById('hitEffect01')
-            //在螢幕上點擊物件觸發事件監聽，呼叫三個函式 增加效果(自己新增)、效果消失(attackDisable)、生命減少(damageBOSS) 
-            myBossId.addEventListener('click', function () {
-                console.log('BOSS被點擊囉');
-                getBurst.setAttribute('src', '../image/hit_03V3.gif')
-            }, { once: true });
-            setTimeout(clearEffect, 2000);
-            setTimeout(damageBOSS, 2000);
-            setTimeout(myRound, 2000);
-            setTimeout(chengeWords, 2400);
-            setTimeout(opponentTurn, 3000);
-
-
-
-        }
-        //放大招
-        function attackUtl() {
-            let btnDisplay = document.getElementById('normalFight');
-            let topInfoDisplay = document.getElementById('topInfo')
-            //取得BOSS物件ID
-            let myBossId = document.getElementById('centerImg');
-            //取得HP 顯示區域ID
-            let myid2 = document.getElementById('demo2');
-            //取得特效區域
-            let getBurst = document.getElementById('hitEffect01')
-            let showValid = function () {
-                getBurst.setAttribute('src', '../image/hit_01V3.gif')
-            }
-            //在螢幕上點擊物件觸發事件監聽，呼叫三個函式 增加效果(自己新增)、效果消失(attackDisable)、生命減少(damageBOSS) 
-            myBossId.addEventListener('click', function () {
-                console.log('BOSS被點擊囉');
-                getBurst.setAttribute('src', '../image/attackV2.gif')
-                setTimeout(showValid, 7300)
-            }, { once: true });
-            setTimeout(clearEffect, 8800);
-            setTimeout(bigDamage, 8800);
-            setTimeout(myRound, 2000);
-            setTimeout(chengeWords, 2000);
-        }
-        //減HP函數
-        function damageBOSS() {
-            let mydamage = Math.floor(Math.random() * 1000);
-            let bossHp = bossObjCenter.hp;
-            let mydemo1 = document.getElementById('demo2');
-            bossObjCenter.hp = bossHp - mydamage;
-            if (bossObjCenter.hp <= 0) {
-                bossObjCenter.hp = 0;
-                mydemo1.innerText = `當前HP : ${bossObjCenter.hp}，BOSS死亡`
-                bossDie();
-            } else {
-                mydemo1.innerText = `對BOSS造成傷害${mydamage}`;
-            }
-
-            console.log(`對BOSS造成傷害${mydamage}，BOSS剩餘HP : ${mydemo1.innerText}`)
-        }
-        //放大招
-        function bigDamage() {
-            mydamage = Math.floor(Math.random() * 100000);
-            let bossHp = bossObjCenter.hp;
-            let mydemo1 = document.getElementById('demo2');
-            bossObjCenter.hp = bossHp - mydamage;
-            if (bossObjCenter.hp <= 0) {
-                bossObjCenter.hp = 0;
-                mydemo1.innerText = `當前HP : ${bossObjCenter.hp}，BOSS死亡`
-                bossDie()
-            } else {
-                mydemo1.innerText = `對BOSS造成傷害${mydamage}`;
-            }
-
-            console.log(`對BOSS造成傷害${mydamage}，BOSS剩餘HP : ${mydemo1.innerText}`)
-        }
-
-        //當hp = 0時，添加動畫
-        function bossDie() {
-            let bossImg = document.getElementById('centerImg');
-            let bosshp = bossObjCenter.hp;
-            //先取得class屬性
-            let classVal = bossImg.getAttribute("class");
-            //設定一個函數當hp歸零時圖會消失
-            let bosshidden = function () {
-                bossImg.setAttribute('src', '')
-            }
-            //連接各class屬性
-            classVal = classVal.concat('animated ')
-            classVal = classVal.concat('ld ')
-            classVal = classVal.concat('ld-fade')
-            // 當hp歸零時，使用動畫
-            if (bossObjCenter.hp <= 0) {
-                //先出現動畫，2秒後圖消失
-                bossImg.setAttribute('class', classVal);
-                setTimeout(bosshidden, 2000)
-            }
-
-        }
     </script>
 </body>
 
