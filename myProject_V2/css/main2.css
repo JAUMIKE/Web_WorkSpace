@@ -6,6 +6,13 @@ body {
     margin: 0;
     overflow: hidden;
 }
+audio{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+}
+
 
 #mainArea {
     height: 900px;
@@ -140,6 +147,14 @@ img[src*="trangle.png"] {
     width: 200px;
     height: 250px;
     transform: scaleX(-1);
+    cursor: pointer;
+}
+#finger{
+    position: absolute;
+    right: 13%;
+    bottom: 12%;
+    width: 100px;
+    height: 100px;
 }
 
 .tragleAniate {

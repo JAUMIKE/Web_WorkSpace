@@ -2,6 +2,12 @@ body {
     margin: 0px;
 }
 
+audio{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+}
 /* 設定背景圖，並將整個頁面分成三大區，topArea(音樂+資訊)、MidArea(對手圖)、bottomArea(選單+我方人物+戰鬥資訊) */
 #mainArea {
     height: 900px;
@@ -65,7 +71,7 @@ body {
     display: grid;
     grid-template-columns: 25% 50% 25%;
     grid-template-rows: 1fr;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 
 
 }
@@ -186,6 +192,7 @@ button {
     height: 200px;
     top: 20%;
     left: 27%;
+    cursor: pointer;
 
 }
 
@@ -244,4 +251,27 @@ button {
     border-radius: 100%;
     width: 12px;
     height: 12px;
+}
+
+  /* BOSS扣血效果 */
+  #hpEffect{
+    /* position: absolute; */
+    text-align: center;
+    font-size: 32px;
+    color: tomato;
+}
+/* 絕學文字區 */
+#wordArea{
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    display: none;
+    z-index: 0;
+}
+/* 絕學文字圖檔 */
+.word00{
+    width: 100px;
+    display: none;
 }

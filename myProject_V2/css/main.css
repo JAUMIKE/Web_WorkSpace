@@ -4,6 +4,13 @@ body {
     overflow: hidden;
     margin: 0;
 }
+audio{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+}
+
 
 #mainArea {
     background-image: url(../image/placeBackImg01V2.png);
@@ -86,6 +93,16 @@ img[src*="trangle.png"] {
     position: absolute;
     right: 20%;
     bottom: 10px;
+    cursor: pointer;
+    
+}
+#finger{
+    position: absolute;
+    right: 10%;
+    bottom: 12%;
+    width: 100px;
+    height: 100px;
+  
 }
 .tragleAniate{
     text-align: right;

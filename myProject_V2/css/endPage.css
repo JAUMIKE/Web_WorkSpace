@@ -18,5 +18,12 @@ div{
 }
 h1{
     font-family: "標楷體";
-    color:red
+    color:red;
+    cursor: pointer;
+}
+audio{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
 }

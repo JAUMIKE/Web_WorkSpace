@@ -12,21 +12,60 @@
         button {
             background-color: brown;
         }
-        #manPlayer{
+
+        #manPlayer {
             border: 1px solid lightblue;
         }
+
+        @font-face {
+            font-family: 'cwTeXKai';
+            font-style: normal;
+            font-weight: 500;
+            src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot);
+            src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot?#iefix) format('embedded-opentype'),
+                url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff2) format('woff2'),
+                url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff) format('woff'),
+                url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.ttf) format('truetype');
+        }
+
+        .word00 {
+            display: none;
+            width: 200px;
+            object-fit: cover;
+           /*  height: 100px; */
+        }
+        #wordArea{
+            width: 100%;
+            height: 400px;
+        }
+
     </style>
 </head>
 
 <body>
-    <p id="demo">這是展示區</p>
+    <button onclick="utlText()">放絕招</button>
+    <p id="demo"></p>
+    <p style="font-family:cwTeXKai ;">測試毛筆字</p>
+    <p style="font-family:cwTeXKai ; font-size: 100px;">萬劍歸一</p>
+    <div id="wordArea">
+        <img class="word00" id="word001" src="../myProject_V2/image/word001V1.png" alt="">
+        <img class="word00" id="word002" src="../myProject_V2/image/word002V1.png" alt="">
+        <img class="word00" id="word003" src="../myProject_V2/image/word003V1.png" alt="">
+        <img class="word00" id="word004" src="../myProject_V2/image/word004V1.png" alt="">
+    </div>
+    <br>
+    <hr>
+    <!-- <img class="word0" src="../myProject_V2/image/word01.png" alt="">
+    <img class="word0" src="../myProject_V2/image/word02.png" alt="">
+    <img class="word0" src="../myProject_V2/image/word03.png" alt="">
+    <img class="word0" src="../myProject_V2/image/word04.png" alt=""> -->
     <label for="">BOSS HP:</label>
     <p id="demo2" style="display: inline-block;">3000</p>
     <br>
     <label for="">fish01 HP:</label>
     <p id="demo3" style="display: inline-block;">1000</p>
     <br>
-    
+
 
 
     <button onclick="myclick()">click</button>
@@ -34,19 +73,43 @@
     <br>
     <br>
     <div class="TargetArea">
-        <div id="battleWinText"><p id="winGame"></p></div>
+        <div id="battleWinText">
+            <p id="winGame"></p>
+        </div>
         <img id="imgCenter" class="NewImg" src="https://dummyimage.com/200X200/ba5fba/7076d6" alt="">
         <img class="burst" id="burstID" src="" alt="">
     </div>
     <br>
     <hr>
     <div>
-        <img id="manPlayer" class="animated ld ld-float" src="../myProject_V2/image/anotherrole01V2.png" alt="">
+        <img id="manPlayer" class="animated ld ld-spin" src="../myProject_V2/image/anotherrole01V2.png" alt="">
 
     </div>
     <script>
-    
-         let bossObjCenter = {
+
+
+        for (let i = 1; i <= 5; i++) {
+            setTimeout(function () {
+                console.log(i)
+            }, 1000 * i)
+        }
+
+        let str = ""
+        //以固定秒數執行迴圈
+        function utlText() {
+            let myWords = ['word001', 'word002', 'word003', 'word004'];
+            for (let i = 0; i < myWords.length; i++) {
+                let mydemo = document.getElementById(myWords[i]);
+                setTimeout(function () {
+                    document.getElementById(myWords[i]).style.display = "inline-block";
+                    console.log(i)
+                }, 1000 * i)
+            }
+
+        }
+
+
+        let bossObjCenter = {
             'id': 'imgCenter',
             'src': 'https://dummyimage.com/200X200/ba5fba/7076d6',
             'hp': 3000,
@@ -63,14 +126,14 @@
             'hp': 999,
             'damage': Math.floor(Math.random() * 1000)
         }
-        let checkNum=1;
-        
-        setTimeout(myRound,2000);
-        function myRound() {
-            let demoInfo = document.getElementById('demo');
-            demoInfo.innerText = `第${checkNum}回合`
-            checkNum += 1;
-        }
+        let checkNum = 1;
+
+        // setTimeout(myRound, 2000);
+        // function myRound() {
+        //     let demoInfo = document.getElementById('demo');
+        //     demoInfo.innerText = `第${checkNum}回合`
+        //     checkNum += 1;
+        // }
 
 
         function myclick() {
@@ -78,7 +141,7 @@
             console.log('主角攻擊');
             attack();
         }
-        function manTurn(){
+        function manTurn() {
             console.log('輪到主角攻擊!');
             playerMan = document.getElementById('manPlayer');
             playerMan.style.borderColor = 'red';
@@ -95,13 +158,13 @@
             //取得特效區域
             let getBurst = document.getElementById('burstID')
             //在螢幕上點擊物件觸發事件監聽，呼叫三個函式 增加效果(自己新增)、效果消失(attackDisable)、生命減少(damageBOSS) 
-            myBossId.addEventListener('click',function(){
+            myBossId.addEventListener('click', function () {
                 console.log('BOSS被點擊囉');
                 getBurst.setAttribute('src', '../myProject_V2/image/burstV1.gif')
             }, { once: true });
             setTimeout(attackDisable, 2000);
-            setTimeout(damageBOSS,2000);
-            setTimeout(myRound,2000);
+            setTimeout(damageBOSS, 2000);
+            setTimeout(myRound, 2000);
 
 
         }
@@ -119,18 +182,18 @@
             let bossHp = bossObjCenter.hp;
             let mydemo2 = document.getElementById('demo2');
             bossObjCenter.hp = bossHp - mydamage;
-            if(bossObjCenter.hp <=0){
+            if (bossObjCenter.hp <= 0) {
                 bossObjCenter.hp = 0;
                 mydemo2.innerText = `當前HP : ${bossObjCenter.hp}，BOSS死亡`
-            }else{
+            } else {
                 mydemo2.innerText = bossObjCenter.hp;
             }
-            
+
             console.log(`對BOSS造成傷害${mydamage}，BOSS剩餘HP : ${mydemo2.innerText}`)
-            
-         }
-     
-        
+
+        }
+
+
     </script>
 </body>
 

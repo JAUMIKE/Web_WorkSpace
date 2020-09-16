@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="../css/loading.css">
     <link rel="stylesheet" href="../css/animate.css">
     <script src="../js/battle.js"></script>
+    <style>
+      
 
+    </style>
 </head>
 
 <body>
@@ -19,8 +22,15 @@
     <main id="mainArea">
         <!-- 播放音樂 -->
         <div id="topArea">
+            <div id="wordArea">
+                <img class="word00" id="word001" src="../image/word001V1.png" alt="">
+                <img class="word00" id="word002" src="../image/word002V1.png" alt="">
+                <img class="word00" id="word003" src="../image/word003V1.png" alt="">
+                <img class="word00" id="word004" src="../image/word004V1.png" alt="">
+            </div>
+            <div><p id="hpEffect" class="" style="animation-duration:2.0s"></p></div>
             <div>
-                <audio controls autoplay="autoplay" hidden>
+                <audio controls autoplay="autoplay" >
                     <source src="../audio/battle.mp3" type="audio/mp3">
                 </audio>
             </div>
@@ -47,8 +57,7 @@
                 <div>
                     <button id="myObj" onclick="myObjBtn()">物品</button>
                     <button id="yin_yang" onclick="showBtn()" style="cursor: pointer;"></button>
-                    <button id="specialFight" onclick="utlBtn()">絕學</button>
-                    
+                    <button id="specialFight" onclick="utlBtn()">絕學</button>         
                 </div>
                 <div><button id="run" onclick="runBtn()">逃跑</button></div>
 
@@ -81,8 +90,7 @@
         </div>
 
     </main>
-    <script>
-
+    <script>    
     </script>
 </body>
 

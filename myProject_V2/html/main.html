@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="../css/loading.css">
     <link rel="stylesheet" href="../css/animate.css">
     <link rel="stylesheet" href="../css/main.css">
-    
 </head>
 
 <!-- 1. 幫body掛一個事件，for 偵測鍵盤 是否有點上下左右按鍵 -->
@@ -18,10 +17,10 @@
             <div id="topLeftArea">
             </div>
             <!-- 對話框區域 -->
-            <div id="topMidArea"> 
+            <div id="topMidArea">
                 <div id="topMidAreaNextId" class="topMidAreaNextClass">
                     <!-- 大頭貼 -->
-                    <div ><img src="../image/anotherrole01V2.png" id="talkImg"  alt=""></div>
+                    <div><img src="../image/anotherrole01V2.png" id="talkImg" alt=""></div>
                     <!-- 對話區 -->
                     <div class="talkClass">
                         <div id="talkArea">
@@ -35,19 +34,22 @@
             </div>
             <!-- 背景音樂 -->
             <div>
-                <audio controls autoplay="autoplay" hidden>
+                <audio controls autoplay="autoplay" >
                     <source src="../audio/mainPage01.mp3">
                 </audio>
-            </div>    
+            </div>
         </div>
         <div id="bottomArea">
             <div>
                 <img id="mainRole" src="../image/MainRole_V2.png" alt="">
                 <img onclick="showMsg()" id="secRole" src="../image/MainRole02V1_B.png" alt="">
+                <img id="finger" class="animated ld ld-wander-h" src="../image/finger04.png" alt="">
             </div>
         </div>
     </main>
     <script src="../js/main.js"></script>
+
+
 </body>
 
 </html>

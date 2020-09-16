@@ -1,0 +1,12 @@
+
+body {
+    background-image: url('../image/goodEnd02V1.png');
+    background-size: 110%;
+    background-repeat: no-repeat;
+}
+audio{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+}

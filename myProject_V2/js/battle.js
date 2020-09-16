@@ -129,9 +129,8 @@
                getBurst.setAttribute('src', '../image/hit_03V3.gif');
                setTimeout(clearEffect, 2000);
                setTimeout(damageBOSS, 2000);
-               // setTimeout(myRound, 2000);
                setTimeout(chengeWords, 2400);
-               setTimeout(opponentTurn, 3000);
+               setTimeout(opponentTurn, 3500);
                //當攻擊結束之後，把BOSS物件的onclick事件清空，代表一次攻擊流程完成
                mytest.onclick = null;
            }
@@ -149,6 +148,7 @@
        let btnDisplay = document.getElementById('normalFight');
        let btnSpecialDisplay = document.getElementById('specialFight');
        let topInfoDisplay = document.getElementById('topInfo')
+       let myWordDivArea = document.getElementById('wordArea')
        //取得BOSS物件ID
        let myBossId = document.getElementById('centerImg');
        //取得HP 顯示區域ID
@@ -157,6 +157,32 @@
        let getBurst = document.getElementById('hitEffect01')
        let showValid = function () {
            getBurst.setAttribute('src', '../image/hit_01V3.gif')
+       }
+       //放大招的文字(其實是圖檔)
+       let utlText = function () {
+           //存放四個圖檔的ID名稱
+           let myWords = ['word001', 'word002', 'word003', 'word004'];
+           //呼叫此函式時要把圖檔顯示的區域放到最上面才不會被蓋住
+           myWordDivArea.style.display = 'block';
+           myWordDivArea.style.zIndex = 1;
+           //迴圈執行，改變style讓隱藏的圖檔顯示，在迴圈中加入setTimeout讓迴圈可以每隔一秒才執行一次
+           for (let i = 0; i < myWords.length; i++) {
+               let mydemo = document.getElementById(myWords[i]);
+               setTimeout(function () {
+                   document.getElementById(myWords[i]).style.display = "inline-block";
+                   console.log(i)
+               }, 1000 * i)
+           }
+       }
+       //設定大招文字清除
+       let utlTextClear = function () {
+           let myClearWords = ['word001', 'word002', 'word003', 'word004'];
+           //把圖檔顯示文字的區域放到最下層
+           myWordDivArea.style.zIndex = '0';
+           //隱藏圖檔
+           for (let k = 0; k < myClearWords.length; k++) {
+               document.getElementById(myClearWords[k]).style.display = 'none';
+           }
        }
        //點擊按鈕的時候改變按鈕文字
        chengeWords();
@@ -167,9 +193,10 @@
                console.log('BOSS被點擊囉');
                getBurst.setAttribute('src', '../image/attackV2.gif')
                setTimeout(showValid, 7300)
+               utlText();
                setTimeout(clearEffect, 8800);
+               setTimeout(utlTextClear, 6000);
                setTimeout(bigDamage, 8800);
-               // setTimeout(myRound, 2000);
                setTimeout(chengeWords, 2000);
                myBossId.onclick = '';
            }
@@ -203,19 +230,24 @@
    }
    //改變攻擊、絕學按鈕文字
    function chengeWords() {
+       let myid = document.getElementById('centerImg');
        let btnDisplay = document.getElementById('normalFight');
        let btnSpecialDisplay = document.getElementById('specialFight');
        //當按鈕點擊時會改變文字顯示
        if (btnDisplay.innerText != '攻擊') {
            btnDisplay.innerText = '攻擊'
+           myid.style.cursor = "auto";
 
        } else {
            btnDisplay.innerText = '取消'
+           myid.style.cursor = "pointer";
        }
        if (btnSpecialDisplay.innerText != "絕學") {
            btnSpecialDisplay.innerText = "絕學";
+           myid.style.cursor = "auto";
        } else {
            btnSpecialDisplay.innerText = "取消"
+           myid.style.cursor = "pointer";
        }
 
    }
@@ -226,13 +258,21 @@
        let bossHp = bossObjCenter.hp;
        let demoInfo = document.getElementById('demo1');
        let mydemo1 = document.getElementById('demo2');
+       let hpfly = document.getElementById('hpEffect');
+       let hpflyFunc = function () {
+           hpfly.innerText = '';
+       }
        bossObjCenter.hp = bossHp - mydamage;
        if (bossObjCenter.hp <= 0) {
            bossObjCenter.hp = 0;
            mydemo1.innerText = `施展普通劍法對魔尊造成 ${mydamage} 點傷害，當前HP : ${bossObjCenter.hp}，BOSS死亡`
+           hpfly.innerText = '-' + mydamage;
+           setTimeout(hpflyFunc, 1000);
            bossDie();
        } else {
            mydemo1.innerText = `施展普通劍法對魔尊造成 ${mydamage} 點傷害`;
+           hpfly.innerText = '-' + mydamage;
+           setTimeout(hpflyFunc, 1000);
            demoInfo.innerText = '對手回合';
        }
    }
@@ -242,12 +282,21 @@
        let bossHp = bossObjCenter.hp;
        let mydemo1 = document.getElementById('demo2');
        bossObjCenter.hp = bossHp - mydamage;
+       let hpfly = document.getElementById('hpEffect');
+       let hpflyFunc = function () {
+           hpfly.innerText = '';
+       }
        if (bossObjCenter.hp <= 0) {
            bossObjCenter.hp = 0;
            mydemo1.innerText = `施展絕學-萬劍歸一，對魔尊造成 ${mydamage} 點傷害，魔尊死亡`
-           bossDie()
+           hpfly.style.fontSize = '50px';
+           hpfly.innerText = '-' + mydamage;
+           setTimeout(hpflyFunc, 1000);
+           bossDie();
        } else {
            mydemo1.innerText = `對魔尊造成 ${mydamage} 傷害`;
+           hpfly.innerText = '-' + mydamage;
+           setTimeout(hpflyFunc, 1000);
        }
    }
 
@@ -288,34 +337,34 @@
        location.href = "goodEndPage.html";
    }
    //陰陽圖示按鈕隱藏其他按鈕功能
-   function showBtn(){
-    let btnArr = ['normalFight','myObj','specialFight','run']
-    let hideBtn = function(){
-        for(let i =0 ; i<btnArr.length;i++){
-            document.getElementById(btnArr[i]).style.display="none";
-        }
-    }
-    let showMeBtn =function(){
-        for(let j =0 ; j<btnArr.length;j++){
-            document.getElementById(btnArr[j]).style.display="block";
-        }
-    }
-    if(document.getElementById(btnArr[0]).style.display == "none" ){
-        showMeBtn();
-    }else{
-        hideBtn();
-    }
-}
+   function showBtn() {
+       let btnArr = ['normalFight', 'myObj', 'specialFight', 'run']
+       let hideBtn = function () {
+           for (let i = 0; i < btnArr.length; i++) {
+               document.getElementById(btnArr[i]).style.display = "none";
+           }
+       }
+       let showMeBtn = function () {
+           for (let j = 0; j < btnArr.length; j++) {
+               document.getElementById(btnArr[j]).style.display = "block";
+           }
+       }
+       if (document.getElementById(btnArr[0]).style.display == "none") {
+           showMeBtn();
+       } else {
+           hideBtn();
+       }
+   }
 
-//逃跑鍵功能
-function runBtn(){
-    let mydemo =document.getElementById("demo4");
-    let runArr = ['身為大俠怎可逃跑...!','躲不掉的，乖乖戰鬥吧...!','死一次不夠，那還不死個第二次...!','打贏BOSS有時不只要靠賽，更要靠腦袋...!','好絕學不用一下嗎....?']
-    mydemo.innerText = runArr[Math.floor(Math.random()*5)];
-}
-//物品鍵功能
-function myObjBtn(){
-    let mydemo =document.getElementById("demo4");
-    let myObjArr = ['打王用暗器非是大俠行為...!','吃補藥補生命不如先補自己的腦子...!','死一次不夠，那還不死個第二次...!','知恥近乎勇，但你看起來不太勇...?','想要物品欄，先去商城儲個一單....']
-    mydemo.innerText = myObjArr[Math.floor(Math.random()*5)];
-}
+   //逃跑鍵功能
+   function runBtn() {
+       let mydemo = document.getElementById("demo4");
+       let runArr = ['身為大俠怎可逃跑...!', '躲不掉的，乖乖戰鬥吧...!', '死一次不夠，那還不死個第二次...!', '打贏BOSS有時不只要靠賽，更要靠腦袋...!', '好絕學不用一下嗎....?']
+       mydemo.innerText = runArr[Math.floor(Math.random() * 5)];
+   }
+   //物品鍵功能
+   function myObjBtn() {
+       let mydemo = document.getElementById("demo4");
+       let myObjArr = ['打王用暗器非是大俠行為...!', '吃補藥補生命不如先補自己的腦子...!', '死一次不夠，那還不死個第二次...!', '知恥近乎勇，但你看起來不太勇...?', '想要物品欄，先去商城儲個一單....']
+       mydemo.innerText = myObjArr[Math.floor(Math.random() * 5)];
+   }
