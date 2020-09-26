@@ -8,11 +8,6 @@
     <link rel="stylesheet" href="../css/battle.css">
     <link rel="stylesheet" href="../css/loading.css">
     <link rel="stylesheet" href="../css/animate.css">
-    <script src="../js/battle.js"></script>
-    <style>
-      
-
-    </style>
 </head>
 
 <body>
@@ -28,13 +23,14 @@
                 <img class="word00" id="word003" src="../image/word003V1.png" alt="">
                 <img class="word00" id="word004" src="../image/word004V1.png" alt="">
             </div>
-            <div><p id="hpEffect" class="" style="animation-duration:2.0s"></p></div>
             <div>
-                <audio controls autoplay="autoplay" >
-                    <source src="../audio/battle.mp3" type="audio/mp3">
-                </audio>
+                <p id="hpEffect" class="" style="animation-duration:2.0s"></p>
             </div>
-        <!-- 主要顯示區 -->
+            <div>
+                <audio src="../audio/battle.mp3" id="myMusic"></audio>
+                <audio src="../audio/button01a.mp3" id="mySound"></audio>
+            </div>
+            <!-- 主要顯示區 -->
         </div>
         <div id="midArea">
             <div id="midAreaLeft">
@@ -58,7 +54,7 @@
                 <p id="demo3"></p>
                 <p id="demo4"></p>
             </div>
-            
+
             <div id="roleList">
                 <div id="anotherRoleplay01">
                     <div><img class="myRole" src="../image/anotherrole01V2.png" alt=""></div>
@@ -83,7 +79,7 @@
                 <div>
                     <button id="myObj" onclick="myObjBtn()">物品</button>
                     <button id="yin_yang" onclick="showBtn()" style="cursor: pointer;"></button>
-                    <button id="specialFight" onclick="utlBtn()">絕學</button>         
+                    <button id="specialFight" onclick="utlBtn()">絕學</button>
                 </div>
                 <div><button id="run" onclick="runBtn()">逃跑</button></div>
 
@@ -91,8 +87,12 @@
         </div>
 
     </main>
-    <script>    
-    </script>
+
+     <script src="../js/battle.js"></script>
+     <script>
+         
+
+     </script>
 </body>
 
 </html>

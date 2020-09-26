@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        button {
+            display: inline-block;
+        }
+
+        #imgArea {
+            width: 100%;
+            height: 400px;
+            /* text-align: center; */
+            display: flex;
+            justify-content: center;
+        }
+
+        img {
+            width: 100%px;
+            height: 300px;
+            object-fit: contain;
+            display: inline-block;
+            position: absolute;
+
+        }
+    </style>
+
 </head>
+
 <body>
+    <div id="imgArea">
+        <img id="img01" src="../image/japanDrama01.jpg" alt="">
+        <img id="img02" src="../image/japanDrama02.jpg" alt="">
+        <img id="img03" src="../image/japanDrama03.jpg" alt="">
+        <!-- <img  id="img04" src="" alt=""> -->
+
+    </div>
+    <div>
+        <button onclick="clearImg()">click left</button>
+        <button onclick="changeImg()">click Right</button>
+
+    </div>
+
+    <script>
+        let checkNum = 0;
+        let str = "";
+        function changeImg() {
+            let myId = ['img01', 'img02', 'img03'];
+            let myArr = ['../image/japanDrama01.jpg', '../image/japanDrama02.jpg', '../image/japanDrama03.jpg'];
+            let myImg = document.getElementById(myId[checkNum]);
+            myImg.setAttribute('src', myArr[checkNum]);
+            if (checkNum < myArr.length) {
+                checkNum += 1;
+                // clearImg();
+            }else{
+                checkNum = 0;
+            } 
+                // myImg.setAttribute('src','');
+                
+         
+        }
+        function clearImg() {
+            let myId = ['img01', 'img02', 'img03'];
+            let myArr = ['../image/japanDrama01.jpg', '../image/japanDrama02.jpg', '../image/japanDrama03.jpg'];
+            let myImg = document.getElementById(myId[checkNum]);
+            // .setAttribute('src','');
+           myImg.setAttribute('src','');
+           checkNum +=1;
+           
+        }
+    </script>
 
 </body>
+
 </html>

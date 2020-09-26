@@ -54,6 +54,7 @@
         <img class="word00" id="word004" src="../myProject_V2/image/word004V1.png" alt="">
     </div>
     <br>
+    <audio src="../myProject_V2/audio/battle_lose.mp3"></audio>
     <hr>
     <!-- <img class="word0" src="../myProject_V2/image/word01.png" alt="">
     <img class="word0" src="../myProject_V2/image/word02.png" alt="">
@@ -65,7 +66,18 @@
     <label for="">fish01 HP:</label>
     <p id="demo3" style="display: inline-block;">1000</p>
     <br>
+    <hr>
 
+    <iframe src="silence.mp3" allow="autoplay" id="audio"></iframe>
+    <audio id="player" autoplay controls><source src="0.mp3" type="audio/mp3"></audio>
+
+    <video autoplay controls muted>
+            <source src="../myProject_V2/audio/battle_lose.mp3" type="video/mp3">
+            <source src="movie.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+    </video>
+
+    <hr>
 
 
     <button onclick="myclick()">click</button>

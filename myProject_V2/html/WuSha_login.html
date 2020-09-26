@@ -5,27 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script type="text/javascript" src="http://www.zhangxinxu.com/study/js/jquery-audioPlay.js"></script>
     <link rel="stylesheet" href="../css/Wusha_login.css">
 
 </head>
 
 <body>
-    <audio controls autoplay="autoplay" >
+    <audio controls autoplay="autoplay" id="myMusic" hidden>
         <source src="../audio/loginPage.mp3" type="audio/mp3">
     </audio>
+    <audio src="../audio/button01a.mp3" id="mySound"></audio>
     <div><button onclick="changePage()">新的旅程</button></div>
-    <!-- <div><button>熄燈休息</button></div> -->
-    <script>
-        let mySound = [];
-        mySound[0] = '../audio/button01a.mp3'
-        function clickSound() {
 
-        }
-        function changePage(){
-             location.href = "main.html"
-         }
-    </script>
+    <script src="../js/Wusha_login.js"></script>
 </body>
-
 </html>
