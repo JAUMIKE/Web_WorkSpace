@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../CSS/bootstrap_css/bootstrap.min.css">
+  <link rel="stylesheet" href="../CSS/bootstrap_css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="../CSS/bootstrap_css/bootstrap-grid.min.css.map">
+  <script src="../JS/bootstrap_js/jquery.min.js"></script>
+  <script src="../JS/bootstrap_js/popper.min.js"></script>
+  <script src="../JS/bootstrap_js/bootstrap.min.js"></script>
+  <style>
+      @font-face {
+        font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+        src: url(http://ameblo.jp);
+      }
+    body {
+      font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+      font-size: 24px;
+    }
+
+    #logoArea>div {
+      /* height: 22vh; */
+      text-align: center;
+    }
+
+    /* #mainArea {
+      border: 1px solid black;
+      border-radius: ;
+
+    } */
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5 border border-light bg-light rounded shadow">
+    <div id="mainArea" class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <div class="row" id="logoArea">
+          <div class="col">
+            <img src="../myProject_Softball_System/image/logo_1.png" alt="">
+          </div>
+        </div>
+        <div class="row">
+          <div class="w-50 d-flex">
+            <button id="loginBtn" type="button" class="btn btn-outline-primary w-100 m-4"
+              data-toggle="buttons">會員登入</button>
+          </div>
+          <div class="w-50 d-flex justify-content-center">
+            <button id="signBtn" type="button" class="btn btn-outline-primary w-100 m-4"
+              data-toggle="buttons">註冊</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <form>
+              <div class="form-group">
+                <label for="emailInput">e-Mail帳號 : </label>
+                <input type="text" class="form-control" id="emailInput" placeholder="eMail帳號">
+              </div>
+              <div class="form-group">
+                <label for="passwordInput">密碼 : </label>
+                <input type="text" class="form-control" id="passwordInput" placeholder="請輸入密碼">
+              </div>
+              <div class="form-group d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-success w-50 my-3">送出</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-2"></div>
+    </div>
+
+  </div>
+</body>
+
+</html>
