@@ -12,10 +12,11 @@
   <script src="../JS/bootstrap_js/popper.min.js"></script>
   <script src="../JS/bootstrap_js/bootstrap.min.js"></script>
   <style>
-      @font-face {
-        font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-        src: url(http://ameblo.jp);
-      }
+    @font-face {
+      font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+      src: url(http://ameblo.jp);
+    }
+
     body {
       font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
       font-size: 24px;
@@ -35,48 +36,43 @@
 </head>
 
 <body>
-  <div class="container mt-5 border border-light bg-light rounded shadow">
-    <div id="mainArea" class="row">
-      <div class="col-2"></div>
-      <div class="col-8">
-        <div class="row" id="logoArea">
-          <div class="col">
-            <img src="../myProject_Softball_System/image/logo_1.png" alt="">
-          </div>
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://dummyimage.com/600x400/71c799/fff" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>First slide label</h5>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </div>
-        <div class="row">
-          <div class="w-50 d-flex">
-            <button id="loginBtn" type="button" class="btn btn-outline-primary w-100 m-4"
-              data-toggle="buttons">會員登入</button>
-          </div>
-          <div class="w-50 d-flex justify-content-center">
-            <button id="signBtn" type="button" class="btn btn-outline-primary w-100 m-4"
-              data-toggle="buttons">註冊</button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <form>
-              <div class="form-group">
-                <label for="emailInput">e-Mail帳號 : </label>
-                <input type="text" class="form-control" id="emailInput" placeholder="eMail帳號">
-              </div>
-              <div class="form-group">
-                <label for="passwordInput">密碼 : </label>
-                <input type="text" class="form-control" id="passwordInput" placeholder="請輸入密碼">
-              </div>
-              <div class="form-group d-flex justify-content-center">
-                <button type="submit" class="btn btn-outline-success w-50 my-3">送出</button>
-              </div>
-            </form>
-
-          </div>
-        </div>
-
       </div>
-      <div class="col-2"></div>
+      <div class="carousel-item">
+        <img src="https://dummyimage.com/600x400/756fc4/fff" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://dummyimage.com/600x400/fcc441/fff" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Third slide label</h5>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+      </div>
     </div>
-
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
 </body>
 

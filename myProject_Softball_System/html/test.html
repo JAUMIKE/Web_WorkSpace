@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script>
+       
+        // function OpenWin()
+        // {
+        // let dftWidth=500;
+        // let dftHeight=500;
+        // let w=window.screen.width/2-(dftWidth/2);
+        // let t=window.screen.height/2-(dftHeight/2)-35;
+        // window.open("login.html","newwindow","scrollbars=yes,toolbar=no,status=1,resizable=yes,directories=no,menubar=no,top="+t+",left="+w+",width="+dftWidth+",height="+dftHeight+"");
+        // }
+
+    function openwin() {
+        let dftWidth=500;
+        let dftHeight=500;
+        let w=window.screen.width/2-(dftWidth/2);
+        let t=window.screen.height/2-(dftHeight/2)-35;
+        window.open ("login.html", 
+                        "newwindow", 
+                        "height="+dftHeight+", width="+dftWidth+", toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no,left="+w+",top="+t);
+        }
+     </script>
+</head>
+<body>
+    <form class="form-inline my-2 my-lg-0">
+        <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+        <button onclick="openwin()" class="btn btn-outline-success my-2 my-sm-0" type="submit">登入 / 註冊</button>
+      </form>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
