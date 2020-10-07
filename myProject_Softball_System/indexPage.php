@@ -1,11 +1,21 @@
 <?php 
   require_once 'connectSql.php';
+  require_once("mycart.php");
   session_start();
   if(isset($_GET["logout"]) && ($_GET["logout"])=="true"){
       unset($_SESSION["loginMember"]);
       unset($_SESSION["memberLevel"]);
       header("location: indexPage.php");  
   }
+   //購物車開始
+  
+   $cart =& $_SESSION['cart']; // 將購物車的值設定為 Session
+   if(!is_object($cart)) $cart = new myCart();
+   // 新增購物車內容
+   if(isset($_POST["cartaction"]) && ($_POST["cartaction"]=="add")){
+       $cart->add_item($_POST['id'],$_POST['qty'],$_POST['price'],$_POST['name']);
+       header("Location: cart.php");
+   }
   //預設顯示資料筆數
   $pageRow_records = 6;
  //預設頁數
@@ -69,35 +79,44 @@ function keepURL(){
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/indexPage.css">
     <title>棒球器具購物網</title>
     <script src="js/index.js"></script>
-</head>
+    <style>
+            @font-face {
+            font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+            src: url(http://ameblo.jp);
+        }
 
+        body {
+            font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+            font-size: 20px;
+        }
+    </style>
+  
+
+</head>
 <body>
     <!-- 導航列 -->
     <nav class="navbar  navbar-dark bg-dark">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand mx-3" href="#">我的第1個網頁</a>
-
+            <div><a href=""><img class="logoImg" src="image/logo2.png" alt=""></a></div>
             <div class="" id="navbarSupportedContent"></div>
 
             <ul class="nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link text-white" href="index.php">首頁 <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-white" href="indexPage.php">首頁 <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-white" href="#" target="_blank">選單(另開視窗)</a>
+                    <a class="nav-link  text-white" href="#" target="_blank">訂單查詢</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle  text-white" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">數據查詢</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item  text-white" href="#">球隊數據</a>
+                        <a class="dropdown-item  text-danger" href="#">施工中</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item  text-white" href="#">個人數據</a>
+                        <a class="dropdown-item  text-danger" href="#">施工中</a>
                     </div>
                 </li>
                 <li>
@@ -107,10 +126,11 @@ function keepURL(){
             <form class="form-inline my-2 my-lg-0">
                 <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
                 <?php if(!isset($_SESSION["loginMember"])||($_SESSION["loginMember"]=="")) : ?>
-                    <button class="btn btn-outline-success my-2 my-sm-0" onclick="" type="submit"><a class="text-success" href="login.php">登入 / 註冊</a></button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" onclick="" type="submit"><a id="loginText" class="text-white btn" href="login.php">登入 / 註冊</a></button>
                 <?php else: ?>    
-                    <button class="btn btn-outline-warning my-2 my-sm-0" onclick="" type="submit"><a class="text-warning" href="?logout=true">登出</a></button>    
-                <?php  endif; ?>
+                    <button class="btn btn-outline-warning my-2 my-sm-0" onclick="" type="submit"><a id="" class="text-white btn" href="?logout=true">登出</a></button>    
+                    <!-- <button class="btn btn-outline-warning my-2 my-sm-0" onclick="" type="submit"><a class="text-white btn" href="login.php">登出</a></button>     -->
+                <?php   endif; ?>
             </form>
         </div>
     </nav>
@@ -127,25 +147,13 @@ function keepURL(){
          <!-- 滑動圖片區 -->
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://dummyimage.com/600x200/71c799/fff" class="d-block w-100 " alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </div>
+                <img src="image/slideImg001.jpg" class="d-block w-100 " alt="...">   
             </div>
             <div class="carousel-item">
-                <img src="https://dummyimage.com/600x200/fcc441/fff" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
+                <img src="image/slideImg002.jpg" class="d-block w-100" alt="...">     
             </div>
             <div class="carousel-item">
-                <img src="https://dummyimage.com/600x200/fa4141/fff" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                </div>
+                <img src="image/slideImg004.jpg" class="d-block w-100" alt="...">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
@@ -163,21 +171,26 @@ function keepURL(){
     <!-- 商品card區 -->
     <div class="container my-3">
          <!-- 商品類別 -->
-        <div>
-            <ul class="list-group list-group-horizontal">
-                <li class="list-group-item">
-                    <a href="indexPage.php">所有商品 <span class="badge badge-primary badge-pill"><?php echo $row_RecTotal["totalNum"];?></span></a>
-                 </li>
-                <?php while($row_RecCategory=$RecCategory->fetch_assoc()){ ?>
-                <li class="list-group-item">
-                  <a href="indexPage.php?cid=<?php echo $row_RecCategory["categoryId"];?>" οnclick="js_method();return false;">
-                      <?php echo $row_RecCategory["categoryName"]." ";?> 
-                      <span class="badge badge-primary badge-pill"><?php echo $row_RecCategory["productNum"];?></span>
-                  </a>
-                </li>
-                <?php }?>
-            </ul>
-        </div>
+         <div class="row">
+                <div class="col-10" id="itemBar">
+                    <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item">
+                            <a href="indexPage.php">所有商品 <span class="badge badge-primary badge-pill"><?php echo $row_RecTotal["totalNum"];?></span></a>
+                        </li>
+                        <?php while($row_RecCategory=$RecCategory->fetch_assoc()){ ?>
+                        <li class="list-group-item">
+                        <a href="indexPage.php?cid=<?php echo $row_RecCategory["categoryId"];?>" οnclick="js_method();return false;">
+                            <?php echo $row_RecCategory["categoryName"]." ";?> 
+                            <span class="badge badge-primary badge-pill"><?php echo $row_RecCategory["productNum"];?></span>
+                        </a>
+                        </li>
+                        <?php }?>
+                    </ul>
+                </div>
+                <!-- 購物車icon、購物車項次 -->
+                <div class="col-1 px-0 mx-auto pl-5"><a href="cart.php"><img class="imgSize" src="image/shoppingCart01.svg" alt=""></a></div>
+                <div class="col-1 px-0"><a href="cart.php"><span class="badge badge-danger"><?php echo number_format($cart->itemcount);?></span></a></div>
+            </div>    
        
          <!--商品顯示區  -->
          <?php
@@ -197,32 +210,33 @@ function keepURL(){
             $RecProduct = $stmt->get_result();
         ?>
 
-        <div class="row col-12 my-1">
+        <div class="row col-12 my-4">
            <?php   while($row_RecProduct=$RecProduct->fetch_assoc()){ ?> 
-                <div class="card col-4">
-                    <a href="product.php?id=<?php echo $row_RecProduct["productId"];?>">
+                <div class="card col-4 my-2">
+                    <!-- <a href="product.php?id=<?php echo $row_RecProduct["productId"];?>"> -->
                         <?php if($row_RecProduct["productImg"]==""){?>
                             <img src="image/nopic.png" alt="暫無圖片"/>
                         <?php }else{?>
                         <img class="card-img-top" src="image/<?php echo $row_RecProduct["productImg"];?>" alt="<?php echo $row_RecProduct["productName"];?>">
                         <?php }?>
                         <div class="card-body">
-                            <p class="card-text h6"><?php echo $row_RecProduct["productName"];?></p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                             <p class="card-text h6"><?php echo $row_RecProduct["productName"];?></p>
+                            <br>
+                             <div class="d-flex align-content-end pb-0"><a href="product.php?id=<?php echo $row_RecProduct["productId"];?>" class="btn btn-primary">點我看商品</a></div>                                                 
                         </div>
-                    </a>
+                    <!-- </a> -->
                 </div>    
             <?php }?> 
         </div>
             <hr>
             <!-- 顯示下方頁碼 -->
-        <div class="mr-2 " role="group" aria-label="First group">
+        <div class="mr-2 " role="group" aria-label="First group" id="changePage">
             <ul class="pagination justify-content-center">
                  <?php          
                     for($i=1;$i<=$total_pages;$i++){
                         //點擊該頁的時候顯示點擊的狀態
                         if($i==$num_pages){
-                            echo "<li class='page-item'><a class='page-link bg-primary text-white' href=''>".$i."</a></li>";
+                            echo "<li class='page-item'><a class='page-link bg-primary text-white' href='#changePage'>".$i."</a></li>";
                         }else{
                             $urlstr = keepURL();
                             echo "<li class='page-item'><a class='page-link' href=\"?page=$i$urlstr\">".$i."</a></li>";
@@ -234,8 +248,16 @@ function keepURL(){
     </div>
  
     <div class="h-50">
-        <footer class="bg-dark font-weight-bold text-light text-center">F.T.I.F壘球小聯盟</footer>
+        <footer class="bg-dark font-weight-bold text-light text-center">野球魂購物城</footer>
     </div>
+    <script>
+        //按登出鍵後回到登入頁
+        let mybtn = document.getElementById("loginText");
+        console.log(mybtn.innerText);
+        if(mybtn.innerText = "登入 / 註冊"){
+            location.href = "login.php";
+        }
+    </script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

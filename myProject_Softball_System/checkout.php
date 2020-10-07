@@ -12,28 +12,6 @@
     if(!is_object($cart)){
         $cart = new myCart();
     } 
-    // 更新購物車內容
-    if(isset($_POST["cartaction"]) && ($_POST["cartaction"]=="update")){
-        if(isset($_POST["updateid"])){
-            $i=count($_POST["updateid"]);
-            for($j=0;$j<$i;$j++){
-                $cart->edit_item($_POST['updateid'][$j],$_POST['qty'][$j]);
-            }
-        }
-        header("Location: cart.php");
-    }
-    
-    // 移除購物車內容
-    if(isset($_GET["cartaction"]) && ($_GET["cartaction"]=="remove")){
-        $rid = intval($_GET['delid']);
-        $cart->del_item($rid);
-        header("Location: cart.php");	
-    }
-    // 清空購物車內容
-    if(isset($_GET["cartaction"]) && ($_GET["cartaction"]=="empty")){
-        $cart->empty_cart();
-        header("Location: cart.php");
-    }
     //購物車結束
     //繫結產品目錄資料
     $query_RecCategory = "SELECT category.categoryId, category.categoryName, count(product.productId) as productNum FROM category LEFT JOIN product ON category.categoryId = product.categoryId GROUP BY category.categoryId, category.categoryName ORDER BY category.categoryId ASC";
@@ -53,23 +31,23 @@
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/checkout.css">
     <title>棒球器具購物網</title>
     <script src="js/index.js"></script>
-   
+    <script src="js/checkout.js"></script>
+    
 </head>
 <body>
     <div class="wrapperArea">
       <!-- 導航列 -->
       <nav class="navbar  navbar-dark bg-dark headerArea">
         <div class="container">
-              <!-- logo圖片 -->
+            <!-- logo圖片 -->
             <div><a href=""><img class="logoImg" src="image/logo2.png" alt=""></a></div>
-
-            <div class="" id="navbarSupportedContent"></div>
+             <div class="" id="navbarSupportedContent"></div>
 
             <ul class="nav ml-auto">
-                 <li class="nav-item active">
+                <li   li class="nav-item active">
                     <a class="nav-link text-white" href="indexPage.php">首頁 <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
@@ -85,16 +63,18 @@
                     </div>
                 </li>
                 <li>
-                    
+                       <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+                <?php if(!isset($_SESSION["loginMember"])||($_SESSION["loginMember"]=="")) : ?>
+                    <button class="btn btn-outline-success my-2 my-sm-0" onclick="" type="submit"><a id="loginText" class="text-white btn" href="login.php">登入 / 註冊</a></button>
+                <?php else: ?>    
+                    <button class="btn btn-outline-warning my-2 my-sm-0" onclick="" type="submit"><a id="" class="text-white btn" href="?logout=true">登出</a></button>    
+                    <!-- <button class="btn btn-outline-warning my-2 my-sm-0" onclick="" type="submit"><a class="text-white btn" href="login.php">登出</a></button>     -->
+                <?php   endif; ?>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
-                <?php if(!isset($_SESSION["loginMember"])||($_SESSION["loginMember"]=="")) : ?>
-                    <button class="btn btn-outline-success my-2 my-sm-0" onclick="" type="submit"><a id="loginText" class="text-white btn" href="login.php">登入 / 註冊</a></button>
-                <?php else: ?>    
-                    <button class="btn btn-outline-warning my-2 my-sm-0" onclick="" type="submit"><a class="text-white btn" href="?logout=true">登出</a></button>    
-                <?php  endif; ?>
+              
             </form>
         </div>
         </nav>
@@ -117,40 +97,36 @@
                         <?php }?>
                     </ul>
                 </div>
-                 <!-- 購物車icon、購物車項次 -->
                 <div class="col-1 px-0 mx-auto pl-5"><a href="cart.php"><img class="imgSize" src="image/shoppingCart01.svg" alt=""></a></div>
                 <div class="col-1 px-0"><a href="cart.php"><span class="badge badge-danger"><?php echo number_format($cart->itemcount);?></span></a></div>
             </div>    
             <!-- 進入商品頁後商品名稱 -->
             <div class="h4 my-4">購物車清單</div>
             <hr>
-            <div>
+            <div >
                 <?php if($cart->itemcount > 0) {?>
-                <form action="" method="post" name="cartform" id="cartform">
                     <table class="table table-hover">
                         <thead class="thead-dark">
                             <tr>
-                              <th scope="col"></th>
+                              <th scope="col">#</th>
                               <th scope="col">商品名稱</th>
                               <th scope="col">數量</th>
                               <th scope="col">單價</th>
                               <th scope="col">小計</th>
-                              <th scope="col">刪除</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($cart->get_contents() as $item) { ?>    
+                            <?php 
+                                $i=0;
+                                foreach($cart->get_contents() as $item) { 
+                                $i++;    
+                            ?>    
                                 <tr>
                                 <th scope="row"><?php echo number_format($item['id']);?></th>
                                 <td><?php echo $item['info'];?></td>
-                                <td>
-                                    <input name="updateid[]" type="hidden" id="updateid[]" value="<?php echo $item['id'];?>">
-                                    <input name="qty[]" type="text" id="qty[]" value="<?php echo $item['qty'];?>" size="1">
-                                </td>
-                               
+                                <td><?php echo $item['qty'];?></p></td>
                                 <td><span>$ <?php echo number_format($item['price']);?></span></td>
                                 <td><span>$ <?php echo number_format($item['subtotal']);?></span></td>
-                                <td><a href="?cartaction=remove&delid=<?php echo $item['id'];?>"><span class="badge badge-danger">移除</span></a></td> 
                                 </tr>
                             <?php }?>
                         </tbody>
@@ -162,30 +138,77 @@
                     <div class="row">
                         <div class="col-2"></div>
                         <div class="col-6">
-                            <input name="cartaction" type="hidden" id="cartaction" value="update">
-                            <button class="btn btn-info" type="submit" name="updatebtn" id="button3" value="更新購物車">更新購物車</button>
-                            <button class="btn btn-danger" type="button" name="emptybtn" id="button5" value="清空購物車" onClick="window.location.href='?cartaction=empty'">清空購物車</button>
-                            <button class="btn btn-success" type="button" name="button" id="button6" value="前往結帳" onClick="window.location.href='checkout.php';">前往結帳</button>
-                            <button class="btn btn-secondary" type="button" name="backbtn" id="button4" value="回上一頁" onClick="window.history.back();">回上一頁</button>
                         </div>
-                        <div class="col-4"><span class="h4">總計: $ <span class="h4 text-danger"><?php echo number_format($cart->grandtotal);?></span> 元</span></div>
+                        <div class="col-4"><span class="h4">總計: $ <span class="h4 text-danger"><?php echo number_format($cart->grandtotal);?></span> 元</span></div>                        
+                    </div>  
+            </div>
+            <br>
+            <div class="cartDetail ">
+                <div class="row">
+                    <div class="col-3"></div>        
+                    <div class="col-6 border border-wite p-4 shadow">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-6"><p class="h2 text-center text-success px-0">訂購資訊填寫</p></div>
+                            <div class="col-3 px-0 py-1"><img class="imgSize" src="image/shoppingCart02.ico" alt=""></div>
+                        </div>
                         
-                    </div>
-                </form>    
+                        <hr size="4">
+                        <form action="cartreport.php" method="post" name="cartform" id="cartform" onSubmit="return checkForm();">
+                            <div class="form-group">
+                                <label for="customerName">訂購人姓名 <sup class="text-danger"> * </sup> : </label>
+                                <input type="text" class="form-control" id="customerName" name="customerName" placeholder="請輸入姓名">
+                            </div>   
+                            <div class="form-group">
+                                <label for="customerPhone">訂購人電話 <sup class="text-danger"> * </sup> : </label>
+                                <input type="text" class="form-control" id="customerPhone" name="customerPhone" placeholder="請輸入電話">
+                            </div>   
+                            <div class="form-group">
+                                <label for="customerEmail">電子信箱 <sup class="text-danger"> * </sup> : </label>
+                                <input type="text" class="form-control" id="customerEmail" name="customerEmail" placeholder="請輸入Email">
+                            </div>   
+                            <div class="form-group">
+                                <label for="customerAddress">住址 <sup class="text-danger"> * </sup> : </label>
+                                <input type="text" class="form-control" id="customerAddress" name="customerAddress" placeholder="請輸入地址">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputState">消費方式</label>
+                                    <select id="paytype" name="paytype" class="form-control">
+                                        <option value="ATM匯款" selected>ATM匯款</option>
+                                        <option value="信用卡支付">信用卡支付</option>
+                                        <option value="貨到付款">貨到付款</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-8 d-flex justify-content-center">
+                                    <input name="cartaction" type="hidden" id="cartaction" value="update">
+                                    <button type="submit" class="btn btn-primary mx-2" name="updatebtn" id="button3">送出訂購單</button>
+                                    <button class="btn btn-info mx-2" name="backbtn" id="button4" value="回上一頁" onClick="window.history.back();">回上一頁</button>
+                                </div>
+                                <div class="col-2"></div>
+                            </div>
+                            
+                        </form>
+                    </div>        
+                    <div class="col-3"></div>        
+
+                </div>
             </div>
         </div> 
-        
-    </div>    
-    <div class="h-50">
+        <div class="h-50">
         <footer class="bg-dark font-weight-bold text-light text-center">野球魂購物城</footer>
-    </div>
+         </div>
+    </div>    
     <script>
         //按登出鍵後回到登入頁
         let mybtn = document.getElementById("loginText");
         console.log(mybtn.innerText);
         if(mybtn.innerText = "登入 / 註冊"){
             location.href = "login.php";
-        }
+        }   
     </script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>

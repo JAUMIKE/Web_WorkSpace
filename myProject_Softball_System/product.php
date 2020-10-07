@@ -3,8 +3,12 @@
     //購物車開始
     require_once("mycart.php");
     session_start();
+    if(isset($_GET["logout"]) && ($_GET["logout"])=="true"){
+        unset($_SESSION["loginMember"]);
+        unset($_SESSION["memberLevel"]);
+        header("location: indexPage.php");  
+    }
     $cart =& $_SESSION['cart']; // 將購物車的值設定為 Session
-    echo count($cart);
     if(!is_object($cart)) $cart = new myCart();
     // 新增購物車內容
     if(isset($_POST["cartaction"]) && ($_POST["cartaction"]=="add")){
@@ -46,37 +50,41 @@
             height: 82vh;
         }
         .imgSize{
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
+        }
+        .logoImg{
+            width: 300px;
+            height: 120px;
         }
     </style>
+    <script>
+        function backtoTop(){window.location.assign("indexPage.php")}
+    </script>
 </head>
 <body>
     <div class="wrapperArea">
       <!-- 導航列 -->
       <nav class="navbar  navbar-dark bg-dark headerArea">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand mx-3" href="#">我的第1個網頁</a>
-
+            <!-- logo圖片 -->
+            <div><a href=""><img class="logoImg" src="image/logo2.png" alt=""></a></div>
             <div class="" id="navbarSupportedContent"></div>
 
             <ul class="nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link text-white" href="index.php">首頁 <span class="sr-only">(current)</span></a>
+                 <li class="nav-item active">
+                    <a class="nav-link text-white" href="indexPage.php">首頁 <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-white" href="#" target="_blank">選單(另開視窗)</a>
+                    <a class="nav-link  text-white" href="#" target="_blank">訂單查詢</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle  text-white" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">數據查詢</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item  text-white" href="#">球隊數據</a>
+                        <a class="dropdown-item  text-danger" href="#">施工中</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item  text-white" href="#">個人數據</a>
+                        <a class="dropdown-item  text-danger" href="#">施工中</a>
                     </div>
                 </li>
                 <li>
@@ -86,9 +94,9 @@
             <form class="form-inline my-2 my-lg-0">
                 <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
                 <?php if(!isset($_SESSION["loginMember"])||($_SESSION["loginMember"]=="")) : ?>
-                    <button class="btn btn-outline-success my-2 my-sm-0" onclick="" type="submit"><a class="text-success" href="login.php">登入 / 註冊</a></button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" onclick="" type="submit"><a id="loginText" class="text-white btn" href="login.php">登入 / 註冊</a></button>
                 <?php else: ?>    
-                    <button class="btn btn-outline-warning my-2 my-sm-0" onclick="" type="submit"><a class="text-warning" href="?logout=true">登出</a></button>    
+                    <button class="btn btn-outline-warning my-2 my-sm-0" onclick="" type="submit"><a class="text-white btn" href="?logout=true">登出</a></button>    
                 <?php  endif; ?>
             </form>
         </div>
@@ -112,7 +120,8 @@
                         <?php }?>
                     </ul>
                 </div>
-                <div class="col-1 px-0 mx-auto"><a href="cart.php"><img class="imgSize" src="image/shoppingCart01.svg" alt=""></a></div>
+                <!-- 購物車icon、購物車項次 -->
+                <div class="col-1 px-0 mx-auto pl-5"><a href="cart.php"><img class="imgSize" src="image/shoppingCart01.svg" alt=""></a></div>
                 <div class="col-1 px-0"><a href="cart.php"><span class="badge badge-danger"><?php echo number_format($cart->itemcount);?></span></a></div>
             </div>    
             <!-- 進入商品頁後商品名稱 -->
@@ -149,17 +158,40 @@
                         <input name="price" type="hidden" id="price" value="<?php echo $row_RecProduct["productPrice"];?>">
                         <input name="qty" type="hidden" id="qty" value="1">
                         <input name="cartaction" type="hidden" id="cartaction" value="add">
-                        <button type="submit" class="btn btn-outline-primary my-2 mx-2 " >放入購物車</button>
-                        <button class="btn btn-outline-info my-2 mx-2" onclick="window.history.back();">回上一頁</button> 
+                        <div class="row">
+                            <div class="col-6">
+                            <input type="submit" class="btn btn-outline-primary my-2 mx-2 w-75" name="button3" id="button3" value="加入購物車">
+                            </div>
+                            <div class="col-6">
+                            <input class="btn btn-outline-info my-2 mx-2 w-75" name="button4" id="button4" value="回上一頁" onClick="window.history.back();">  
+                            </div>
+
+                        </div>
+                        
+                       
+                        <!-- <button type="submit" class="btn btn-outline-primary my-2 mx-2" name ="" >放入購物車</button>
+                        <button class="btn btn-outline-info my-2 mx-2" onclick="toanotherPage()">回上一頁</button>    -->
                     </form>
+                        
                 </div>
                 <div class="col-4"></div>
             </div>
         </div> 
-        <div class="h-100 mt-4">
-            <footer class="bg-dark font-weight-bold text-light text-center h4">F.T.I.F壘球小聯盟</footer>
-        </div>
     </div>    
+    <div class="h-50">
+        <footer class="bg-dark font-weight-bold text-light text-center">野球魂購物城</footer>
+    </div>
+    <script>
+        function toanotherPage(){
+            location.href = "indexPage.php";
+        }
+        //按登出鍵後回到登入頁
+        let mybtn = document.getElementById("loginText");
+        console.log(mybtn.innerText);
+        if(mybtn.innerText = "登入 / 註冊"){
+            location.href = "login.php";
+        }
+    </script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

@@ -6,7 +6,7 @@
         if($_SESSION["memberLevel"]=="member"){
             
             //實現登入成功後延遲跳轉頁面
-            header("Refresh:3;url=indexPage.php");
+            header("Refresh:1;url=indexPage.php");
             echo '<script>window.close();</script>';
             
         //否則則導向管理中心
@@ -49,7 +49,7 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
 		//若帳號等級為 member 則導向會員中心
 		if($_SESSION["memberLevel"]=="member"){
             //實現登入成功後延遲跳轉頁面
-            header("Refresh:3;url=indexPage.php");
+            header("Refresh:1;url=indexPage.php");
 		//否則則導向管理中心
 		}else{
 			header("Location: indexPage.php");	
@@ -141,8 +141,8 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
                         <div class="">
                             <p class="text-center text-danger">登入帳號或密碼錯誤！</p>
                         </div>
+                        <?php   header("Refresh:1;url=login.php");}?>
                         <!-- 如果session有值代表登入成功 -->
-                        <?php }?>
                         <?php if(isset($_SESSION["loginMember"]) && ($_SESSION["loginMember"]!="")): ?>
                         <div>
                             <p class="text-center text-success">登入成功！</p>
