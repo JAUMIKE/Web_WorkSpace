@@ -43,21 +43,9 @@
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/product.css">
     <title>棒球器具購物網</title>
     <script src="js/index.js"></script>
-    <style>
-        .mainArea{
-            height: 82vh;
-        }
-        .imgSize{
-            width: 40px;
-            height: 40px;
-        }
-        .logoImg{
-            width: 300px;
-            height: 120px;
-        }
-    </style>
     <script>
         function backtoTop(){window.location.assign("indexPage.php")}
     </script>
@@ -76,7 +64,7 @@
                     <a class="nav-link text-white" href="indexPage.php">首頁 <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-white" href="#" target="_blank">訂單查詢</a>
+                    <a class="nav-link  text-white" href="orderSelect.php">訂單查詢</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle  text-white" href="#" id="navbarDropdown" role="button"

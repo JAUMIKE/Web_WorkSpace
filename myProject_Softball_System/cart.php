@@ -56,6 +56,17 @@
     <link rel="stylesheet" href="css/cart.css">
     <title>棒球器具購物網</title>
     <script src="js/index.js"></script>
+    <style>
+        @font-face {
+            font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+            src: url(http://ameblo.jp);
+        }
+        body {
+            font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+            font-size: 20px;
+        }
+
+    </style>
    
 </head>
 <body>
@@ -73,7 +84,7 @@
                     <a class="nav-link text-white" href="indexPage.php">首頁 <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-white" href="#" target="_blank">訂單查詢</a>
+                    <a class="nav-link  text-white" href="orderSelect.php">訂單查詢</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle  text-white" href="#" id="navbarDropdown" role="button"
@@ -141,7 +152,7 @@
                         <tbody>
                             <?php foreach($cart->get_contents() as $item) { ?>    
                                 <tr>
-                                <th scope="row"><?php echo number_format($item['id']);?></th>
+                                <th scope="row"></th>
                                 <td><?php echo $item['info'];?></td>
                                 <td>
                                     <input name="updateid[]" type="hidden" id="updateid[]" value="<?php echo $item['id'];?>">

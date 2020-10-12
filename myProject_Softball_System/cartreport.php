@@ -77,7 +77,17 @@ msg;
     <link rel="stylesheet" href="css/cartreport.css">
     <title>棒球器具購物網</title>
     <script src="js/index.js"></script>
-    
+    <style>
+        @font-face {
+            font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+            src: url(http://ameblo.jp);
+        }
+        body {
+            font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+            font-size: 20px;
+        }
+
+    </style>
     </head>
     <body>
         <div class="container mt-5">

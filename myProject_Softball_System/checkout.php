@@ -35,7 +35,18 @@
     <title>棒球器具購物網</title>
     <script src="js/index.js"></script>
     <script src="js/checkout.js"></script>
-    
+    <style>
+       
+        @font-face {
+            font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+            src: url(http://ameblo.jp);
+        }
+        body {
+            font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+            font-size: 20px;
+        }
+
+    </style>
 </head>
 <body>
     <div class="wrapperArea">
@@ -51,7 +62,7 @@
                     <a class="nav-link text-white" href="indexPage.php">首頁 <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-white" href="#" target="_blank">訂單查詢</a>
+                    <a class="nav-link  text-white" href="orderSelect.php">訂單查詢</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle  text-white" href="#" id="navbarDropdown" role="button"
@@ -108,7 +119,7 @@
                     <table class="table table-hover">
                         <thead class="thead-dark">
                             <tr>
-                              <th scope="col">#</th>
+                              <th scope="col"></th>
                               <th scope="col">商品名稱</th>
                               <th scope="col">數量</th>
                               <th scope="col">單價</th>
@@ -122,7 +133,7 @@
                                 $i++;    
                             ?>    
                                 <tr>
-                                <th scope="row"><?php echo number_format($item['id']);?></th>
+                                <th scope="row"></th>
                                 <td><?php echo $item['info'];?></td>
                                 <td><?php echo $item['qty'];?></p></td>
                                 <td><span>$ <?php echo number_format($item['price']);?></span></td>
