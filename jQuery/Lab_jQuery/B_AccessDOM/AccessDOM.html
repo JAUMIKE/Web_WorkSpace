@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnTry").click(function () {
+               //接收report內容，當執行動作未傳值時，會取該標籤的內容
+                // var s = $("#report").text();
+				        // alert(s);
+
+               //在瀏覽器上修改value值時，alert出來的會是source的內容，因此不會改變
+                // var a = $("#aTextField").attr("value");
+                // alert(a); 
+                //在瀏覽器上修改value值時，alert出來的會是Dom的內容，因此會隨之改變
+                // var x = $("#aTextField").prop("value");
+                // alert(x);
+
+                // 在這裏寫程式
+                // $("#report").text("line1<br>Line2");
+                // $("#report").html("line1<br>Line2");
+                // $("#report").append("line1<br>Line2")
+                //s 存放#report內容
+                // var s = $("#report").text();
+                // alert(s);
+                
+
+                // var s = $("#aTextField").prop("value");
+                // $("#report").append(s);
+                // var s = $("#aTextField").prop("value", "Hello!");
+               
+                // var s = $("input[name='radioGroup']").eq(2).attr("checked", "checked");
+                // var s = $("input[name='radioGroup']").eq(2).prop("checked", "checked");
+                //把checked 改成on，一樣可執行
+                // var s = $("input[name='radioGroup']").eq(2).prop("checked", "on");
+                //把checked 改成true，一樣可執行
+                // var s = $("input[name='radioGroup']").eq(2).prop("checked", true);
+                //選擇器checked值=false
+                var s = $("input[name='radioGroup']").eq(1).prop("checked", false);
+                // var s = $("input[name='radioGroup']:eq(2)").prop("checked", "checked");
+                $("#report").append("radio C selected.<br>");
+                
+                var t =$("input[name='checkboxes']").eq(2).prop("checked","");
+                var t =$("input[name='checkboxes']").eq(1).prop("checked","checked");
+                $("#report").append("checkbox 1 selected");
+                
+            })
+        });
+    </script>
+</head>
+<body>
+
+
+<div id="report">Report:<br></div>
+
+<hr>
+
+<form action="" method="put" onsubmit="return false;">
+  <div>
+    <label>Text:</label> <input type="text" id="aTextField" name="someTextField" value="Test"/>
+  </div>
+  <div>
+    <label>Radio group:</label>
+    <input type="radio" name="radioGroup" id="radioA" value="65"/> A
+    <input type="radio" name="radioGroup" id="radioB" value="66" checked="checked"/> B
+    <input type="radio" name="radioGroup" id="radioC" value="67"/> C
+  </div>
+  <div>
+    <label>Checkboxes:</label>
+    <input type="checkbox" name="checkboxes" id="checkbox1" value="1"/> 1
+    <input type="checkbox" name="checkboxes" id="checkbox2" value="2"/> 2
+    <input type="checkbox" name="checkboxes" id="checkbox3" value="3" checked="checked"/> 3
+    <input type="checkbox" name="checkboxes" id="checkbox4" value="4"/> 4
+  </div>
+  <button type="button" id="btnTry">Try</button>
+</form>
+</body>
+</html>

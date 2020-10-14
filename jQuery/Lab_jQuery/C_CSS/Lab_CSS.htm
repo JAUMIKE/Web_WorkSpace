@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnTry").click(function () {
+                // 在這裏寫程式
+                //新增元素class
+                // $("#betaRibbon").addClass("beta-ribbon");
+
+                //移除元素class
+                // $("#betaRibbon").removeClass("beta-ribbon");
+
+
+                //若元素存在該class則移除，若不存在則添加
+                $("#betaRibbon").toggleClass("beta-ribbon");
+
+                // $("#report").css({
+                //   "font-size": "1.2rem",
+                //   "color": "red" })
+        
+                $("#betaRibbon > a").css({
+                  "text-decoration":"none",
+                  "color":"red",
+                  "font-size": "1.2rem"
+                });
+                
+                
+                
+                
+            })
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="beta-ribbon-wrapper">
+  <div id="betaRibbon" class="beta-ribbon">
+    <a href="/about/#beta">Beta</a>
+  </div>
+</div>
+
+<div id="report">Report:<br></div>
+<hr>
+<form action="" method="put" onsubmit="return false;">
+  <button type="button" id="btnTry">Try</button>
+</form>
+</body>
+</html>

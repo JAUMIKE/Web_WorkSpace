@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../jQuery/Demo/jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.css">
+    <script src="../jQuery/Demo/jquery-1.9.1.min.js"></script>
+    <script src="../jQuery/Demo/jquery.mobile-1.3.2/jquery.mobile-1.3.2.js"></script>
+    <script>
+        console.log(Storage);
+        window.addEventListener("load",()=>{
+            if(typeof(Storage) == "undefined"){
+                alert("你的瀏覽器不支援WebStorage")
+                document.demo.innerText="你的瀏覽器不支援WebStorage";
+                
+            }else{
+                btn_save.addEventListener("click",saveToLocalStorage);
+                btn_load.addEventListener("click",loadFromLocalStorage);
+                btn_clear.addEventListener("click",clearLocalStorage);
+
+            }   
+        })
+        function saveToLocalStorage() { 
+            localStorage.username = myName.value;
+            show_LocalStorage.innerText = "儲存成功";    
+         }
+        function loadFromLocalStorage() {
+            show_LocalStorage.innerText=localStorage.username + " 你好，很高興見到你";
+        }
+        function clearLocalStorage(){
+            delete window.localStorage.clear();
+        }
+    </script>
+</head>
+<body>
+    <label for="">請輸入姓名 : </label>
+
+    <input type="text" name="myName" id="myName" ><br><hr>
+
+    <div id="show_LocalStorage"></div>
+    <p id="demo"></p>
+    <button id="btn_save"  data-inline="true" data-icon="check">儲存至local storage</button>
+    <button id="btn_load" data-inline="true" data-icon="check">從local storage讀取資料</button>
+    <button id="btn_clear" class="ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-left"  data-inline="true" data-icon="delete">清除資料</button>
+    
+
+</body>
+</html>

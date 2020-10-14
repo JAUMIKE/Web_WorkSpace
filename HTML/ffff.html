@@ -9,27 +9,20 @@
 </head>
 
 <body>
-    <audio id="myAudio" src="audio/battle.mp3" controls></audio>
-    <br>
-    <hr>
-    <br>
-    <p id="myid">點我一下</p>
-    <hr>
+    <form action="">
+        <label for="">輸入值 : </label>
+        <input type="text">
+    </form>
+   <button >上一頁</button>
+   <button onclick="window.print()">列印</button>
+   
 
 
     <script>
-        // unmuteButton.addEventListener('click', function () {
-        //     video.muted = false;
-        // });
-        let myAudio = document.getElementById('myAudio');
-        let myPid = document.getElementById('myid');
-        // myPid.addEventListener('click',function(){
-        //     myAudio.play();
-        // })
-        window.document.body.addEventListener('click',function(){
-            myAudio.play();
-        })
-
+       let x = 3;
+       y = (x+10000).toString();
+       console.log(y);
+       console.log(y.substr(1,4));
     </script>
 
 
