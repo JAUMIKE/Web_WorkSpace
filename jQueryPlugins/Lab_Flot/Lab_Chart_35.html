@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Lab_Chart</title>
+    <script src="jquery.min.js"></script>
+    <script src="flot/jquery.flot.min.js"></script>
+</head>
+<body>
+    <div id="placeholder" style="width:600px;height:300px;border: 1px solid black;"></div>
+    
+    <script>
+        data =
+        [
+            { color: "rgb(255, 0, 0)", label: "Foo", data: [[10, 1], [17, -14], [30, 5]] },
+            { color: "rgb(0, 255, 0)", label: "Bar", data: [[11, 13], [19, 11], [30, -7]] }
+        ];
+
+        var options = {
+            series: {
+                lines: { show: true },
+                points: { show: true }
+            }
+        };
+
+        $.plot($("#placeholder"), data, options);
+    </script>
+
+</body>
+</html>

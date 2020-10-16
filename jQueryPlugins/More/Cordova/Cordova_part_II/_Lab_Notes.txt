@@ -1,0 +1,559 @@
+Cordova 技術文件庫:
+https://cordova.apache.org/docs/en/latest/
+
+
+PhoneGap Build 網址:
+https://build.phonegap.com/
+
+
+config.xml 範例:
+https://github.com/phonegap/phonegap-start/blob/master/www/config.xml
+
+
+A simple online fake REST API server
+https://github.com/typicode/jsonplaceholder#how-to
+
+
+// --------------------------------------------------------------------------------
+// 600 Dialog
+
+610, config.xml:
+
+    <gap:plugin source="npm" name="cordova-plugin-dialogs" />
+
+
+
+
+620, HTML:
+
+    <input type="button" id="btnTest" value="Test" />
+    <br>
+    <input type="button" id="btnTry" value="Try" />
+    <br>
+    <input type="button" id="btnLab" value="Lab" />
+
+
+
+
+630, JavaScript:
+
+    <script>
+    document.addEventListener(
+        "deviceready", 
+        function () {
+            $("#btnTest").on(
+                "click",
+                function () {
+                    navigator.notification.alert(
+                        "Message Content",
+                        function () {
+                            $("#btnTest").prop("value", "button clicked");
+                            $("#btnTest").button("refresh");
+                        },
+                        "Title",
+                        "Roger!"
+                    );
+                    
+                }  
+            )
+            
+            $("#btnTry").on(
+                "click",
+                function () {
+                    navigator.notification.confirm(
+                        "Are you sure to ...?",
+                        function (buttonIndex) {
+                            $("#btnTry").prop("value", buttonIndex);
+                            $("#btnTry").button("refresh");
+                        },
+                        "Asking",
+                        ["是", "否", "取消"]
+                    );
+                    
+                }  
+            )
+            
+            $("#btnLab").on(
+                "click",
+                function () {
+                    navigator.notification.prompt(
+                        "What your name?",
+                        function (result) {
+                            $("#btnTry").prop("value", result.buttonIndex);
+                            $("#btnTry").button("refresh");
+                            $("#btnLab").prop("value", result.input1);
+                            $("#btnLab").button("refresh");
+                        },
+                        "Asking",
+                        ["重新輸入", "完成"],
+                        "Hello"
+                    );
+                    navigator.beep(2);
+                }    
+            )
+    
+        }, // end of deviceready
+        false
+    );
+    </script>
+
+
+
+
+// --------------------------------------------------------------------------------
+// 700 Camera
+
+
+710, config.xml: 
+    <gap:plugin source="npm" name="cordova-plugin-file" />
+    <gap:plugin source="npm" name="cordova-plugin-camera" />
+
+
+
+
+720, HTML:
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a"><input type="button" id="btnURL" value="URL" /></div>
+        <div class="ui-block-b"><input type="button" id="btnURI" value="URI" /></div>
+    </div>			
+    <image id="img" src="images/test.jpg" style="width: 100%"></image>
+
+
+
+
+730, JavaScript:
+
+    <script>
+    
+    document.addEventListener(
+        "deviceready", 
+        function () {
+            
+            btnURL.addEventListener("click", function () {
+                var options = {
+                        quality: 50, 
+                        destinationType: Camera.DestinationType.DATA_URL,
+                        sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+                };
+                navigator.camera.getPicture(function (imageData) {
+                    img.src = "data:image/jpeg;base64," + imageData;
+                }, function () {}, options);
+            })
+    
+            btnURI.addEventListener("click", function () {
+                var options = {
+                        quality: 50, 
+                        destinationType: Camera.DestinationType.FILE_URI,
+                        sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM
+                };
+                navigator.camera.getPicture(function (imageData) {
+                    console.log(imageData);
+                    img.src = imageData;
+                }, function () {}, options);
+            })
+    
+        }, // end of deviceready
+        false
+    );
+    
+    </script>
+
+
+
+
+740, 為何沒有作用...?
+
+    <Hint> Log, config.xml, Goolge ..., etc.
+
+
+
+
+750, 終於正常之後，請繼續修改程式，改成現場拍攝照片。
+
+
+
+
+// --------------------------------------------------------------------------------
+// 800 file, part one
+
+
+810, config.xml: 
+    <preference name="phonegap-version" value="cli-7.1.0" />
+    <gap:plugin source="npm" name="cordova-plugin-file" />
+
+
+
+
+820, HTML:
+
+    <input type="button" id="btnTest" value="Test" />
+    <br>
+    <input type="button" id="btnTry" value="Try" />
+    <br>
+    <input type="button" id="btnLab" value="Lab" />
+
+
+
+
+830, JavaScript:
+
+<script>
+
+document.addEventListener(
+    "deviceready", 
+    function () {
+        $("#btnTest").on(
+            "click",
+            function () {
+                var filePath = cordova.file.applicationDirectory;
+                
+                $("#btnTest")
+                    .prop("value", filePath)
+                    .button("refresh");
+                
+            }  
+        )
+        
+        $("#btnTry").on(
+            "click",
+            function () {
+               // var filePath = cordova.file.applicationStorageDirectory;
+               var filePath = cordova.file.externalRootDirectory;
+                
+                $("#btnTry")
+                    .prop("value", filePath)
+                    .button("refresh");
+
+            }  
+        )
+        
+        $("#btnLab").on(
+            "click",
+            function () {
+               var filePath = cordova.file.cacheDirectory;
+                
+                $("#btnLab")
+                    .prop("value", filePath)
+                    .button("refresh");
+
+            } 
+        )
+
+    }, // end of deviceready
+    false
+);
+</script>
+
+
+
+
+// --------------------------------------------------------------------------------
+// 840 file, part two
+
+
+840, config.xml: 
+    <preference name="phonegap-version" value="cli-7.1.0" />
+    <gap:plugin source="npm" name="cordova-plugin-file" />
+
+
+
+
+850, HTML:
+
+    <input type="button" id="btnTest" value="Test" />
+    <br>
+    <input type="button" id="btnTry" value="Try" />
+    <br>
+    <input type="button" id="btnLab" value="Lab" />
+    <br>
+    <div id="debug"></div>
+
+
+
+
+860, JavaScript:
+
+<script>
+document.addEventListener(
+    "deviceready", 
+    function () {
+        $("#btnTest").on(
+            "click",
+            function () {
+                // var filePath = cordova.file.dataDirectory;;
+                // $("#btnTest").val(filePath).button("refresh");
+                
+                resolveLocalFileSystemURL(cordova.file.dataDirectory, function (dir) {
+                    $("#debug").append("got dir" + "<hr>");
+                    $("#debug").append(JSON.stringify(dir) + "<hr>");
+                    dir.getFile("log.txt", {create: true}, function (file) {
+                        $("#debug").append("got file" + "<hr>");
+                        // $("#debug").append(JSON.stringify(file) + "<hr>");
+                        file.createWriter(function (writer) {
+                            $("#debug").append("got writer" + "<hr>");
+                            writer.seek(writer.length);
+                            writer.write(Date());
+                            $("#debug").append(Date() + "<hr>");
+                        })
+                        
+                    })
+                })
+                
+                // alert("OK");
+            }  
+            
+        )
+        
+        $("#btnTry").on(
+            "click",
+            function () {
+                resolveLocalFileSystemURL(cordova.file.dataDirectory, function (dir) {
+                    $("#debug").html("");
+                    $("#debug").append("got dir" + "<hr>");
+                    $("#debug").append(JSON.stringify(dir) + "<hr>");
+                    dir.getFile("log.txt", {}, function (fileEntry) {
+                        $("#debug").append("got fileEntry" + "<hr>");
+                        // $("#debug").append(JSON.stringify(file) + "<hr>");
+                        fileEntry.file(function (file) {
+                            $("#debug").append("got file" + "<hr>");
+                            var reader = new FileReader();
+                            reader.onloadend = function () {
+                                $("#debug").append("load end" + "<hr>");
+                                var content = this.result;
+                                $("#debug").append(content + "<hr>");
+                            }
+                            reader.readAsText(file);
+                        })
+                        
+                    })
+                })
+                
+                // alert("OK");
+
+            }  
+        )
+        
+        $("#btnLab").on(
+            "click",
+            function () {
+
+            } 
+        )
+
+    }, // end of deviceready
+    false
+);
+</script>
+
+
+
+
+// --------------------------------------------------------------------------------
+// 870 file, part three
+
+
+870, config.xml: 
+    <preference name="phonegap-version" value="cli-7.1.0" />
+    <gap:plugin source="npm" name="cordova-plugin-file" />
+
+
+
+
+880, HTML:
+
+    <input type="button" id="btnTest" value="Test" />
+    <br>
+    <input type="button" id="btnTry" value="Try" />
+    <br>
+    <input type="button" id="btnLab" value="Lab" />
+    <br>
+    <div id="debug"></div>
+
+
+890, JavaScript:
+
+<script>
+    
+document.addEventListener(
+    "deviceready", 
+    function () {
+        $("#btnTest").on(
+            "click",
+            function () {
+                // var filePath = cordova.file.dataDirectory;
+                // $("#btnTest").val(filePath).button("refresh");
+                var path = cordova.file.dataDirectory;
+                
+                window.resolveLocalFileSystemURL(path, function (directoryEntry) {
+                    // debug.innerHTML = JSON.stringify(directoryEntry); 
+                    directoryEntry.getFile("test.txt", {create: true}, function (fileEntry) {
+                        // debug.innerHTML = JSON.stringify(fileEntry);
+                        fileEntry.createWriter(function (writer) {
+                            writer.seek(writer.length);
+                            writer.write("content of test.txt");
+                            $("#btnTest").val("OK").button("refresh");
+                        });
+                    });
+                });
+                
+                alert("OK");
+            }  
+            
+        )
+        
+        $("#btnTry").on(
+            "click",
+            function () {
+                var path = cordova.file.dataDirectory;
+                
+                window.resolveLocalFileSystemURL(path + "test.txt", function (fileEntry) {
+                    fileEntry.createWriter(function (writer) {
+                        writer.seek(writer.length);
+                        writer.write(Date()); 
+                        $("#btnTry").val("OK").button("refresh");
+                    });
+                });                
+                alert("OK");
+            }  
+        )
+        
+        $("#btnLab").on(
+            "click",
+            function () {
+                var path = cordova.file.dataDirectory;
+                
+                window.resolveLocalFileSystemURL(path + "test.txt", function (fileEntry) {
+                    fileEntry.file(function (file) {
+                        var reader = new FileReader();
+                        reader.onloadend = function () {
+                            debug.innerHTML = this.result;
+                        }
+                        reader.readAsText(file);
+                    })
+                });
+                alert("OK");
+            } 
+        )
+
+    }, // end of deviceready
+    false
+);
+</script>
+
+
+
+
+// --------------------------------------------------------------------------------
+// 900 Geolocation, part one
+
+
+910, config.xml:  Geolocation
+    <preference name="phonegap-version" value="cli-7.1.0" />
+    <gap:plugin source="npm" name="cordova-plugin-geolocation" />
+
+
+
+
+920, HTML:
+
+    <input type="button" id="btnTest" value="Test" />
+    <br>
+    <div id="debug"></div>
+
+
+
+
+930, JavaScript:
+
+    <script>
+    
+    document.addEventListener(
+        "deviceready", 
+        function () {
+    
+            $("#btnTest").click(function () {
+                
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        var report = 
+                            'Latitude: '          + position.coords.latitude          + '<br>' +
+                            'Longitude: '         + position.coords.longitude         + '<br>' +
+                            'Altitude: '          + position.coords.altitude          + '<br>' +
+                            'Accuracy: '          + position.coords.accuracy          + '<br>' +
+                            'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '<br>' +
+                            'Heading: '           + position.coords.heading           + '<br>' +
+                            'Speed: '             + position.coords.speed             + '<br>' +
+                            'Timestamp: '         + position.timestamp                + '<br>';
+                        $("#debug").html(report);
+                    }, 
+                    function (e) { alert("error!") }
+                );
+                
+            })
+            
+        }, // end of deviceready
+        false
+    );
+    
+    </script>
+
+
+
+
+// --------------------------------------------------------------------------------
+// 940 Geolocation, 承上例，如何結合 Google Map ?
+
+
+
+
+// --------------------------------------------------------------------------------
+// 950 Geolocation, part three
+
+
+950, config.xml:  Geolocation
+    <gap:plugin source="npm" name="cordova-plugin-geolocation" />
+
+
+
+
+960, HTML:
+
+    <input type="button" id="btnTest" value="Test" />
+    <br>
+    <div id="debug"></div>
+
+
+
+
+970, JavaScript:
+
+    <script>
+    
+    document.addEventListener(
+        "deviceready", 
+        function () {
+            
+            var watchID = navigator.geolocation.watchPosition(
+                function(position) {
+                    var report = 
+                        'Latitude: ' + position.coords.latitude + '<br>' +
+                        'Longitude: ' + position.coords.longitude;
+                    $("#debug").html(report);
+                }, 
+                function (e) {  }, 
+                { timeout: 3000 }
+            );
+    
+            $("#btnTest").click(function () {
+                
+                navigator.geolocation.clearWatch(watchID);
+                
+            })
+            
+        }, // end of deviceready
+        false
+    );
+    
+    </script>
+

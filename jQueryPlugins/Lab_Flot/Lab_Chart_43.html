@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Lab_Chart</title>
+    <script src="jquery.min.js"></script>
+    <script src="flot/jquery.flot.min.js"></script>
+</head>
+<body>
+    <div id="placeholder" style="width:600px;height:300px;"></div>
+    
+    <script>
+        var dataSet = [[0, 3], [3, 5], [6, 7], [9, 9], [12, 11]];
+
+        $.plot("#placeholder",
+            [
+                {
+                    data: dataSet,
+                    bars: { show: true }
+                }
+            ]
+        );
+    </script>
+
+</body>
+</html>

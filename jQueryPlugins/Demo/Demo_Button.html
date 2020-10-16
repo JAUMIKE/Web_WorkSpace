@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>How to make a button</title>
+<link rel="stylesheet"
+	href="jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.css" />
+<script src="jquery-1.9.1.min.js"></script>
+<script src="jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.js"></script>
+</head>
+<body>
+	<div data-role="page">
+		<div data-role="content">
+
+			<p>input = button | submit，當然會是按鈕外觀:</p>
+
+			<input type="button" id="btnTest" value="Test" data-inline="true"
+				data-icon="gear"> <input type="submit" id="btnOK" value="OK"
+				data-inline="true" data-icon="check"> <br> <br> <br>
+			<p>＜ａ＞ 加上 data-role 屬性，就變身成按鈕:</p>
+
+			<a href="#" data-role="button" data-inline="true">Hyperlink as
+				button</a>
+
+			<p>＜controlgroup＞ :</p>
+			<div data-role="controlgroup" data-type="horizontal">
+				<a href="#" data-role="button" data-icon="arrow-l"
+					data-iconpos="top" data-rel="back">Button A</a> <a href="#"
+					data-role="button" data-icon="grid" data-iconpos="top">Button B</a>
+				<a href="#" data-role="button" data-icon="arrow-r"
+					data-iconpos="top">Button C</a>
+			</div>
+
+		</div>
+
+	</div>
+</body>
+</html>

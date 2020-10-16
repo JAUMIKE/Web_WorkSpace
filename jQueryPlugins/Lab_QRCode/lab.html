@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.9.1.min.js"></script>
+    <script src="jquery.qrcode.min.js"></script>
+    <style>
+   
+    </style>
+</head>
+<body> 
+    <div id="qrcode"></div>
+    <hr>
+    <br>
+    <div id="qrcode2"></div>
+    <hr>
+    <br>
+    <!-- 可放在div以外的標籤 -->
+    <p>aaaa<span id="qrcode3"></span> bbbb</p>
+    <hr>
+    <br>
+    <p id="qrcode4"></p>
+</body>
+<script>
+    // 修改qrcode大小
+    $("#qrcode").qrcode({text:"https://free.com.tw/tag/中文網址/",width: 128,height: 128});
+    // 轉換中文編碼問題
+    function utf16to8(str) {  
+    var out, i, len, c;  
+    out = "";  
+    len = str.length;  
+    for(i = 0; i < len; i++) {  
+    c = str.charCodeAt(i);  
+    if ((c >= 0x0001) && (c <= 0x007F)) {  
+        out += str.charAt(i);  
+    } else if (c > 0x07FF) {  
+        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));  
+        out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));  
+        out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));  
+    } else {  
+        out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));  
+        out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));  
+    }  
+    }  
+    return out;  
+
+}  
+    //利用自訂函數解析中文
+    let urlStr = utf16to8("https://free.com.tw/tag/中文網址/")
+    $("#qrcode2").qrcode({text:urlStr,width: 256,height: 256});
+    //把qrcode放在非div標籤也能顯示
+    $("#qrcode3").qrcode({text:urlStr,width: 100,height: 100});
+    //利用encodeURI解析中文url
+    let target = "https://free.com.tw/tag/中文網址/";
+    let qrObj = {
+        text: encodeURI(target),
+        width:100,
+        height:100
+    }
+    $("#qrcode4").qrcode(qrObj);
+</script>
+</html>

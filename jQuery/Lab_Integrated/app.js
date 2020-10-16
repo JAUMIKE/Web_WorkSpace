@@ -2,6 +2,10 @@
 var express = require("express");
 var app = express();
 
+//允許使用跨域服務
+var cors  = require("cors");
+app.use(cors());
+
 // 以 body-parser 模組協助 Express 解析表單與JSON資料
 var bodyParser = require('body-parser');
 app.use( bodyParser.json() );

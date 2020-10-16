@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Lab_Chart</title>
+    <script src="jquery.min.js"></script>
+    <script src="flot/jquery.flot.min.js"></script>
+    <script src="flot/jquery.flot.pie.min.js"></script>
+</head>
+<body>
+    <div id="placeholder" style="width:600px;height:300px;"></div>
+    
+    <script>
+
+        function labelFormatter(label, series) {
+            return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
+        }
+
+        var data = [];
+        // var series = Math.floor(Math.random() * 6) + 3;
+        var series = 5;
+        for (var i = 0; i < series; i++) {
+            data[i] = {
+                label: "Series" + (i + 1),
+                data: Math.floor(Math.random() * 100) + 1
+            }
+        }
+
+        // 試用的程式貼在這裏 --------------------------------------------------
+
+
+        $.plot(placeholder, data, {
+            series: {
+                pie: {
+                    show: true,
+                    radius: 1,
+                    label: {
+                        show: true,
+                        radius: 3 / 4,
+                        formatter: labelFormatter,
+                        background: {
+                            opacity: 0.5
+                        }
+                    }
+                }
+            },
+            grid: {
+                hoverable: true,
+                clickable: true
+            },
+            legend: {
+                show: true
+            }
+        });
+
+
+        // end of 試用的程式貼在這裏 --------------------------------------------------
+
+
+    </script>
+
+</body>
+</html>

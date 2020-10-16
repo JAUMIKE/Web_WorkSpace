@@ -58,7 +58,9 @@ report.innerHTML =
     
     function doWork(anInt, anArray, anObject) {
         anInt = 11;
+        //陣列內容改變、陣列本身不變
         anArray.push("three");
+        //物件內容改變、物件本身不變
         anObject.data = 101;
     }
 

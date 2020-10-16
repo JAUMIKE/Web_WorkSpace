@@ -1,0 +1,195 @@
+﻿jQueryMobile ListView 練習
+
+
+<Note> 完成 1~8 的每一個步驟後，都請立即在瀏覽器觀測進度與效果。
+
+
+1.	新建一個 HTML 文件，檔名 LAB_ListView，內容如下:
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Lab - ListView</title>
+<link rel="stylesheet"
+	href="jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.css" />
+<script src="jquery-1.9.1.min.js"></script>
+<script src="jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.js"></script>
+</head>
+<body>
+
+	<div data-role="page">
+		<div data-role="content">
+
+			<ul>
+				<li>Boston</li>
+				<li>Tampa Bay</li>
+				<li>Baltimore</li>
+				<li>NY Yankees</li>
+				<li>Toronto</li>
+				<li>Detroit</li>
+				<li>Cleveland</li>
+				<li>Kansas City</li>
+				<li>Minnesota</li>
+				<li>Chi White Sox</li>
+				<li>Oakland</li>
+				<li>Texas</li>
+				<li>LA Angels</li>
+				<li>Seattle</li>
+				<li>Houston</li>
+			</ul>
+
+		</div> <!-- page content -->
+
+	</div> <!-- page -->
+</body>
+</html>
+
+
+
+
+2.	針對 <ul> 元素，設定 data-role="listview" data-inset="true" 屬性，如下:
+			<ul data-role="listview" data-inset="true">
+				<li>Boston</li>
+				<li>Tampa Bay</li>
+				...
+
+
+
+				
+3.	每個 <li></li> 的 innherHTML 都以 <a> 元素包住隊名，像這樣: 		
+
+			<ul data-role="listview" data-inset="true">
+				<li><a href="#">Boston</a></li>
+				<li><a href="#">Tampa Bay</a></li>
+				<li><a href="#">Baltimore</a></li>
+				<li><a href="#">NY Yankees</a></li>
+				<li><a href="#">Toronto</a></li>
+				<li><a href="#">Detroit</a></li>
+				<li><a href="#">Cleveland</a></li>
+				<li><a href="#">Kansas City</a></li>
+				<li><a href="#">Minnesota</a></li>
+				<li><a href="#">Chi White Sox</a></li>
+				<li><a href="#">Oakland</a></li>
+				<li><a href="#">Texas</a></li>
+				<li><a href="#">LA Angels</a></li>
+				<li><a href="#">Seattle</a></li>
+				<li><a href="#">Houston</a></li>
+			</ul>
+
+
+
+
+4.	在 <ul> 繼續套用下列兩項屬性:
+	data-filter="true"
+	data-filter-placeholder="請輸入隊名:"
+
+			<ul data-role="listview" data-inset="true"
+				data-filter="true" data-filter-placeholder="請輸入隊名:" >
+				<li><a href="#">Boston</a></li>
+				<li><a href="#">Tampa Bay</a></li>
+				<li><a href="#">Baltimore</a></li>
+				...
+
+
+
+
+
+5-1	在 Boston 紅襪隊前面加入一個新的 <li>美聯東區<li> 項目，並且套用 data-role="list-divider"
+5-2	在 Detroit 老虎隊前面加入一個新的 <li>美聯中區<li> 項目，並且套用 data-role="list-divider"
+5-3	在 Oakland 運動家隊前面加入一個新的 <li>美聯西區<li> 項目，並且套用 data-role="list-divider"
+
+			<ul data-role="listview" data-inset="true"
+				data-filter="true" data-filter-placeholder="請輸入隊名:" >
+				<li data-role="list-divider">美聯東區</li>
+				<li><a href="#">Boston</a></li>
+				<li><a href="#">Tampa Bay</a></li>
+				<li><a href="#">Baltimore</a></li>
+				<li><a href="#">NY Yankees</a></li>
+				<li><a href="#">Toronto</a></li>
+				<li data-role="list-divider">美聯中區</li>
+				<li><a href="#">Detroit</a></li>
+				<li><a href="#">Cleveland</a></li>
+				<li><a href="#">Kansas City</a></li>
+				<li><a href="#">Minnesota</a></li>
+				<li><a href="#">Chi White Sox</a></li>
+				<li data-role="list-divider">美聯西區</li>
+				<li><a href="#">Oakland</a></li>
+				<li><a href="#">Texas</a></li>
+				<li><a href="#">LA Angels</a></li>
+				<li><a href="#">Seattle</a></li>
+				<li><a href="#">Houston</a></li>
+			</ul>
+
+
+
+
+6-1	針對 NY Yankees 那個清單項目，在 li 套用 data-icon="info" 屬性
+6-2	針對 Toronto 那個清單項目，在 li 套用 data-icon="false" 屬性
+				<li data-icon="info"><a href="#">NY Yankees</a></li>
+				<li data-icon="false"><a href="#">Toronto</a></li>
+
+
+
+
+7.1	將 Boston 那個清單項目改成這樣:	(Note: 圖、標題、內文。)
+				<li><a href="#"> <img src="images/bos.gif">
+						<h2>Boston</h2>
+						<p>波士頓紅襪隊</p>
+				</a></li>
+
+7.2	美聯東區各隊都比照上述格式辦理，如下:
+				<li data-role="list-divider">美聯東區</li>
+				<li><a href="#"> <img src="images/bos.gif">
+						<h2>Boston</h2>
+						<p>波士頓紅襪隊</p>
+				</a></li>
+				<li><a href="#"><img src="images/tba.gif">
+						<h2>Tampa Bay</h2>
+						<p>坦帕灣光芒隊</p>
+				</a></li>
+				<li><a href="#"><img src="images/bal.gif">
+						<h2>Baltimore</h2>
+						<p>巴爾的摩金鶯隊</p>
+				</a></li>
+				<li data-icon="info"><a href="#"><img src="images/nya.gif">
+						<h2>NY Yankees</h2>
+						<p>紐約洋基隊</p>
+				</a></li>
+				<li data-icon="false"><a href="#"><img src="images/tor.gif">
+						<h2>Toronto</h2>
+						<p>多倫多藍鳥隊</p>
+				</a></li>
+
+7-3	在 </head> 加入樣式定義:
+
+<style>
+.ui-li-thumb {
+	top: 0;
+	bottom: 0;
+	margin: auto auto auto 0.8em;
+}
+</style>
+
+
+
+
+8-1	在紅襪隊那個清單項目加入一個新<P>段落，段落內容「97勝-65敗」，該段落套用 ui-li-aside 樣式類別:
+	<p class="ui-li-aside">97-65</p>
+
+8-2	在紅襪隊那個清單項目加入一個新<span>元素，元表內容為「8」，元素套用 ui-li-count 樣式類別:
+	<span class="ui-li-count">8</span>
+
+8-3	完成後的紅襪隊清單項目:
+				<li><a href="#"> <img src="images/bos.gif">
+						<h2>Boston</h2>
+						<p>波士頓紅襪隊</p>
+						<p class="ui-li-aside">97勝-65敗</p>
+						<span class="ui-li-count">8</span>
+				</a></li>
+
+
+
+
+9.	請想想/討論看看，完成這樣的設計後，如何整合 PHP / ASP.NET 程式設計與資料庫呢?
+

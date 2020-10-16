@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget 
+    xmlns="http://www.w3.org/ns/widgets" 
+    xmlns:gap="http://phonegap.com/ns/1.0" 
+    id="com.YourDomain.YourAppName" 
+    versionCode="10" 
+    version="1.0.0">
+
+    <name>Your App Name</name>
+
+    <author email="Your@email.com">
+        Your name
+    </author>
+
+    <gap:plugin source="npm" name="cordova-plugin-device" />
+
+
+</widget>

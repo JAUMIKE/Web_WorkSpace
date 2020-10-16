@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="./js/jquery.js"></script>
+</head>
+<body>
+    <input type="button" class="demoButton" value="Test">
+    <input type="button" class="demoButton" value="Try">
+    <div id="debug"></div>
+    <script>
+        
+        $(".demoButton").click(function () {
+            var startTime = (new Date()).getTime();
+            // 以本例來說，此處的 this 指向某一個 button 元素
+            console.log(this);
+            var _this = this;
+            $.ajax({
+                type: "get",
+                url: "https://jsonplaceholder.typicode.com/posts/3",
+                dataType: "json",
+                success: function (data) {
+                    var endTime = (new Date()).getTime();
+                    var spentTime = endTime - startTime;
+                    // 以本例來說，此處的 this 並非是 button 元素
+                    console.log(this);
+                    $(_this).val(spentTime);
+                    // $(this).val(spentTime); // 錯誤寫法
+                }
+            });
+            
+            
+        })
+
+        
+    </script>
+</body>
+</html>

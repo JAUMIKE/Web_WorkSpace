@@ -1,0 +1,213 @@
+jQueryMobile WebForm Controls 練習
+
+
+<Note> 完成各個步驟後，都請立即在瀏覽器觀測進度與效果。
+
+
+1.	在本資料夾新建一個 HTML 文件，檔名 LAB_Controls.html，內容如下:
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Lab - Controls</title>
+<link rel="stylesheet"
+	href="jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.css" />
+<script src="jquery-1.9.1.min.js"></script>
+<script src="jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.js"></script>
+
+</head>
+<body>
+	<div data-role="page">
+		<div data-role="content">
+
+
+		</div>
+		<!-- page content -->
+	</div>
+	<!-- page -->
+</body>
+</html>
+
+
+
+
+2.	輸入游標定位到 content 那個 div，置入一個 form 表單元素並且設定表單的資料
+	以 POST 方式傳送到 echo.php，如下:
+	
+		<div data-role="content">
+			<form method="post" action="echo.php">
+			
+			</form>
+		</div>
+
+
+
+
+3.	文字輸入方塊
+
+3-1	在 form 表單置入下列兩個元件:
+	(Note: 元素的屬性與一般 HTML 表單控制項相同)
+	(Note: 請留意 jQueryMobile 建議的格式: <Label for="txt1"><input type="text" id="txt1"...> ) 
+
+				<label for="txtInputText">Input text:</label> 
+				<input type="text"
+					name="txtInputText" id="txtInputText" value="" placeholder="請輸入資料" />
+					
+3-2	在瀏覽器測試效果，縮放視窗寬度，觀察文字標籤與文字輸入方塊的相對位置。
+
+3-3	將上述兩個元件包進一個 div，外圍 div 的 data-role 屬性為 "fieldcontain"，如下:
+
+			<div data-role="fieldcontain">
+				<label for="txtInputText">Input text:</label> 
+				<input type="text"
+					name="txtInputText" id="txtInputText" value="" placeholder="請輸入資料" />
+			</div>
+
+3-4	在瀏覽器測試效果，縮放視窗寬度，觀察文字標籤與文字輸入方塊的相對位置。
+
+
+3-5	search 型文字輸入方塊:
+			<div data-role="fieldcontain">
+				<label for="txtSearch">Search Input:</label>
+				<input type="search" name="txtSearch" id="txtSearch" value="" />
+			</div>
+
+3-6	多行型文字輸入方塊
+			<div data-role="fieldcontain">
+				<label for="txtTextArea">Text area:</label>
+				<textarea name="txtTextArea" id="txtTextArea"></textarea>
+			</div>
+
+
+
+
+4.	在 </form> 前一行置放兩個 <input type="submit" ...> 按鈕控制項，利用老師補充的
+	ui-grid-(abc), ui-block-(abcd) 樣式類別，將兩個按鈕排列成左右各佔一半。例如:	
+
+			<div class="ui-grid-a">
+				<div class="ui-block-a"><input type="submit" name="btnOK" value="OK" /></div>
+				<div class="ui-block-b"><input type="submit" name="btnCancel" value="Cancel" /></div>
+			</div>
+
+
+
+
+5.	Range 型控制項:	
+
+			<div data-role="fieldcontain">
+				<label for="rngScore">Input Range:</label>
+				<input type="range" name="rngScore" id="rngScore" value="60" min="0" max="100" />
+			</div>
+
+
+
+
+6.	開關型控制項:
+			<div data-role="fieldcontain">
+				<label for="sltOnOff">Switch (select):</label>
+				<select name="sltOnOff" id="sltOnOff" data-role="slider">
+					<option value="off">Off</option>
+					<option value="on">On</option>
+				</select>
+			</div>
+
+
+
+
+7.	核選方塊
+
+7-1	單一個核選方塊
+				<label><input type="checkbox" name="chkReading" /> Reading </label>
+
+7-2	另一種語法(本練習慣用的語法):
+				<input type="checkbox" name="chkMusic"  id="chkMusic" /><label for="chkMusic">Music</label>
+
+7-3	將一組核選方塊用 <fieldset>..</fieldset> 包裝起來，如下:
+
+			<fieldset data-role="controlgroup">
+				<legend>Your hobby:</legend>
+				<label><input type="checkbox" name="chkReading" /> Reading </label>
+				<input type="checkbox" name="chkMusic"  id="chkMusic" /><label for="chkMusic">Music</label>
+				<input type="checkbox" name="chkSport"  id="chkSport" /><label for="chkSport">Sport</label>
+			</fieldset>
+
+7-4	請試試看改用 <div data-role="fieldcontain">..</div> 的差異
+
+
+
+
+8.	一組圓鈕選項，適合於單選情境:
+			<fieldset data-role="controlgroup">
+					<legend>Choose a pet:</legend>
+			     	<input type="radio" name="rdoPet" id="rdoPet0" value="0" checked="checked" />
+			     	<label for="rdoPet0">Cat</label>
+			
+			     	<input type="radio" name="rdoPet" id="rdoPet1" value="1"  />
+			     	<label for="rdoPet1">Dog</label>
+			
+			     	<input type="radio" name="rdoPet" id="rdoPet2" value="2"  />
+			     	<label for="rdoPet2">Hamster</label>
+			
+			     	<input type="radio" name="rdoPet" id="rdoPet3" value="3"  />
+			     	<label for="rdoPet3">Lizard</label>
+			</fieldset>
+
+
+
+
+9.	清單/下拉式選項:
+
+9-1	基本型，語法與一般 HTML 的 select 控制項完全相同:
+			<fieldset data-role="controlgroup">
+				<label for="sltCity">City:</label>
+				<select name="sltCity" id="sltCity">
+				   <option value="0">台北</option>
+				   <option value="1">台中</option>
+				   <option value="2">台南</option>
+				   <option value="3">高雄</option>
+				</select>
+			</fieldset>
+
+9-2	jQueryMobile 自訂清單選項，在 select 的  OpenTag 加上 data-native-menu="false" 屬性，如下:
+
+			<fieldset data-role="controlgroup">
+				<label for="sltCity">City:</label>
+				<select name="sltCity" id="sltCity" data-native-menu="false">
+				   <option value="0">台北</option>
+				   <option value="1">台中</option>
+				   <option value="2">台南</option>
+				   <option value="3">高雄</option>
+				</select>
+			</fieldset>
+
+
+9-3	在選項清單頂端增列一個新選項: 「請選擇:」，
+	並且比較看看該選項加/不加 data-placeholder="true" 的差異:
+
+			<fieldset data-role="controlgroup">
+				<label for="sltCity">City:</label>
+				<select name="sltCity" id="sltCity" data-native-menu="false">
+				   <option value="-1" data-placeholder="true">請選擇:</option>
+				   <option value="0">台北</option>
+				   <option value="1">台中</option>
+				   <option value="2">台南</option>
+				   <option value="3">高雄</option>
+				</select>
+			</fieldset>
+
+9-4	在 select 的  OpenTag 加上 multiple 屬性，讓使用者可複選各選項
+9-5	select 的 name 屬性屬性值加上一對中括號
+
+			<fieldset data-role="controlgroup">
+				<label for="sltCity[]">City:</label>
+				<select name="sltCity[]" id="sltCity" data-native-menu="false" multiple>
+				   <option value="-1" data-placeholder="true">請選擇:</option>
+				   <option value="0">台北</option>
+				   <option value="1">台中</option>
+				   <option value="2">台南</option>
+				   <option value="3">高雄</option>
+				</select>
+			</fieldset>
+
+

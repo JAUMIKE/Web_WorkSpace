@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Testing QR Code</title>
+<script src="jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="jquery.qrcode.min.js"></script>
+
+</head>
+<body>
+
+<div id="qrcode"></div>
+
+<script>
+
+var options = {
+    text: "http://www.google.com", 
+    width: 100, 
+    height: 100
+};
+
+$('#qrcode').qrcode(options);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,284 @@
+PhoneGap Build 網址:
+https://build.phonegap.com/
+
+
+config.xml 範例:
+https://github.com/phonegap/phonegap-start/blob/master/www/config.xml
+
+
+A simple online fake REST API server
+https://github.com/typicode/jsonplaceholder#how-to
+
+
+
+// --------------------------------------------------------------------------------
+// 100 testAJAX
+
+110, config.xml:
+
+    <gap:plugin source="npm" name="cordova-plugin-whitelist" />
+    <access origin="*" />
+    <allow-intent href="*" />
+    <allow-navigation href="*" />
+
+
+
+
+120, HTML:
+
+			<input type="button" id="btnTest" value="AJAX Test" />
+			<div id="info"></div>
+
+
+
+
+130, JavaScript:
+
+    $("#btnTest").click(function () {
+        $.ajax({
+            type: "get",
+            url: "http://jsonplaceholder.typicode.com/posts/3",
+            dataType: "json",
+            success: function (data) {
+                $("#info").text(JSON.stringify(data));
+            }
+        });
+        // $("#info").text("OK");
+    })
+
+
+
+
+// --------------------------------------------------------------------------------
+// 200 testDevice
+
+
+210, config.xml:
+
+    <gap:plugin source="npm" name="cordova-plugin-device" />
+
+
+
+
+220, HTML:
+
+			<input type="button" id="btnTest" value="Test" />
+			<ul id="info"></ul>
+
+
+
+
+230, JavaScript:
+
+		    $("#btnTest").click(function () {
+		
+		        $("#info").empty();
+		        $("#info").append("<li>" + device.cordova + "</li>");
+		        $("#info").append("<li>" + device.model + "</li>");
+		        $("#info").append("<li>" + device.platform + "</li>");
+		        $("#info").append("<li>" + device.uuid + "</li>");
+		        $("#info").append("<li>" + device.version + "</li>");
+		        $("#info").append("<li>" + device.isVirtual + "</li>");
+		        $("#info").append("<li>" + device.serial + "</li>");
+		        $("#info").listview("refresh");
+		
+		    })
+
+
+
+
+// --------------------------------------------------------------------------------
+// 300 testShake
+
+
+310, config.xml:
+
+    <gap:plugin source="npm" name="cordova-plugin-device" />
+    <gap:plugin source="npm" name="cordova-plugin-device-motion" />
+
+
+
+
+320, HTML:
+
+			<div>Shake me to test.</div>
+
+
+
+
+330, JavaScript:
+
+    <script type="text/javascript" src="js/shake.js"></script>
+
+	<script>
+		$(document).ready(function() {
+
+
+			var myShakeEvent = new Shake({
+				threshold: 10
+			});
+			// alert(JSON.stringify(myShakeEvent));
+			myShakeEvent.start();
+			// alert("OK3");
+			window.addEventListener(
+				'shake',
+				function() {
+					// navigator.notification.beep(1);
+					alert("Shake!!")
+				},
+				false
+			);
+
+
+		})
+	</script>
+
+
+
+
+// --------------------------------------------------------------------------------
+// 400 InAppBrowser
+
+
+410, config.xml:
+
+    <gap:plugin source="npm" name="cordova-plugin-inappbrowser" />
+
+
+
+
+420, HTML:
+
+			<input type="button" id="btnTest" value="Test" />
+			<br>
+			<input type="button" id="btnTry" value="Try" />
+			<br>
+			<input type="button" id="btnLab" value="Lab" />
+
+
+430, JavaScript:
+
+	        $("#btnTest").on(
+	            "click",
+	            function () {
+	                var browser = cordova.InAppBrowser.open(
+	                    "http://apache.org", 
+	                    "_self", 
+	                    "location=yes");
+	            }  
+	        )
+	        
+	        $("#btnTry").on(
+	            "click",
+	            function () {
+	                var browser = cordova.InAppBrowser.open(
+	                    "http://apache.org", 
+	                    "_blank", 
+	                    "location=yes");
+	                broswer.addEventListener
+	            }  
+	        )
+	        
+	        $("#btnLab").on(
+	            "click",
+	            function () {
+	                var browser = cordova.InAppBrowser.open(
+	                    "http://apache.org", 
+	                    "_system", 
+	                    "location=yes");
+	            }    
+	        )
+
+
+
+
+// --------------------------------------------------------------------------------
+// 500 Device Motion (part one)
+
+510, config.xml:
+
+    <gap:plugin source="npm" name="cordova-plugin-device-motion" />
+
+
+520, HTML:
+
+			<input type="button" id="btnTest" value="Test" />
+			<br>
+			<div id="debug"></div>
+
+
+530, JavaScript:
+
+	<script>
+	
+	document.addEventListener(
+	    "deviceready", 
+	    function () {
+	        
+	
+	        $("#btnTest").on(
+	            "click",
+	            function () {
+	                navigator.accelerometer.getCurrentAcceleration(
+	                    function (e) {
+	                        var report = 
+	                            'X: ' + e.x + '<br>' +
+	                            'Y: ' + e.y + '<br>' +
+	                            'Z: ' + e.z + '<br>' +
+	                            'Timestamp: '      + e.timestamp + '<br>'
+	                        $("#debug").html(report);
+	                    }, 
+	                    function (e) { }
+	                );
+	            }  
+	            
+	        )
+	
+	        
+	
+	    }, // end of deviceready
+	    false
+	);
+	
+	</script>
+
+
+
+
+// --------------------------------------------------------------------------------
+// 540 Device Motion (part two)
+
+	<script>
+	
+	document.addEventListener(
+	    "deviceready", 
+	    function () {
+	        
+	        var options = { frequency: 500 };
+	
+	        var watchID = 
+	            navigator.accelerometer.watchAcceleration(
+	                function (e) {
+	                    var report = 
+	                        'X: ' + e.x + '<br>' +
+	                        'Y: ' + e.y + '<br>' +
+	                        'Z: ' + e.z + '<br>' +
+	                        'Timestamp: '      + e.timestamp + '<br>'
+	                    $("#debug").html(report);
+	                }, 
+	                function () { }, 
+	                options
+	            );        
+	
+	        $("#btnTest").click(function () {
+	            navigator.accelerometer.clearWatch(watchID);
+	        })
+	        
+	    }, // end of deviceready
+	    false
+	);
+	
+	</script>
+
+
+

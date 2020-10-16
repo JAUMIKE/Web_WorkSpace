@@ -1,0 +1,4 @@
+Jerome Etienne.js Blog
+jquery.qrcode - Jquery Plugin for Pure Browser Qrcode Generation
+http://blog.jetienne.com/blog/2011/04/07/jquery-qrcode/
+

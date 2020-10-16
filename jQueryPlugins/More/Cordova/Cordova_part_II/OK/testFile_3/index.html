@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script src="cordova.js"></script>          <!-- phantom library, needed for Cordova api calls, added during build -->
+	
+	<link rel="stylesheet" href="js/jquery.mobile-1.3.2.min.css" />
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery.mobile-1.3.2.min.js"></script>
+	
+	<script>
+	    
+	document.addEventListener(
+	    "deviceready", 
+	    function () {
+	        $("#btnTest").on(
+	            "click",
+	            function () {
+	                // var filePath = cordova.file.dataDirectory;
+	                // $("#btnTest").val(filePath).button("refresh");
+	                var path = cordova.file.dataDirectory;
+	                
+	                window.resolveLocalFileSystemURL(path, function (directoryEntry) {
+	                    // debug.innerHTML = JSON.stringify(directoryEntry); 
+	                    directoryEntry.getFile("test.txt", {create: true}, function (fileEntry) {
+	                        // debug.innerHTML = JSON.stringify(fileEntry);
+	                        fileEntry.createWriter(function (writer) {
+	                            writer.seek(writer.length);
+	                            writer.write("content of test.txt");
+	                            $("#btnTest").val("OK").button("refresh");
+	                        });
+	                    });
+	                });
+	                
+	                alert("OK");
+	            }  
+	            
+	        )
+	        
+	        $("#btnTry").on(
+	            "click",
+	            function () {
+	                var path = cordova.file.dataDirectory;
+	                
+	                window.resolveLocalFileSystemURL(path + "test.txt", function (fileEntry) {
+	                    fileEntry.createWriter(function (writer) {
+	                        writer.seek(writer.length);
+	                        writer.write(Date()); 
+	                        $("#btnTry").val("OK").button("refresh");
+	                    });
+	                });                
+	                alert("OK");
+	            }  
+	        )
+	        
+	        $("#btnLab").on(
+	            "click",
+	            function () {
+	                var path = cordova.file.dataDirectory;
+	                
+	                window.resolveLocalFileSystemURL(path + "test.txt", function (fileEntry) {
+	                    fileEntry.file(function (file) {
+	                        var reader = new FileReader();
+	                        reader.onloadend = function () {
+	                            debug.innerHTML = this.result;
+	                        }
+	                        reader.readAsText(file);
+	                    })
+	                });
+	                alert("OK");
+	            } 
+	        )
+	
+	    }, // end of deviceready
+	    false
+	);
+	</script>
+
+
+</head>
+
+<body>
+
+	<div id="labPage" data-role="page" data-theme="d">
+		
+		<div data-role="header">
+			<a href="#labPanel" data-role="button" data-icon="info"
+				data-iconpos="notext"></a>
+			<h3>Lab</h3>
+		</div>
+		
+		<div data-role="content">
+			
+					
+		    <input type="button" id="btnTest" value="Test" />
+		    <br>
+		    <input type="button" id="btnTry" value="Try" />
+		    <br>
+		    <input type="button" id="btnLab" value="Lab" />
+		    <br>
+		    <div id="debug"></div>
+							
+					
+			
+			
+			
+			
+			
+		</div>
+		
+		<div id="labPanel" data-role="panel" data-position="left"
+			data-display="overlay" data-theme="c">
+			<h4>Lab</h4>
+			<p>...</p>
+
+			<a href="#labPage" data-rel="close" data-role="button">Close</a>
+		</div>
+		<!-- /panel -->
+	</div>
+	<!-- page -->
+
+</body>
+</html>

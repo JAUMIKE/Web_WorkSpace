@@ -1,0 +1,77 @@
+﻿....
+		<hr>
+		<span id="debug"></span>
+		<input type="button" id="btnTest" value="test" />
+		
+	</div>
+	<!-- page -->
+
+
+
+
+	<script>
+		$("#btnTest").click(function () {
+			var s = $("#txtSearch").val();
+			$("#txtSearch").val("");
+			$("#debug").text(s)
+		});
+	</script>
+
+
+	<script>
+		$("#btnTest").click(function () {
+			var s = $("#txtTextArea").val().replace(/\r\n|\r|\n/g,"<br />")
+			$("#txtTextArea").val("");
+			$("#debug").html(s)
+		});
+	</script>
+
+
+	<script>
+		$("#btnTest").click(function () {
+			var s = $("#rngScore").val();
+			$("#rngScore").val(60).slider("refresh");
+			$("#debug").html(s)
+		});
+	</script>
+
+
+	<script>
+		$("#btnTest").click(function () {
+			var s = $("#sltOnOff").val();
+			$("#sltOnOff").val("off").slider("refresh");
+			$("#debug").html(s)
+		});
+	</script>
+
+
+	<script>
+		$("#btnTest").click(function () {
+			var s = $("#chkMusic").is(":checked") ? "Music selected" : "do not like music?";
+			$("#chkMusic").attr("checked", false).checkboxradio("refresh");
+			$("#debug").html(s);
+		});
+	</script>
+
+
+	<script>
+		$("#btnTest").click(function () {
+			var s = $("input[name='rdoPet']:checked").val();
+			$("input[name='rdoPet']").attr("checked", false).checkboxradio("refresh");
+			$("#debug").html(s);
+		});
+	</script>
+
+
+
+	<script>
+		$("#btnTest").click(function () {
+			var s = $("#sltCity").val();
+			$("#sltCity").append('<option value="4">台東</option>');
+			$("#sltCity").selectmenu("refresh");
+			$("#debug").html(s);
+		});
+	</script>
+
+
+

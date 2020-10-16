@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Lab - Controls</title>
+<link rel="stylesheet"
+	href="jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.css" />
+<script src="jquery-1.9.1.min.js"></script>
+<script src="jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.js"></script>
+
+</head>
+<body>
+	<div data-role="page">
+		<div data-role="content">
+			<form method="post" action="echo.php">
+
+			<div data-role="fieldcontain">
+				<label for="txtInputText">Input text:</label> 
+				<input type="text"
+					name="txtInputText" id="txtInputText" value="" placeholder="請輸入資料" />
+			</div>
+			
+			<div data-role="fieldcontain">
+				<label for="txtSearch">Search Input:</label>
+				<input type="search" name="txtSearch" id="txtSearch" value="" />
+			</div>
+
+
+			<div data-role="fieldcontain">
+				<label for="txtTextArea">Text area:</label>
+				<textarea name="txtTextArea" id="txtTextArea"></textarea>
+			</div>
+
+			<div data-role="fieldcontain">
+				<label for="rngScore">Input Range:</label>
+				<input type="range" name="rngScore" id="rngScore" value="60" min="0" max="100" />
+			</div>
+
+			<div data-role="fieldcontain">
+				<label for="sltOnOff">Switch (select):</label>
+				<select name="sltOnOff" id="sltOnOff" data-role="slider">
+					<option value="off">Off</option>
+					<option value="on">On</option>
+				</select>
+			</div>
+
+
+			<fieldset data-role="controlgroup">
+				<legend>Your hobby:</legend>
+				<label><input type="checkbox" name="chkReading" /> Reading </label>
+				<input type="checkbox" name="chkMusic"  id="chkMusic" /><label for="chkMusic">Music</label>
+				<input type="checkbox" name="chkSport"  id="chkSport" /><label for="chkSport">Sport</label>
+			</fieldset>
+
+
+			<fieldset data-role="controlgroup">
+					<legend>Choose a pet:</legend>
+			     	<input type="radio" name="rdoPet" id="rdoPet0" value="0" checked="checked" />
+			     	<label for="rdoPet0">Cat</label>
+			
+			     	<input type="radio" name="rdoPet" id="rdoPet1" value="1"  />
+			     	<label for="rdoPet1">Dog</label>
+			
+			     	<input type="radio" name="rdoPet" id="rdoPet2" value="2"  />
+			     	<label for="rdoPet2">Hamster</label>
+			
+			     	<input type="radio" name="rdoPet" id="rdoPet3" value="3"  />
+			     	<label for="rdoPet3">Lizard</label>
+			</fieldset>
+
+
+			<fieldset data-role="controlgroup">
+				<label for="sltCity[]">City:</label>
+				<select name="sltCity[]" id="sltCity" data-native-menu="false" multiple>
+				   <option value="-1" data-placeholder="true">請選擇:</option>
+				   <option value="0">台北</option>
+				   <option value="1">台中</option>
+				   <option value="2">台南</option>
+				   <option value="3">高雄</option>
+				</select>
+			</fieldset>
+
+			
+			<div class="ui-grid-a">
+				<div class="ui-block-a"><input type="submit" name="btnOK" value="OK" /></div>
+				<div class="ui-block-b"><input type="submit" name="btnCancel" value="Cancel" /></div>
+			</div>
+
+			</form>
+		</div>
+		<!-- page content -->
+	</div>
+	<!-- page -->
+</body>
+</html>

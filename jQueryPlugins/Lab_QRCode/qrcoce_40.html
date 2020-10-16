@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Testing QR Code</title>
+<script src="jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="jquery.qrcode.min.js"></script>
+
+</head>
+<body>
+
+<div id="qrcode"></div>
+
+
+<script>
+
+var target = "https://zh.wikipedia.org/wiki/維基";
+console.log(encodeURI(target));
+
+var options = {
+    text: encodeURI(target), 
+    width: 100, 
+    height: 100
+};
+
+$('#qrcode').qrcode(options);
+
+</script>
+
+</body>
+</html>
