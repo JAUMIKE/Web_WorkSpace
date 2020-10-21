@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"  href="jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.css" />
+    <script src="jquery-1.9.1.min.js"></script>
+    <script src="jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+		<div data-role="content">
+            <form method="post" action="http://10.0.103.94/echo.php">
+                <span id="debug"></span>
+                <input type="button" id="btnTest" value="test" />
+                <hr>
+                <input type="hidden" name="id" value="0001">
+                <div data-role="fieldcontain">
+                    <label for="txtInputText">Input text:</label>
+                    <input type="text" name="txtInputText" id="txtInputText" value="" placeholder="請輸入資料">
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="txtSearch">Search Input:</label>
+                    <input type="search" name="txtSearch" id="txtSearch" value="" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="txtTextArea">Text area:</label>
+                    <textarea name="txtTextArea" id="txtTextArea"></textarea>
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="passwordArea">Password:</label>
+                    <input type="password" name="passwordArea" id="passwordArea">
+                </div>
+
+                <div class="ui-grid-c">
+                    <div class="ui-block-a">
+                        <div data-role="fieldcontain">
+                            <label for="dateArea">Date:</label>
+                            <input type="date" name="dateArea" id="dateArea">
+                        </div>
+                    </div>
+                    <div class="ui-block-b"> </div>
+                    <div class="ui-block-c">
+                        <div  data-role="fieldcontain">
+                            <label for="colorArea">Color:</label>
+                            <input type="color" name="colorArea" id="colorArea">
+                        </div>
+                    </div>
+                    <div class="ui-block-d"></div>              
+                </div>
+                <br>
+                <div data-role="fieldcontain">
+                    <label for="rngScore">Input Range:</label>
+                    <input type="range" name="rngScore" id="rngScore" value="60" min="0" max="100" data-highlight = "true" />
+                </div>
+                <br>
+                <div data-role="fieldcontain">
+                    <label for="sltOnOff">Switch (select):</label>
+                    <select name="sltOnOff" id="sltOnOff" data-role="slider">
+                        <option value="off">Off</option>
+                        <option value="on" >On</option>
+                    </select>
+                </div>
+                <br>
+                <!-- 若name相同，提交表單資料時有多選的項目要在name使用陣列 -->
+                <fieldset data-role="controlgroup">
+                    <legend>Your hobby:</legend>
+                    <label><input type="checkbox" name="chk[]" value="like Reading" /> Reading </label>
+                    <input type="checkbox" name="chk[]"  id="chkMusic" value="like Music" /><label for="chkMusic">Music</label>
+                    <input type="checkbox" name="chk[]"  id="chkSport" value="like Sport" /><label for="chkSport">Sport</label>
+                </fieldset>
+                <br>
+                <!-- <div data-role="fieldcontain">
+                    <label><input type="checkbox" name="chkReading" value="like Reading" /> Reading </label>
+                    <input type="checkbox" name="chkMusic"  id="chkMusic" value="like Music" /><label for="chkMusic">Music</label>
+                    <input type="checkbox" name="chkSport"  id="chkSport" value="like Sport" /><label for="chkSport">Sport</label>
+
+                </div>  -->
+                <!-- 可依據不同的name做分群 、 data-type可設定垂直、水平顯示、 data-mini 設定顯示大小-->
+                <!-- 水平顯示適用於項目數量>2的時候，以免辨別選項時會錯亂 -->
+                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+					<legend>Choose a pet:</legend>
+			     	<input type="radio" name="rdoPet" id="rdoPet0" value="0" checked="checked" />
+			     	<label for="rdoPet0">Cat</label>
+			
+			     	<input type="radio" name="rdoPet" id="rdoPet1" value="1"  />
+			     	<label for="rdoPet1">Dog</label>
+			
+			     	<input type="radio" name="rdoPet" id="rdoPet2" value="2"  />
+			     	<label for="rdoPet2">Hamster</label>
+			
+			     	<input type="radio" name="rdoPet" id="rdoPet3" value="3"  />
+			     	<label for="rdoPet3">Lizard</label>
+			    </fieldset>
+                <br>
+                <!-- name屬性加上陣列，多選的選單提交才有回應值 -->
+                <fieldset data-role="controlgroup">
+                    <label for="sltCity">City:</label>
+                    <select name="sltCity[]" id="sltCity" multiple  data-native-menu="false">
+                        <option value="-1" data-placeholder="true">請選擇:</option>
+                       <option value="0">台北</option>
+                       <option value="1">台中</option>
+                       <option value="2">台南</option>
+                       <option value="3">高雄</option>
+                    </select>
+                </fieldset>
+
+
+
+                <div class="ui-grid-a">
+                    <div class="ui-block-a"><input type="submit" name="btnOK" value="OK" /></div>
+                    <div class="ui-block-b"><input type="submit" name="btnCancel" value="Cancel" /></div>
+                </div>
+    
+                <!-- <input type="submit" name="OK" value = "OK"> -->
+
+
+            </form>
+
+		</div>
+		<!-- page content -->
+	</div>
+    <!-- page -->
+    <script>
+        
+        // $("#btnTest").click(function () {
+		// 	var s = $("#txtSearch").val();
+		// 	$("#txtSearch").val("");
+		// 	$("#debug").text(s)
+        // });
+        // 未加replace(regexp)的狀況下，會無法判斷換行，使用正則把\n、\r 換成<br>，g表示所有
+        // $("#btnTest").click(function () {
+		// 	var s = $("#txtTextArea").val().replace(/\r\n|\r|\n/g,"<br />")
+		// 	$("#txtTextArea").val("");
+		// 	$("#debug").html(s)
+        // });
+        //
+        // $("#btnTest").click(function () {
+		// 	var s = $("#rngScore").val();
+		// 	// $("#rngScore").val(60).slider("refresh");
+		// 	$("#debug").html(s)
+        // });
+        // $("#btnTest").click(function () {
+		// 	var s = $("#sltOnOff").val();
+		// 	$("#sltOnOff").val("off").slider("refresh");
+		// 	$("#debug").html(s)
+        // });
+        
+        // $("#btnTest").click(function () {
+		// 	var s = $("#chkMusic").is(":checked") ? "Music selected" : "do not like music?";
+		// 	$("#chkMusic").attr("checked", false).checkboxradio("refresh");
+		// 	$("#debug").html(s);
+        // });
+        // $("#btnTest").click(function () {
+		// 	var s = $("input[name='rdoPet']:checked").val();
+		// 	$("input[name='rdoPet']").attr("checked", false).checkboxradio("refresh");
+		// 	$("#debug").html(s);
+        // });
+        $("#btnTest").click(function () {
+			var s = $("#sltCity").val();
+			$("#sltCity").append('<option value="4">台東</option>');
+			$("#sltCity").selectmenu("refresh");
+			$("#debug").html(s);})
+    </script>
+</body>
+</html>

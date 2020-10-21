@@ -1,0 +1,73 @@
+
+7-1 自我評量 1
+下列哪個不是全球資訊網(WWW)的核心組成？
+(A)	HTML
+(B)	HDMI
+(C)	HTTP
+(D)	URI
+B
+
+7-1 自我評量 2
+下列哪個字元不是Query String 的預設功能字元？
+(A)	=
+(B)	?
+(C)	@
+(D)	&
+C
+
+7-1 自我評量 3
+請問 Node.js 內建的 querystring.stringify() 方法，等效下列哪個方法？
+(A)	querystring.decode()
+(B)	querystring.encode()
+(C)	querystring.escape()
+(D)	querystring.unescape()
+B
+
+7-2 自我評量 1
+我們可以透過 querystring.escape() 把查詢字串進行URL 編碼，下列哪個是「中文」一詞轉換後的結果？
+(A)	@E4@B8@AD@E6@96@87
+(B)	$E4$B8$AD$E6$96$87
+(C)	&E4&B8&AD&E6&96&87
+(D)	%E4%B8%AD%E6%96%87
+D
+
+7-2 自我評量 2
+我們把 name=Shan&age=18 丟進 Query String 解析，預設情況下 age 的值會被解析成哪個型別？
+(A)	Integer
+(B)	Boolen
+(C)	String
+(D)	Object
+C
+
+7-2 自我評量 3
+哪個不是需要做 URL 編碼的主要原因？
+(A)	ASCII 的控制字元
+(B)	一些安全的字元
+(C)	一些保留字元
+(D)	一些非ASCII字元
+B
+
+7-3 自我評量 1
+如果要用 body-parser 套件解析 UTF-8 編碼資料，應該要用下列哪個解析器？
+(A)	bodyParser.json ()
+(B)	bodyParser.urlencoded ()
+(C)	bodyParser.raw ()
+(D)	bodyParser.text ()
+B
+
+7-3 自我評量 2
+body-parser 屬於作用在軟體的哪個層級上？
+(A)	Middleware
+(B)	Free software
+(C)	Open source software
+(D)	Operating system
+A
+
+7-3 自我評量 3
+下面哪個不是 Postman 的軟體特色or功能？
+(A)	HTTP Request
+(B)	Collection
+(C)	Chrome Application
+(D)	Screenshot
+D
+

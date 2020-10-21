@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入</title>
+</head>
+<body>
+
+    <form id="form">
+        帳號: <input type="text" name="account">
+        密碼: <input type="password" name="password">
+        <button type="button" id="submit">送出</button>
+    </form>
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script>
+        $('#submit').on('click', function() {
+            var data = $('#form').serializeArray()
+            JSONData = serializeToJSON(data)
+                     
+            $.ajax({
+                url: "/login",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSONData,
+                success: function(res) {
+                    var res = JSON.parse(res)
+                    if(res.errno === 1) {
+                        alert("登入成功!")
+                        location.href = '/'
+                    } else if(res.errno === 0) {
+                        alert("登入失敗!")
+                    }
+                },
+                error: function() {
+                    alert("系統錯誤!")
+                }
+            })
+        })
+
+        function serializeToJSON(data) {
+            var values = {};
+            for(index in data){
+                values[data[index].name] = data[index].value;
+            }
+            return JSON.stringify(values)
+        }
+    </script>
+</body>
+</html>

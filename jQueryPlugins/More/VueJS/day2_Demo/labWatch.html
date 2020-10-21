@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="lab"> 
+        firstName : <input type="text" v-model="firstName">
+        lastName : <input type="text" v-model="lastName">
+        <hr>
+        fullName:{{fullName}}
+
+    </div>
+
+<script>
+    var app1 = new Vue({
+        el:"#lab",
+        data:{
+            firstName : "",
+            lastName : ""
+        },
+        // computed:{
+        //     fullName: function(){
+        //         return this.firstName + "-" + this.lastName
+        //     }
+        // }
+
+        
+        //另一種寫法:
+        computed:{
+            fullName(){
+                return this.firstName +"-"+this.lastName
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

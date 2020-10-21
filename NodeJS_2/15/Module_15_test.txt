@@ -1,0 +1,73 @@
+15-1 自我評量 1
+請問 要如何利用express註冊路由？
+(A) var route = express.Router()
+(B) var route = express->Router()
+(C) var route = express-router()
+(D) var route = router(express)
+答案: (A)
+
+15-1 自我評量 2
+請問 JSON.parse()是什麼意思？
+(A) Array轉成Object
+(B) Object/Array轉成String
+(C) String轉成Object/Array
+(D) Object轉成Array
+答案: (C)
+
+15-1 自我評量 3
+請問 JSON.stringify()是什麼意思？
+(A) Array轉成Object
+(B) Object/Array轉成String
+(C) String轉成Object/Array
+(D) Object轉成Array
+答案: (B)
+
+
+15-2 自我評量 1
+在前端點擊「編輯」按鈕打算以對話盒編輯特定一筆資料時，不會進行下列哪一件事?
+(A) 顯示Modal
+(B) 傳遞值到Modal表單之中
+(C) 送出更改請求
+(D) 利用id向Server查詢該筆資料
+答案: (C)
+
+15-2 自我評量 2
+jQuery用什麼方式"賦予"表單input中的值？
+(A) $("input[name='id']").attr(123)
+(B) $("input[name='id']").attr()
+(C) $("input[name='id']").val()
+(D) $("input[name='id']").val(123)
+答案: (D)
+
+15-2 自我評量 3
+使用Update語法後，我們利用什麼判斷資料是否有被更改？
+(A) results.insertId
+(B) results.affectedRows
+(C) results.fieldCount
+(D) results.serverStatus
+答案: (B)
+
+
+15-3 自我評量 1
+請問什麼是Modal？
+(A) 標籤
+(B) 導覽頁
+(C) 彈出式小提示框
+(D) 互動視窗
+答案: (D)
+
+15-3 自我評量 2
+請問SQL語法中，我們該如何查找特定值？
+(A) ORDER BY
+(B) EXPLAIN
+(C) WHERE
+(D) JOIN
+答案: (C)
+
+15-3 自我評量 3
+請問SQL語法中，Update要如何更改欄位資料？
+(A) CHANGE name = '診所1'
+(B) USE name = '診所1'
+(C) VALUE name = '診所1'
+(D) SET name = '診所1'
+答案: (D)

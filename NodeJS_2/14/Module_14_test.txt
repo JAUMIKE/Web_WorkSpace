@@ -1,0 +1,73 @@
+14-1 自我評量 1
+請問 AJAX全名是？
+(A) A JavaScript As XSS
+(B) As JavaScript As XML
+(C) Asynchronous JavaScript And XML
+(D) Asynchronous JavaScript And XSS
+答案: (C)
+
+14-1 自我評量 2
+請問哪個不是AJAX的優點？
+(A) 增加使用者體驗
+(B) 減少Server渲染過程
+(C) 反覆使用單頁面資源
+(D) 有利於SEO
+答案: (D)
+
+14-1 自我評量 3
+在jQuery中，下列 AJAX 的敘述不正確？
+(A) 要加入 new XMLHttpReauest() 以建立連線
+(B) type 參數是請求的方法
+(C) Contenttype是請求的編碼形式
+(D) 承(C)，預設是「application/x-www-form-urlencoded」
+答案: (A)
+
+
+14-2 自我評量 1
+請問JSON字串是什麼？
+(A) JavaScript的一個函式庫
+(B) 以純文字為基底，用來儲存和傳送簡單資料結構的資料協定
+(C) Java的一種物件導向類型
+(D) JavaScript的陣列
+答案: (B)
+
+14-2 自我評量 2
+下列哪項不是JSON的儲存類型？
+(A) String
+(B) Object
+(C) B+ Tree
+(D) Null
+答案: (C)
+
+14-2 自我評量 3
+下列何者式JSON格式？
+(A) {data = '123'}
+(B) {data => '123'}
+(C) {data : '123'}
+(D) {data -> '123'}
+答案: (C)
+
+
+14-3 自我評量 1
+請問後端要獲取POST資料要如何獲取？
+(A) request.params
+(B) response.params
+(C) request.body
+(D) response.body
+答案: (C)
+
+14-3 自我評量 2
+請問 要如何獲取表單資料？
+(A) $('#form').serializeArray()
+(B) $('#form').val()
+(C) $('#form').attr()
+(D) $('#form').css()
+答案: (A)
+
+14-3 自我評量 3
+請問SQL語法中的 ? 是什麼意思？
+(A) 未知值
+(B) 除錯參數
+(C) 避免Injection的轉義方法(又稱參數化查詢)
+(D) 值剛好就是?
+答案: (C)

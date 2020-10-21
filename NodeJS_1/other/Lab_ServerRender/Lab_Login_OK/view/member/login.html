@@ -1,0 +1,31 @@
+<%- include("../header.html", { userName: userName }) %>
+
+            <form method="post" action="" data-ajax="false">
+                <div data-role="fieldcontain">
+                    <label for="txtID">User ID:</label> <input type="text" name="txtID"
+                        id="txtID" value="<%= id %>" placeholder="請輸入帳號" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="txtPassword">Password:</label> <input type="password"
+                        name="txtPassword" id="txtPassword" value="<%= password %>" />
+                </div>
+                <div><%- errorMessage %></div>
+
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <input type="submit" name="btnOK" value="OK" />
+                    </div>
+                    <div class="ui-block-b">
+                        <a href="/home/index" data-role="button" data-ajax="false">Cancel</a>
+                    </div>
+                </div>
+                <div>
+                    <ul data-role="listview" data-inset="true">
+                        <li data-role="list-divider">測試資料</li>
+                        <li>User ID: derek</li>
+                        <li>password: jeter</li>
+                    </ul>
+                </div>
+            </form>
+
+<%- include("../footer.html", {}) %>

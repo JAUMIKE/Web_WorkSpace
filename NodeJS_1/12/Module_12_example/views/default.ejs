@@ -1,0 +1,19 @@
+<%- include('header'); -%>
+	 <body>
+	 	<% if (title) {%>
+			<h1><%= title %></h1>
+		<% } else { %>
+			<h1>沒有title資料</h1>
+		<% } %>
+
+	 	<% if (bodyItems) {%>
+		 	<% for(var i=0; i<bodyItems.length; i++) { %>  
+				<li><%= bodyItems[i] %></li>  
+			<% } %> 
+		<% } else { %>
+			<h1>沒有bodyItems資料</h1>
+		<% } %>
+	 </body>  
+	 <br>
+	 <br>
+<%- include('footer'); -%>

@@ -1,0 +1,56 @@
+5-1 自我評量 1
+靜態檔案的特性是
+(A) 唯獨 	(B) 程式動態產生	
+(C) 隨意修改	(D) 檔案位置可變
+A
+
+5-1 自我評量 2
+以下那一個選項是正確的檔案格式
+(A) 檔案名稱,副檔案名	(B) 副檔案名,檔案名稱	(C) 檔案名稱.副檔案名	(D) 副檔案名.檔案名稱
+C
+
+5-1 自我評量 3
+以下那一個選項是正確載入模組套件的寫法
+(A) var express = import('express');	
+(B) express = require('express');	
+(C) require('express');
+(D) var express = require('express');
+D
+
+
+5-2 自我評量 1
+以下那一種不是常見的路由請求
+(A) upload	(B) get		(C) delete	(D) post
+A
+
+5-2 自我評量 2
+express.js是什麼
+(A) 美術表意檔	(B) Web模組套件	
+(C) 動態網頁	(D) 樣版引擎
+B
+
+5-2 自我評量 3
+以下哪種是正確方法使用express處理靜態檔案
+(A) app.use(express.static('files'))	
+(B) app(express.static('files'))		
+(C) app.use('files')
+(D) app.use(static('files'))
+A
+
+5-3 自我評量 1
+Bootstrap 是由那一家公司開發
+(A) Facebook	(B) Twitter 	
+(C) Microsoft’s 	(D) Apple
+B
+
+5-3 自我評量 2
+jQuery 是用什麼程式語言來編寫
+(A) Java	(B) JavaScript 		
+(C) C++		(D) HTML
+B
+
+5-3 自我評量 3
+套用 Bootstrap 的美術樣式，用的是什麼作法?
+(A) 使用class		(B) 使用id	
+(C) 使用html tag	(D) 以上皆非
+A

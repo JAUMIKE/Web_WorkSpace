@@ -1,0 +1,114 @@
+Lab: Node.js 資料庫課堂練習
+
+
+
+
+1.	連線 mysql 並執行下列列指令: (建立 gcm 資料庫與 user資料表)
+		
+create database if not exists gcm default character set utf8;
+use gcm;
+create table if not exists user 
+( 
+  id char(32) primary key, 
+  address varchar(100)
+);
+
+
+
+
+2.	以程式連接 MySQL 資料庫伺服器
+
+
+2.1	滑鼠右鍵點按 Lab_Node.js_Database | Open in Terminal，
+	在終端機視窗輸入下列指令並按下 <Enter> 鍵
+npm install mysql
+exit
+
+	<Note>
+	完成後，在 node_modules 資料夾裏頭
+	應該會多出 mysql 子資料夾。
+
+
+2.2	找出本資料夾的 Lab_Database.js，點兩下以開啟檔案，
+	寫作下列程式: (請務必輸入下列程式的密碼欄)
+
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : '127.0.0.1',
+  user     : 'root',
+  password : '',
+  database : 'gcm'
+});
+
+connection.connect(function(err) {
+	// if (err) throw err;
+	if (err) {
+		console.log(JSON.stringify(err));
+		process.exit();
+	}
+});
+
+console.log("Connected.");
+
+// 3.1
+
+connection.end();
+
+
+2.3	在終端機視窗輸入:
+node Lab_Database.js 
+	
+	<Note>順利的話，下方藍色區域會出現「Connected.」字樣
+
+
+
+
+3.	新增資料到資料庫
+
+
+3.1	在 console.log("Connected."); 的次一行，寫作下列程式以新增資料:
+
+connection.query("insert into user (id, address) values (?, ?)", 
+		['10001', '台北市大安區復興南路一段390號2樓']);
+connection.query("insert into user (id, address) values (?, ?)", 
+		['10002', '台中市公益路二段51號20樓']);
+connection.query("insert into user (id, address) values (?, ?)", 
+		['10003', '台北市大安區復興南路一段391號2樓']);
+connection.query("insert into user (id, address) values (?, ?)", 
+		['10004', '台中市公益路二段52號20樓']);
+
+
+3.2	存檔，在終端機視窗輸入:
+node Lab_Database.js 
+
+
+3.3 連線 MySQL 並且輸入下列指令，查看資料是否已新增:
+select * from gcm.user;
+
+
+
+
+4.	以程式查詢資料
+
+
+4.1	之前的四行 Insert into，改成下列寫法:
+
+var roadName = '復興南路一段';
+connection.query('select * from user where address like ?', 
+		'%' + roadName + '%',
+		function(err, rows) {
+			if (err)
+				throw err;
+
+			console.log('Data received from Db:\n');
+			for (var i = 0; i < rows.length; i++) {
+				console.log(rows[i].address);
+			};
+			
+			console.log(rows);
+		});
+
+
+4.2	存檔，在終端機視窗輸入:
+node Lab_Database.js 
+

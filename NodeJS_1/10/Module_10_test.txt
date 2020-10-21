@@ -1,0 +1,69 @@
+讀寫檔案 自我評量
+
+
+10-1 自我評量 1
+../表示根目錄?(單選)
+A.	正確
+B.	錯誤
+B
+
+10-1 自我評量 2
+Node.js引用模組最佳載入方式是?(單選)
+A.	使用絕對路徑
+B.	使用相對路徑
+C.	使用固定路徑
+D.	使用經濟路徑
+B
+
+10-1 自我評量 3
+__dirname意思是?(單選)
+A.	回傳執行檔案的目錄絕對路徑
+B.	回傳執行檔案的檔案絕對路徑
+C.	回傳command line執行檔案的目錄絕對路徑
+D.	回傳command line執行檔案的目錄相對路徑
+A
+
+10-2 自我評量 1
+Middleware不需要next( )，程式就可以執行到下一個Middleware function?(單選)
+A.	正確
+B.	錯誤
+B
+
+10-2 自我評量 2
+router callback function參數中有以下哪種? (單選)
+A.	Request
+B.	Response
+C.	next
+D.	以上皆有
+D
+
+10-2 自我評量 3
+app.use( )加載Middleware function不具順序性?(單選)
+A.	正確
+B.	錯誤
+B
+
+10-3 自我評量 1
+HTTP status中哪個是代表找不到指定的網站資源?(單選)
+A.	200
+B.	304
+C.	404
+D.	500
+C
+
+10-3 自我評量 2
+以下哪些方法可以回傳資料給前端?(單選)
+A.	res.send( )
+B.	res.json( )
+C.	res.render( )
+D.	以上皆是
+D
+
+10-3 自我評量 3
+app.use( )與router.use( )哪個層級較高涵蓋範圍最大?(單選)
+A.	app.use( )
+B.	router.use( )
+C.	兩者均等
+D.	以上皆非
+A
+

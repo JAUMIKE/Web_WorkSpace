@@ -1,0 +1,58 @@
+6-1 自我評量 1
+樣板引擎的主要作用是?
+(A) 美化頁面	(B) 動態產生頁面	
+(C) 產生正靜頁面	(D) 以上皆不是
+B
+
+6-1 自我評量 2EJS 全名是
+(A) EJS		(B) Embeded JavaScript 	
+(C) Enhance JavaScript	(D) Easter Jam
+B
+
+6-1 自我評量 3
+如何使用npm查看ejs版本
+(A) npm ejs	(B) ejs		
+(C) npm ejs v	(D) npm ejs -v
+D
+
+
+6-2 自我評量 1
+以下哪一個不是EJS標籤
+(A) <% %> 	(B) <%= %>	(C) <%$ %> 	(D) <%- %> 
+C
+
+6-2 自我評量 2
+<%#  %> 是以下那一種標籤
+(A) 流程控制標籤 	(B) 輸出標籤 	(C) 輸出標籤 	(D) 注釋標籤 
+D
+
+6-2 自我評量 3
+如果參數 title = ""，請問以下編碼會產生什麼結果
+<% if (title) {%>
+<h1><%= title %></h1>
+<% } else { %>
+<h1>預設文字</h1>
+<% } %
+
+(A) 空字串
+(B) <h1></h1>
+(C) <h1>預設文字</h1>
+(D) 以上皆非
+C
+
+
+6-3 自我評量 1
+導覽列的標籤是什麼
+(A) navigation	(B) nav		(C) header		(D) link
+B
+
+6-3 自我評量 2
+JavaScript程式庫連結通常是放在什麼標籤之中?
+(A) head	(B)  program	(C) footer	(D) code
+A
+
+6-3 自我評量 3
+nav 標籤是放在什麼標籤以內（不是以下喔）？
+(A) header	(B) body   
+(C) head	(D) html
+B

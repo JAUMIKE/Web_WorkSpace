@@ -1,0 +1,67 @@
+讀寫檔案 自我評量
+
+8-1 自我評量 1
+Node.js 有原生模組可以讀寫檔案?(單選)
+A.	正確
+B.	錯誤
+A
+
+8-1 自我評量 2
+fs模組有以下哪種讀寫作法?(單選)
+A.	同步
+B.	非同步e
+C.	以上皆是
+D.	以上皆否
+C
+
+8-1 自我評量 3
+fs模組的非同步讀寫作法是透過什麼方式達到非同步?(單選)
+A.	Callback function
+B.	Promise
+C.	Async/Await
+D.	then/catch
+A
+
+8-2 自我評量 1
+如果想使用fs模組，需要npm install fs嗎?(單選)
+A.	需要
+B.	不需要
+B
+
+8-2 自我評量 2
+JSON格式字串需要使用第三方套件才能轉換成JSON Object? (單選)
+A.	正確
+B.	錯誤
+B
+
+8-2 自我評量 3
+如果要將JSON格式字串轉換成物件可以透過哪個語法?(單選)
+A.	JSON.encode( )
+B.	JSON.parse( )
+C.	JSON.decode( )
+D.	JSON.fetch( )
+B
+
+8-3 自我評量 1
+HTTP Header是瀏覽器與伺服器溝通的內容之一?(單選)
+A.	是
+B.	否
+A
+
+8-3 自我評量 2
+HTTP Header中的Authentication常被用來作何用?(單選)
+A.	設定cache時間
+B.	檢驗伺服器的安全性
+C.	檢驗瀏覽器的安全性
+D.	驗證是否可以Access伺服器的資源
+D
+
+8-3 自我評量 3
+如果想調整瀏覽器端的cache時間可以調整HTTP Header中的什麼屬性?(單選)
+A.	Cache-Control
+B.	Cache-Read
+C.	Cache-Write
+D.	Cache-Tool
+A
+
+

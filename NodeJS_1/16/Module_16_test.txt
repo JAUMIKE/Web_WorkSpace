@@ -1,0 +1,70 @@
+16 檔案上傳
+
+16-1 自我評量 1
+bodyParser.text( )可以解析Content-Type為multipart/form-data的資料?(單選)
+A.	正確
+B.	錯誤
+B
+
+16-1 自我評量 2
+以下哪個是檔案上傳所使用的Content-Type?(單選)
+A.	multipart/form-data
+B.	text/plain
+C.	application/x-www-form-urlencoded
+D.	application/word
+A
+
+16-1 自我評量 3
+如果要解析Content-Type為multipart/form-data的資料可以透過以下哪個套件?(單選)
+A.	body-parser
+B.	multer
+C.	以上皆是
+D.	以上皆否
+B
+
+
+16-2 自我評量 1
+前端網頁無法過濾檔案類型?(單選)
+A.	正確
+B.	錯誤
+B
+
+16-2 自我評量 2
+前端網頁可以透過以下哪個屬性過濾檔案類型? (單選)
+A.	accept
+B.	type
+C.	id
+D.	name
+A
+
+16-2 自我評量 3
+後端如果允許多個上傳，請問要用multer的哪個方法?(單選)
+A.	array
+B.	fields
+C.	以上皆是
+D.	以上皆否
+C
+
+
+16-3 自我評量 1
+只要做好檔案類型的過濾就能防止電腦病毒入侵?(單選)
+A.	正確
+B.	錯誤
+B
+
+16-3 自我評量 2
+multer的過濾檔案做法是定義以下哪個屬性?(單選)
+A.	removeFile
+B.	filterFile
+C.	findFile
+D.	fileFilter
+D
+
+16-3 自我評量 3
+以下那個不是檔案上傳的資安風險?(單選)
+A.	壓縮檔炸彈
+B.	檔案類型未過濾，駭客可以上傳病毒執行檔
+C.	檔名未修改後再存放，駭客如果能遠端遙控，就能操控該當案
+D.	跨站腳本攻擊
+D
+

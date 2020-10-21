@@ -1,0 +1,55 @@
+18-1 自我評量 1
+MySQL 屬於何種資料庫類型?
+(A) 關聯式資料庫  (B) 非關聯式資料庫
+(C) 網路式資料庫  (D) 階層式資料庫
+A
+
+18-1 自我評量 2
+mongoDB 屬於何種資料庫類型?
+(A) 關聯式資料庫  (B) 非關聯式資料庫
+(C) 網路式資料庫  (D) 階層式資料庫
+B
+
+18-1 自我評量 3
+MariaDB 與 MySQL 的描述，何者正確?
+(A) 先有 MariaDB，後來才有 MySQL
+(B) MariaDB 的目的是想要完全相容 MySQL
+(C) MySQL 由 Ulf Michael Widenius 創建，後來賣給了 Oracle，最後轉賣給了 Sun
+(D) MariaDB 由 Ulf Michael Widenius 的女兒寫成，算得上是一段佳話
+B
+
+
+18-2 自我評量 1
+MySQL 預設 port 為以下何者?
+(A) 80 (B) 27017 (C) 3300 (D) 3306
+D
+
+18-2 自我評量 2
+想要連接MySQL, nodejs 需安裝下列哪一個模組?
+(A) mssql (B) mysql (C) @types/mysql (D) $mysql
+B
+
+18-2 自我評量 3
+SQL語法中，用何者來查詢資料?
+(A) QUERY...WHERE   (B) FIND...WHERE  
+(C) SELECT...WHERE  (D) GET...WHERE
+C
+
+
+18-3 自我評量 1
+用何種mysql函式來執行 SELECT 語法?
+(A) run (B) go (C) executeSQL (D) query
+D
+
+18-3 自我評量 2
+用何種mysql函式來執行 INSERT INTO 語法?
+(A) run (B) go (C) executeSQL (D) query
+D
+
+18-3 自我評量 3
+關於index，下列敘述何項正確?
+(A)index只能使用在包含數值的欄位
+(B)index會使新增資料的效率降低，但會使搜尋的速度提高
+(C)index會使搜尋的效率降低，但會使新增資料的速度提高
+(D)index只能用在primary key的欄位上
+B

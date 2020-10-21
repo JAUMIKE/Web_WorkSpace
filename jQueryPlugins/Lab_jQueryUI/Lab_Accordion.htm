@@ -36,8 +36,35 @@
 </div>
  
 <script>
-
-
+    // $("#accordion").accordion();
+    //效果一，預設開啟欄位
+    // $("#accordion").accordion({active: 2});
+    //效果二  增加動畫效果時間
+    // $("#accordion").accordion({active: 2,animate: 500});
+    //效果三  增加事件註冊  
+    // $("#accordion").accordion({active: 2,animate: 500,event:"mouseenter"});
+    //效果四  高度調整
+    // $("#accordion").accordion({active: 2,animate: 500,event:"mouseenter",heightStyle:"content"});
+    //效果五  header icon調整
+    // $("#accordion").accordion({
+    //   active: 2,
+    //   animate: 500,
+    //   event:"mouseenter",
+    //   heightStyle:"content",
+    //   // icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
+    //   icons: { "header": "ui-icon-circle-plus", "activeHeader": " ui-icon-radio-off" }
+    //   });
+    //效果六  collapsible，可以收合
+    $("#accordion").accordion({
+      active: 2,
+      animate: 500,
+      event:"mouseenter",
+      heightStyle:"content",
+      // icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
+      icons: { "header": "ui-icon-circle-plus", "activeHeader": " ui-icon-radio-off" },
+      collapsible: true 
+      });
+  
 
 </script>
  

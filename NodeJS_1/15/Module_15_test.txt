@@ -1,0 +1,68 @@
+15-1 自我評量 1
+bodyParser.text( )可以解析JSON格式?(單選)
+A.	正確
+B.	錯誤
+B
+
+15-1 自我評量 2
+以下哪個不是Content-Type?(單選)
+A.	text/html
+B.	text/plain
+C.	application/x-www-form-urlencoded
+D.	application/word
+D
+
+15-1 自我評量 3
+如果要解析JSON格式可以透過以下哪個?(單選)
+A.	bodyParser.text( )
+B.	bodyParser.json( )
+C.	以上皆是
+D.	以上皆否
+B
+
+15-2 自我評量 1
+以下哪個可以做全域儲存資料?(單選)
+A.	app.locals
+B.	app.set( )
+C.	以上皆是
+D.	以上皆否
+C
+
+15-2 自我評量 2
+app.set( )第一個參數是? (單選)
+A.	資料的key值
+B.	資料的value值
+C.	以上皆是
+D.	以上皆否
+A
+
+15-2 自我評量 3
+app.get( )需要帶入什麼作為參數?(單選)
+A.	資料的key值
+B.	資料的value值
+C.	以上皆是
+D.	以上皆否
+A
+
+15-3 自我評量 1
+Postman無法更改HTTP method，請問這句是對或錯?(單選)
+A.	正確
+B.	錯誤
+B
+
+15-3 自我評量 2
+在express中的POST，哪個可以取得請求的body?(單選)
+A.	req.header
+B.	res.header
+C.	req.body
+D.	res.body
+C
+
+15-3 自我評量 3
+如果要透過Postman POST JSON資料至後端程式，需要做以下何種動作?(單選)
+A.	選擇body->選擇raw->選擇JSON
+B.	選擇body->選擇form-data
+C.	選擇body->選擇application/x-www-form-urlencoded
+D.	選擇body->選擇binary
+A
+

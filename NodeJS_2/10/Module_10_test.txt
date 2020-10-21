@@ -1,0 +1,75 @@
+10-1 自我評量 1
+請問如何使用函式 function a(req, res, next) {} 當作路由？
+(A) app.get('/', a)
+(B) app.load('/', a)
+(C) app.save('/', a)
+(D) app.middle('/', a)
+答案: (A)
+
+10-1 自我評量 2
+若有 a, b, c 三個路由函式，如何使其依照 b -> c -> a 的順序執行？
+(A) app.get('/', [a, c, b])
+(B) app.get('/', [b, c, a])
+(C) app.get('/', [c, a, b])
+(D) app.get('/', [a, b, c])
+答案: (B)
+
+10-1 自我評量 3
+若已設定 a, b 二個路由函式，並且依照 a -> b 順續執行，如何在 a 發現問題時，不進入 b 執行？
+(A) 在 a 使用 res.end("error")
+(B) 在 b 使用 res.end("error")
+(C) 在 a 使用 next()
+(D) 在 b 使用 next()
+答案: (A)
+
+
+10-2 自我評量 1
+請問 Routers 是哪個模組的函式庫？
+(A) Pug.js
+(B) Express.js
+(C) Request.js
+(D) Vue.js
+答案: (B)
+
+10-2 自我評量 2
+下列何種方法，將不同檔案中的 Router 載入？
+(A) app.use('/', router)
+(B) app.load('/', router)
+(C) app.save('/', router)
+(D) app.middle('/', router)
+答案: (A)
+
+10-2 自我評量 3
+下列何種方法，將不同檔案中的 Router 匯出使用？
+(A) module.exports = router
+(B) module.export = router
+(C) modules.export = router
+(D) modules.exports = router
+答案: (A)
+
+
+10-3 自我評量 1
+甚麼是 middleware？
+(A) 硬體層程式
+(B) 應用層程式
+(C) 系統層程式
+(D) 中介軟體程式
+答案: (D)
+
+10-3 自我評量 2
+如何設定預設 middleware？
+(A) app.use(function(req, res, next){})
+(B) app.default(function(req, res, next){})
+(C) app.middle(function(req, res, next){})
+(D) app.load(function(req, res, next){})
+答案: (A)
+
+10-3 自我評量 3
+如何將拿到的模組 myRoute 載入到 /apple 路徑下？
+(A) app.done('/apple', myRoute)
+(B) app.make('/apple', myRoute)
+(C) app.use('/apple', myRoute)
+(D) app.loa('/apple', myRoute)
+答案: (C)
+
+

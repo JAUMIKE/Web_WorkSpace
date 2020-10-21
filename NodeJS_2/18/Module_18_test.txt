@@ -1,0 +1,79 @@
+
+18-1 自我評量 1
+(B)
+1. 剛才課程提到的 SOP，指的是:
+(A)標準作業流程
+(B)同源政策
+
+
+18-1 自我評量 2
+(A)
+2. 如果連到 http://www.beauty.com/index.html 取回網頁，下列哪一個網址算同源?
+(A)http://www.beauty.com/hello/Jeremy
+(B)https://www.beauty.com/hello/Jeremy
+(C)http://www2.beauty.com/hello/Jeremy
+(D)http://www.beauty.com:81/hello/Jeremy
+
+
+18-1 自我評量 3
+(C)
+3. 跨來源資源共用（CORS）的描述，何者正確
+(A)JSONP 是解決跨域最簡易的方案。
+(B)瀏覽器發現會跨域時，發出的 HTTP 請求就會帶入 Ref 標頭
+(C)瀏覽器發現會跨域時，發出的 HTTP 請求就會帶入 Origin 標頭
+(D)如果伺服端願意提供服務，則傳回的 HTTP header 會有: allow: true
+
+
+18-2 自我評量 1
+(C)
+4. 如何安裝並引用 cors 模組?
+(A)npm use cors, include("cors")
+(B)npm use cors, require("cors")
+(C)npm install cors, require("cors")
+(D)npm install cors, include("cors")
+
+
+18-2 自我評量 2
+(D)
+5. 將 cors 掛入 express 的語法，何者正確?
+(A)app.cors( use() );
+(B)app.use( cors.option );
+(C)app.use( cors.lib );
+(D)app.use( cors() );
+
+
+18-2 自我評量 3
+(B)
+6. Fiddler 不具備下列哪一項功能?
+(A)自動偵測記錄本機的一切HTTP活動
+(B)偵測之餘，本身也具備防火牆功能
+(C)可看到Client/Server交換的原貌
+(D)對外模擬 HTTP 的 GET、POST、PUT、DELETE 等指令
+
+
+18-3 自我評量 1
+(C)
+7. cors模組發現Client的網址符合白名單設定時，會傳回哪一個 HTTP header?
+(A)cors
+(B)sop
+(C)Access-Control-Allow-Origin
+(D)accept
+
+
+18-3 自我評量 2
+(A)
+8. 利用cors設定白名單，會用到哪一個屬性?
+(A)origin
+(B)from
+(C)allow
+(D)access
+
+
+18-3 自我評量 3
+(D)
+9. cors能限定用戶端只准使用特定方法，程式該怎麼寫?
+(A)method: [GET, PUT, POST,DELETE]
+(B)methods: [GET, PUT, POST,DELETE]
+(C)method: 'GET, PUT, POST,DELETE'
+(D)methods: 'GET, PUT, POST,DELETE'
+

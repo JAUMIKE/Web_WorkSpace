@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../JS/bootstrap_js/jquery.min.js"></script>
+    <script src="../JS/bootstrap_js/popper.min.js"></script>
+    <script src="../JS/bootstrap_js/bootstrap.min.js"></script>
+    <script src="../JS/zoomy.js"></script>
+    <link rel="stylesheet" href="../CSS/zoomy.css">
+    <link rel="stylesheet" href="../CSS/bootstrap_css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Logo</a>
+      
+        <!-- Links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 2</a>
+          </li>
+      
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Dropdown link
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Link 1</a>
+              <a class="dropdown-item" href="#">Link 2</a>
+              <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline" action="/action_page.php">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+      </nav>
+      <br>
+      <hr>
+    <!-- 畫布區 -->
+    <div id="myGallery">Gallery</div>
+    <script>
+        var urls = ["https://www.gomaji.com/blog/wp-content/uploads/2019/12/MaoChuang1.jpg","https://img.huablog.tw/uploads/20200310204856_100.jpg","https://misshuan.tw/wp-content/uploads/20180615225921_89.jpg","https://taiwantravelers.com.tw/wp-content/uploads/2020/08/%E7%B2%BE%E9%81%B8-927x600.jpg"]
+        var option = {
+            // thumbLeft:true,
+            thumbRight:true,
+            // thumbHide:true,
+            width:800,
+            height:550
+        }
+
+        $("#myGallery").zoomy(urls,option);
+    </script>
+</body>
+</html>

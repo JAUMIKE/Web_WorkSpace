@@ -1,0 +1,43 @@
+4-1 自我評量 1
+(A)運行哪個指令可進行專案初始化？
+(A)npm init (B)npm start (C) npm go (D) npm install
+
+4-1 自我評量 2
+(A)安裝 Express 前須先安裝甚麼環境？
+(A) Node.js (B) JAVA (C) Python (D) Ruby
+
+4-1 自我評量 3
+(B)使用 npm install 安裝模組時，可以加上 ______ 將該模組新增至依賴清單。
+(A) --add (B) --save (C) --join (D) --insert
+
+------------------------------------------------------------
+
+4-2 自我評量 1
+(D)以下哪個「不是」程式碼編輯器？
+(A) Visual Studio Code (B) Atom (C) Sublime (D) illustrator
+
+4-2 自我評量 2
+(C)HTTPS 服務使用的連接埠為？
+(A) 8080 (B) 22 (C) 443 (D) 80
+
+4-2 自我評量 3
+(B)監聽連接埠(port)的寫法哪個正確？
+(A) app.start(3000) (B) app.listen(3000) (C) app.hear(3000) (D) app.port(3000)
+
+------------------------------------------------------------
+
+4-3 自我評量 1
+(C)使用 Express 的情況下，我們可以使用什麼語法，開始建立 Router 呢？
+(A) express.CreateRouter() (B) express.InsertRouter() (C) express.Router() (D)
+express.AddRouter()
+
+4-3 自我評量 2
+(D)假設我們已經建立了名為 api 的 Router，要如何指向其目錄呢？
+(A) app.get('/',api) (B) app.add('/',api) (C) app.set('/',api) (D)
+app.use('/',api)
+
+4-3 自我評量 3
+(B)我們可以自訂404頁面，以下何者為可能的方式呢？
+(A) app.get(function(){...}) (B) app.use(function(){...}) (C)
+app.set(function(){...}) (D) app.add(function(){...})
+

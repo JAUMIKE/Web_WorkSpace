@@ -1,0 +1,69 @@
+使用JSON資料檔 自我評量
+
+13-1 自我評量 1
+可以使用require( )引用JSON 檔?(單選)
+A.	正確
+B.	錯誤
+A
+
+13-1 自我評量 2
+可以使用哪種方式取得JSON檔資料?(單選)
+A.	require( )
+B.	fs.readFile( )
+C.	fs.readFileSync( )
+D.	以上皆是
+D
+
+13-1 自我評量 3
+HTML 表格中有以下何種標籤?(單選)
+A.	<table>
+B.	<tr>
+C.	<td>
+D.	以上皆是
+D
+
+13-2 自我評量 1
+HTML 表格中<tr>是以下哪個的縮寫?(單選)
+A.	table column
+B.	table row
+C.	table title
+D.	table size
+B
+
+13-2 自我評量 2
+HTML 表格中<td>是以下哪個的縮寫? (單選)
+A.	table data
+B.	table column
+C.	table row
+D.	table deadline
+A
+
+13-2 自我評量 3
+res.render( )可以做哪件事?(單選)
+A.	傳遞資料
+B.	刪除資料
+C.	複製資料
+D.	備份資料
+A
+
+13-3 自我評量 1
+<%= %>可以輸出HTML標籤並渲染成HTML元素 ?(單選)
+A.	正確
+B.	錯誤
+B
+
+13-3 自我評量 2
+<% include %>可以做哪件事?(單選)
+A.	將其他view page加載進來
+B.	將其他網站的view page加載進來
+C.	將其他請求加載進來
+D.	以上皆是
+A
+
+13-3 自我評量 3
+<% include %>的加載路徑可以為以下何者?(單選)
+A.	相對路徑
+B.	絕對路徑
+C.	以上皆是
+D.	以上皆
+C

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁</title>
+</head>
+<body>
+    <% if(!session.user) { %>
+    <a href="/login">登入</a>
+    <% }else { %>
+    <a href="/add">新增表單</a>
+    <% } %>
+    <table>
+        <thead>
+            <th>#</th>
+            <th>名稱</th>
+            <th>電話</th>
+            <th>地址</th>
+            <th>成人口罩庫存</th>
+            <th>孩童口罩庫存</th>
+        </thead>
+        <tbody>
+            <% data.forEach((item ,index) => { %>
+                <tr>
+                    <td><%= index+1%></td>
+                    <td><%= item.name%></td>
+                    <td><%= item.phone%></td>
+                    <td><%= item.address%></td>
+                    <td><%= item.adult_mask%></td>
+                    <td><%= item.child_mask%></td>
+                    <% if(session.user) { %>
+                    <td>
+                        <a href="#ex1" rel="modal:open"><button  onclick="Edit(<%= item.id%>)">編輯</button></a>
+                        <button onclick="Delete(<%= item.id%>)">刪除</button>
+                    </td>
+                    <% } %>
+                </tr>
+            <% }) %>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" style="text-align: center;">
+                    <% for(var i = 1; i <= last_page; i++) { %>
+                    <span ><a href="/<%= i%>"><%= i%></a></span>
+                    <% } %>
+                </td colspan="2">
+                <td><p>總數 <%= total_nums%> 筆，共 <%= curr_page%>/<%= last_page%> 頁</p></td>
+            </tr>
+        </tfoot>
+    </table>
+    <div id="ex1" class="modal">
+        <form id="form">
+            <input type="hidden" name="id">
+            藥局名稱: <input type="text" name="name"><br>
+            電話: <input type="text" name="phone"><br>
+            地址: <input type="text" name="address"><br>
+            成人口罩庫存: <input type="text" name="adult_mask"><br>
+            孩童口罩庫存: <input type="text" name="child_mask"><br>
+            <button type="button" id="submit">更新</button>
+        </form>
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+    <script>
+        function Edit(id) {
+            $.ajax({
+                url: "/detail/"+id,
+                type: "GET",
+                success: function(res) {
+                    var res = JSON.parse(res)
+                    //將值傳遞進input裏頭
+                    $("input[name='id']").val(res.data.id)
+                    $("input[name='name']").val(res.data.name)
+                    $("input[name='phone']").val(res.data.phone)
+                    $("input[name='address']").val(res.data.address)
+                    $("input[name='adult_mask']").val(res.data.adult_mask)
+                    $("input[name='child_mask']").val(res.data.child_mask)
+                },
+                error: function() {
+                    alert("系統錯誤!")
+                },
+            })
+        }
+
+        function Delete(id) {
+            var JSONData = {"id": id}
+            JSONData = JSON.stringify(JSONData)
+            $.ajax({
+                url: "/delete",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSONData,
+                success: function(res) {
+                    var res = JSON.parse(res)
+                    if(res.errno === 1) {
+                        alert("刪除成功!")
+                        location.reload()
+                    } else if(res.errno === 0) {
+                        alert("刪除失敗!")
+                    }
+                },
+                error: function() {
+                    alert("系統錯誤!")
+                }
+            })
+        }
+
+        $('#submit').on('click', function() {
+            //整理表單資料到變數
+            var data = $('#form').serializeArray()
+            JSONData = serializeToJSON(data)
+                     
+            $.ajax({
+                url: "/update",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSONData,
+                success: function(res) {
+                    var res = JSON.parse(res)
+                    if(res.errno === 1) {
+                        alert("更新成功!")
+                        location.reload()
+                    } else if(res.errno === 0) {
+                        alert("更新失敗!")
+                    }
+                },
+                error: function() {
+                    alert("系統錯誤!")
+                }
+            })
+        })
+
+        function serializeToJSON(data) {
+            var values = {};
+            for(index in data){
+                values[data[index].name] = data[index].value;
+            }
+            return JSON.stringify(values)
+        }
+
+    </script>
+</body>
+</html>

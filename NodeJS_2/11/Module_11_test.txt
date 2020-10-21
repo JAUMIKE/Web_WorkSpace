@@ -1,0 +1,75 @@
+11-1 自我評量 1
+請問 session 的資料主要是儲存於哪裡？
+(A) Client端
+(B) Server端
+(C) 兩者皆是
+(D) 兩者皆非
+答案: (B)
+
+11-1 自我評量 2
+請問哪一個不是session儲存的方式？
+(A) File
+(B) 資料庫
+(C) Memory
+(D) CPU
+答案: (D)
+
+11-1 自我評量 3
+請問 下列何者不是session的應用？
+(A) 購物車
+(B) 權限控制
+(C) 資料庫操作
+(D) 登入
+答案: (C)
+
+
+11-2 自我評量 1
+請問 下列何者是session的優點？
+(A) 可以存放大量資訊
+(B) 能即時更新資料庫資料
+(C) 能改善網路堵塞的問題
+(D) 儲存於Server相對Cookie安全
+答案: (D)
+
+11-2 自我評量 2
+下列何種方法，將定義session中name的值？
+(A) request.session.name="A"
+(B) response.session.name="B"
+(C) request.query.name="C"
+(D) response.query.name="D"
+答案: (A)
+
+11-2 自我評量 3
+下列哪個參數，可以設定session儲存的方式？
+(A) storage
+(B) save
+(C) store
+(D) repositary
+答案: (C)
+
+
+11-3 自我評量 1
+下列何種敘述，無關於session和cookie？
+(A) 協助解決HTTP stateless的缺陷
+(B) 可以快速判斷Client的身份
+(C) 有session基本上就會有cookie，但是有cookie不一定會有session
+(D) 都可以藉由瀏覽器進行更改
+答案: (D)
+
+11-3 自我評量 2
+如何使用express-session設定來避免cookie被竄改？
+(A) secure: true
+(B) httpOnly: true
+(C) resave: true
+(D) saveUninitialized: true
+答案: (B)
+
+
+11-3 自我評量 2
+下列敘述，何者正確?
+(A) session和cookie無助於協助解決HTTP stateless的缺陷
+(B) 有cookie基本上就會有session，但是有session不一定會有cookie
+(C) Session 的資料可以存放於記憶體、檔案、資料庫
+(D) session 的有效期限大約是24小時
+答案: (C)
+

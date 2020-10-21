@@ -1,0 +1,74 @@
+16-1 自我評量 1
+請問 下列何者不是主鍵的特性？
+(A) 不能為NULL值
+(B) 標記一個可以識別的資料庫表中的紀錄
+(C) 屬於UNSIGNED
+(D) 必須包含唯一值
+答案: (C)
+
+16-1 自我評量 2
+請問 int UNSIGNED 範圍是多少？
+(A) 0~65535
+(B) -32768~32767
+(C) 0~65536
+(D) -32767~32768
+答案: (A)
+
+16-1 自我評量 3
+請問datetime中設定的current_stamp在什麼時後會使用到？
+(A) 每次更新欄位的時候
+(B) 每次插入欄位的時候
+(C) 每次查詢欄位的時候
+(D) 每次刪除欄位的時候
+答案: (B)
+
+
+16-2 自我評量 1
+請問 tinyint UNSIGNED 範圍是多少？
+(A) -128~127
+(B) 0~255
+(C) -127~128
+(D) 0~256
+答案: (B)
+
+16-2 自我評量 2
+請問 Javascript中location.href='/'是什麼意思？
+(A) 設定超連結為根路由
+(B) 轉向到根路由
+(C) 重新整理頁面
+(D) 路由重新定義
+答案: (B)
+
+16-2 自我評量 3
+請問在mysql在createConnection時，multipleStatements: true的作用是？
+(A) 可以一次執行多種語句
+(B) 可以一次連接不同資料庫
+(C) 可以讓mysql建立長連接
+(D) 可以一次插入很多筆資料
+答案: (A)
+
+
+16-3 自我評量 1
+請問使用哪種方式可以讓SESSION方便EJS獲取？
+(A) app.use(function(req, res, next){ res.locals.session = req.session; next();});
+(B) app.set(function(req, res, next){ req.locals.session = req.session; next();});
+(C) app.use(function(req, res, next){ req.locals.session = req.session; next();});
+(D) app.set(function(req, res, next){ res.locals.session = req.session; next();});
+答案: (A)
+
+16-3 自我評量 2
+如果前往新增資料表單"視圖"時，使用middleware判斷該使用者沒有登入，我們該？
+(A) next();
+(B) res.redirect('/')
+(C) res.render('/')
+(D) res.end(JSON.stringify(new Error('permission deined')))
+答案: (B)
+
+16-3 自我評量 3
+已經設置session在locals情況下，請問要如何在 EJS 判斷是否有 user 這項資料?
+請問要如何使用EJS，用session判斷是否顯示該項操作 (已經設置session在locals情況下)？
+(A) if (req.session.user) {//...}
+(B) if (res.session.user) {//...}
+(C) if (session.user) {//...}
+(D) if (session){//...}
+答案: (C)

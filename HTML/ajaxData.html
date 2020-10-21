@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../JS/bootstrap_js/jquery.min.js"></script>
+</head>
+<body>
+    <div id="demo1">
+        <ul id="ulTag"></ul>
+    </div>
+    <div id="demo2"></div>
+    <script>
+        let dataArray = [];
+        $.ajax({
+            type:"get",
+            // url:"../10906.json",
+            url:"https://datacenter.taichung.gov.tw/swagger/OpenData/c3a4adcc-d5b1-4643-866a-b5bccc82dcb1",
+            contentType: 'application/json;', 
+            dataType: "json",
+            success:function(data){
+                console.log(data);
+                $.each(data,function (index,obj) {
+                    let objHour = obj.時;
+                    let objMin = obj.分;
+                    if(objHour.length < 2){
+                        objHour = '0'+ objHour
+                    }
+                    if(objMin.length <2){
+                        objMin = '0'+ objMin;
+                    }
+                    liText = $("<li></li>").text(obj.年 +"/"+obj.月 +"/"+obj.日 + " " +objHour +":"+objMin + '-'+obj.區+"---"+"受傷程度 : "+obj.受傷程度);
+                    $("#ulTag").append(liText);   
+                    console.log(obj.區)
+                  })
+              
+            }
+        })
+    </script>
+</body>
+</html>

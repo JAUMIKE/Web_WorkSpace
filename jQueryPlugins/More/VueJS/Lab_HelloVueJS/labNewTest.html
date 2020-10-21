@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body>div {
+            font-family: sans-serif;
+            font-size: 1.25em;
+            border: 1px solid gray;
+            padding: 20px;
+            margin: 20px;
+        }
+    </style>
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 用雙大括號接資料 -->
+    <!-- 用標籤的attribute 接資料要用v-bind  -->
+    <div id="app1">
+        <input v-model="message" ><br>
+        {{message}} <br>
+        <button v-on:click="reverseMessage">reverse Message</button>
+     
+    </div>
+    <hr>
+    <div id="app2">
+        <span v-bind:title="message" >請將滑鼠移至本區上方</span>
+        <input type="text" name="" id="" v-bind:value="message">
+    </div>
+
+    <div id="app3">
+        <span v-if="seen">Now you see me</span>
+        <p>...</p>
+    </div>
+
+    <div id="app4">
+        <ul>
+            <!-- 加入index 取得index的值 -->
+            <li v-for="(todoItem,index ) in todoList">
+                <!-- 直接宣告todoItem從todoList取值 -->
+                {{todoItem.text}} --index:{{index}}
+            </li>
+        </ul>
+    </div>
+    <div id="app5">
+        <input type="text" v-model="">
+        <p v-for="city in cityList" ></p>
+
+    </div>
+    <script>
+        var app1 = new Vue({
+            el:"#app1",
+            //透過data屬性告訴Vue物件有哪些資料
+            data:{
+                message:"Hello Vue!"
+            },
+            methods:{
+                //this　==> app1
+                reverseMessage:function(){
+                    //split 切成陣列; reverse 反轉; join 加成字串
+                    this.message = this.message.split('').reverse().join('')
+                }
+            }
+        });
+
+
+        var app2 = new Vue({
+            el:"#app2",
+            data:{
+                message: '載入時間: ' + new Date().toLocaleString()
+            }
+        });
+
+        var app3 = new Vue({
+            el:"#app3",
+            data:{
+                seen:true
+            }
+        });
+
+        var app4 = new Vue({
+            el:"#app4",
+            data:{
+                //宣告陣列資料
+                todoList:[
+                    {text:"how to learn Javascript", id:1,ymd:new Date().toTimeString()},
+                    {text:"how to learn Vue", id:2,ymd:new Date().toTimeString()},
+                    {text:"how to learn React", id:3,ymd:new Date().toTimeString()},
+                    {text:"how to learn Angular", id:4,ymd:new Date().toTimeString()}
+                    
+                ]
+            }
+        })
+        var app5 = new Vue({
+            el:"#app5",
+            data:{
+                cityList:[
+                    {cityId:2,cityName:'Taipei'},
+                    {cityId:4,cityName:'Taichung'},
+                    {cityId:6,cityName:'Tainan'}
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

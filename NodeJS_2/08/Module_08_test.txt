@@ -1,0 +1,73 @@
+
+8-1 自我評量 1
+下列哪個是 <form> 用於設定請求方式的屬性？
+(A)	action
+(B)	method
+(C)	type
+(D)	width
+B
+
+8-1 自我評量 2
+下列哪個方式可以使密碼資料傳到伺服器的過程中加密(不考慮前端加密的情況下)？
+(A)	GET
+(B)	POST
+(C)	HTTP
+(D)	HTTPS
+D
+
+8-1 自我評量 3
+下列哪個是 <form> 預設的 encode type？
+(A)	multipart/form-data
+(B)	text-plain
+(C)	application/x-www-urlencoded
+(D)	application/json
+C
+
+8-2 自我評量 1
+Multer 可以透過下列哪個引數設置文件保存的路徑？
+(A)	dest
+(B)	fileFliter
+(C)	type
+(D)	dist
+A
+
+8-2 自我評量 2
+下列哪個方法可以把文件表單請求中的原始檔名印出來？
+(A)	req.file.mimetype
+(B)	req.file.filename 
+(C)	req.file.originalname
+(D)	req.file.path
+C
+
+8-2 自我評量 3
+在 multer.diskStorage 物件中我們可以自定義一些儲存參數，下列哪個引數是用來設定保存路徑的 callback？
+(A)	filename
+(B)	fileFilter
+(C)	destpath
+(D)	destination
+D
+
+8-3 自我評量 1
+如果要用 body-parser 套件解析 <form> 預設上傳的資料，應該要用下列哪個解析器？
+(A)	bodyParser.json ()
+(B)	bodyParser.urlencoded ()
+(C)	bodyParser.raw ()
+(D)	bodyParser.text ()
+B
+
+8-3 自我評量 2
+如果要在 <input> 控件裡過濾檔案類型需要設定哪個屬性？
+(A)	accept
+(B)	type
+(C)	name
+(D)	action
+A
+
+8-3 自我評量 3
+如果要在 <input> 控件裡過濾檔案類型並且設置符合多種規則應該怎麼寫？
+(A)	".png|.gif|.bmp"
+(B)	".png,.gif,.bmp"
+(C)	".png%.gif%.bmp"
+(D)	".png$.gif$.bmp"
+B
+

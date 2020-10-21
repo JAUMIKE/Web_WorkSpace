@@ -1,0 +1,38 @@
+9-1 自我評量 1
+(A)運行哪個指令可進行專案初始化？
+(A)npm init (B)npm start (C) npm go (D) npm install
+
+9-1 自我評量 2
+(A)安裝 Express 前須先安裝甚麼環境？
+(A) Node.js (B) JAVA (C) Python (D) Ruby
+
+9-1 自我評量 3
+(B)使用 npm install 安裝模組時，可以加上 ______ 將該模組新增至依賴清單。
+(A) --add (B) --save (C) --join (D) --insert
+
+9-2 自我評量 1
+(D)以下哪個「不是」程式碼編輯器？
+(A) Visual Studio Code (B) Atom (C) Sublime (D) illustrator
+
+9-2 自我評量 2
+(C)HTTPS 服務使用的連接埠為？
+(A) 8080 (B) 22 (C) 443 (D) 80
+
+9-2 自我評量 3
+(B)監聽連接埠(port)的寫法哪個正確？
+(A) app.start(3000) (B) app.listen(3000) (C) app.hear(3000) (D) app.port(3000)
+
+9-3 自我評量 1
+(A)命令提示字元中該如何終止正在執行的服務/程序？
+(A) Ctrl + C (B) Ctrl + V (C) Ctrl + ` (D) Ctrl + /
+
+9-3 自我評量 2
+(C)如何在 Visual Studio Code 中開啟終端機？
+(A) Ctrl + C (B) Ctrl + V (C) Ctrl + ` (D) Ctrl + /
+
+9-3 自我評量 3
+(B)URL預設連接埠是80可省略不寫，若要指定其他連接埠，請問該如何表示？
+(A) localhost@3000 (B) localhost:3000 (C) localhost%3000 (D) localhost&3000
+
+(D)假設 Node 專案的主要執行檔為 app.js 的話，啟動服務偵聽的語法為？
+(A) run app.js (B) start app.js (C) npm app.js (D) node app.js

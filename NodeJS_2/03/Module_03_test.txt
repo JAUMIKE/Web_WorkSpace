@@ -1,0 +1,64 @@
+3-1 自我評量 1
+請問有關於網站伺服器與瀏覽器的描述，何者正確?
+(A) 瀏覽器提出 HTML 請求，網站伺服器回應請求
+(B) 瀏覽器提出 HTTP 請求，網站伺服器回應請求
+(C) 瀏覽器提出 URL 請求，網站伺服器回應 HTML 請求
+(D) 網站伺服器推送請求，瀏覽器回應 HTTP 請求
+B
+
+3-1 自我評量 2
+請問要如何引用Node.js中預設HTTP Server模組？
+(A) require('webserver') 
+(B) include('webserver') 
+(C) require('webserver') 
+(D) require('http')
+D
+
+3-1 自我評量 3
+HTTP 通訊協定的 404 錯誤碼，是何意?
+(A) 找不到資料庫
+(B) 有找到檔案，但權限不足
+(C) 找不到用戶端指定的路徑檔案
+(D) 找不到Web API的傳回值
+C
+
+
+3-2 自我評量 1
+請問Server模組提供的Function，listen(3000) 表示何種用途？ 
+(A) 最多3000人連線 
+(B) 緩衝區3000 Bytes 
+(C) 等待時間3000 ms 
+(D) Port綁定在3000
+D
+
+3-2 自我評量 2
+http.createServer(function(req, res){ //處理請求 }); 關於這程式請問下列何者正確？
+(A) 每次的req都一樣 
+(B) 只能處理一個用戶 
+(C) 非同步函數 
+(D) 連線會自動斷開   
+C
+
+3-2 自我評量 3
+請問該如何讀取用戶request的URL位置? 
+(A) req.url 
+(B) req.read('url') 
+(C) req.get('url') 
+(D) res.get('url')
+A
+
+3-3 自我評量 1
+下列哪個nodemon預設會監控的副檔名類型？
+(A) .jpg (B) .py (C) .bmp (D) .js 
+D
+
+3-3 自我評量 2
+下列那個參數可讓nodemon排除某些檔案不監控
+(A) exclude (B) include (C) ignore (D) none
+C
+
+3-3 自我評量 3
+下列那個參數可讓nodemon只監控特定資料夾
+(A) monitor (B) include (C) watch (D) reload 
+C
+

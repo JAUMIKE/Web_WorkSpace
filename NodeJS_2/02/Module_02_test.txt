@@ -1,0 +1,46 @@
+2-1 自我評量 1
+npm是一種？
+(A) 套件管理程式 (B) 網路瀏覽器 (C) 程式語言 (D) 繪圖軟體
+A
+
+2-1 自我評量 2
+npm經常搭配合何種程式語言一起做開發？
+(A) Python (B) C/C++ (C) Visual Basic (D) Node.js
+D
+
+2-1 自我評量 3
+用npm初始化專案的指令為下面何者？
+(A) npm list (B) npm init (C) npm install (D) npm uninstall
+B
+
+
+2-2 自我評量 1
+下面何者為npm專案的設定檔？
+(A) setting.conf (B) package.conf(C) package.json (D) setting.json
+C
+
+2-2 自我評量 2
+npm專案設定檔中dependencies屬性的用途是？
+(A) 相依的套件 (B) 專案描述 (C) 專案版本 (D) 授權方式
+A
+
+2-2 自我評量 3
+下面何者非npm專案設定檔中的必要屬性？
+(A) name (B) version (C) license (D) engines
+D
+
+2-3 自我評量 1
+用npm install安裝完後的套件放在哪個資料夾內？ 
+(A) node_modules (B) npm_modules (C) node_pacakges (D) npm_packages
+A
+
+2-3 自我評量 2
+下列何者可以執行專案設定檔中自定義的script ? 
+(A) npm start (B) node start (C) npm start (D) npm run 
+D
+
+2-3 自我評量 3
+請問何者不是npm run指令常用簡寫? 
+(A) npm test (B) npm start (C) npm stop (D) npm pause
+D
+

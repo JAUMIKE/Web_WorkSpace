@@ -14,7 +14,7 @@
 <div id="labPage" data-role="page" data-theme="a">
 
 	<div data-role="header" data-theme="b">
-		<a href="#" data-role="button" data-icon="info">More...</a>
+		<a href="#labPanel" data-role="button" data-icon="info" >More...</a>
 		<h3>Page Heading</h3>
 	</div>
 
@@ -24,10 +24,25 @@
 
 
 	<!-- Panel paste to here -->
+	<!--  data-role="panel" data-position="left" data-display="reveal"  -->
+	<div id="labPanel" data-theme="b">
+        <h4>Lab</h4>
+		<p>...</p>
+		<a href="#labPage" data-role="panel" data-position="left" data-display="reveal" data-rel="close" data-role="button">Close</a>
+
+    </div>
+	
 
 
 </div>
 <!-- end of labPage -->
-
+<script>	
+	$(document).on("swipe",function () { 
+		$("#labPanel").panel("open");
+	 })
+	$("#closePanelButton").on("click",function () { 
+		$("#labPanel").panel("close");
+	 })
+</script>
 </body>
 </html>

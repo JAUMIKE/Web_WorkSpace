@@ -1,0 +1,74 @@
+9-1 自我評量 1
+請問「變數代稱設定路由」使用的是哪個特殊符號？
+(A) 冒號
+(B) 問號
+(C) 驚嘆號
+(D) 括號
+答案: (A)
+
+9-1 自我評量 2
+route("/user/:name", function(req, res){ ???? })，程式要如何使用 name
+(A) req.param.name
+(B) req.params.name
+(C) req.param.user.name
+(D) req.params.user.name
+答案: (B)
+
+9-1 自我評量 3
+請問「變數代稱設定路由」變數儲存的型態為何？
+(A) Number
+(B) Array
+(C) List
+(D) String
+答案: (D)
+
+
+9-2 自我評量 1
+請問在「wildcard路由」中，字串 apple 符合哪種規則？
+(A) a+ple
+(B) ap+le
+(C) apl+e
+(D) aple+
+答案: (B)
+
+
+9-2 自我評量 2
+請問在「wildcard路由」中，符號 + (加號) 代表的意義為何？
+(A) 可有可無
+(B) 任何文字
+(C) 一個或以上
+(D) 數字
+答案: (C)
+
+9-2 自我評量 3
+請問在「wildcard路由」中，哪一個輸入符合 Goo+g?le 的規則？
+(A) Goooooooole
+(B) Gogle
+(C) Gole
+(D) Goooooooe
+答案: (A)
+
+9-3 自我評量 1
+請問在「regular expression 路由」中，如何匹配 3 ？
+(A) [A-Z]
+(B) [a-z]
+(C) [0-9]
+(D) {number}
+答案: (C)
+
+9-3 自我評量 2
+請問在「regular expression 路由」中，如何匹配 Banana ？
+(A) Bana{2}
+(B) B[a-z]+
+(C) B[0-9]{5}
+(D) B\d{5}
+答案: (B)
+
+9-3 自我評量 3
+請問在「regular expression 路由」中，如何匹配所有台灣手機號碼？
+(A) 09\d\d\d\d\d\d\d
+(B) 09[0-9]{7}
+(C) 09[0-5]{8}
+(D) 09[0-9]{7}[0-9]
+答案: (D)
+

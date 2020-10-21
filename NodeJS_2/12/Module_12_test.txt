@@ -1,0 +1,48 @@
+12-1 自我評量 1
+mysql 屬於何種資料庫類型?
+(A)關聯式資料庫 (B)非關聯式資料庫 (C)  網路式資料庫 (D) 階層式資料庫
+A
+
+12-1 自我評量 2
+mongoDB 屬於何種資料庫類型?
+(A)關聯式資料庫 (B)非關聯式資料庫 (C)  網路式資料庫 (D) 階層式資料庫
+B
+
+12-1 自我評量 3
+下列資料庫何者不屬於NOSQL(非關聯式)文件資料庫?
+(A) Oracle (B) mongoDB (C) OrientDB (D) SimpleDB
+A
+
+12-2 自我評量 1
+mysql 預設port 為以下何者?
+(A) 80 (B) 27017 (C) 3300 (D) 3306
+D
+
+12-2 自我評量 2
+想要連接mysql, nodejs 需安裝下列哪一個模組?
+(A) mssql (B) mysql (C) @types/mysql (D) $mysql
+B
+
+12-2 自我評量 3
+執行程式後, 無法正確執行指令, 如何強迫退出程式?
+(A) ctrl + z  (B) ctrl + alt + delete  (C) ctrl + c  (D) ctrl + alt + . 
+C
+
+12-3 自我評量 1
+SQL語法中，用何者來查詢資料?
+(A) DELETE  (B) DROP  (C) SELECT  (D) INSERT
+C
+
+12-3 自我評量 2
+用何種mysql函式來執行SQL語法?
+(A) run (B) go (C) executeSQL (D) query
+D
+
+12-3 自我評量 3
+關於index，下列敘述何項正確?
+(A)index只能使用在包含數值的欄位
+(B)index會使新增資料的效率降低，但會使搜尋的速度提高
+(C)index會使搜尋的效率降低，但會使新增資料的速度提高
+(D)index只能用在primary key的欄位上
+B
+

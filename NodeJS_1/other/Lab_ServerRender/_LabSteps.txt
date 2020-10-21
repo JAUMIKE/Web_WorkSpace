@@ -1,0 +1,61 @@
+Lab: Browser-Server 架構示範與實作
+
+
+
+
+1.  滑鼠右鍵 Lab_ServerRender 資料夾 | Open in Terminal，
+    輸入下列指令以安裝/更新本程式所需的模組:
+
+npm install express
+npm install body-parser
+npm install express-session
+npm install ejs
+exit
+
+
+2.  以編輯器開啟 Lab_Login_Begin/app.js
+    瀏覽一遍程式
+
+
+3.  滑鼠右鍵 Lab_Login_Begin 資料夾 | Open in Terminal
+    在終端機視窗輸入下列指令以啟動 Web Server:
+    node app.js
+
+
+4. 在瀏覽器連接 http://localhost/design
+
+    <Note>
+    正常的話，看到的應該是 public/index.html 
+    目前，動線規畫與美術設計均已完成，
+    準備移交給後端工程師代入程式
+
+
+5.  在終端機視窗，按下組合鍵「Ctrl + C」以結束 app.js，
+    建議將 app.js 編輯頁籤也關掉
+
+
+6.  以編輯器開啟 Lab_Login_OK/app.js
+    瀏覽一遍程式
+
+
+7.  滑鼠右鍵 Lab_Login_OK 資料夾 | Open in Terminal
+    在終端機視窗輸入下列指令以啟動 Web Server:
+    node app.js
+
+
+8. 在瀏覽器連接 http://localhost
+
+    <Note>
+    正常的話，看到的應該是後端工程師完工後的系統。
+
+
+9.  試用此一「首頁 >> 登入 >> 首頁 >> 會員頁」系統
+
+
+10. 按下組合鍵「Ctrl + C」以結束 app.js，建議將 app.js 編輯頁籤也關掉
+
+
+11. 以 Lab_Login_Begin 為起點，修改程式與畫面，
+    仿做出一個如同 Lab_Login_OK 一樣功能的系統。
+
+

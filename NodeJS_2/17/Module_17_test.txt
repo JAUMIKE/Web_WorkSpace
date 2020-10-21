@@ -1,0 +1,162 @@
+ 
+17-1 自我評量 1
+Promise 的功能為何？
+A. 用來保證程式不會出錯
+B. 用來改善 callback function hell
+C. 用在同步的程式上
+D. 發送 AJAX
+[答案： B]
+
+
+17-1 自我評量 2
+下列哪個敘述是 Bluebird 用來包裝 fs 的方式？
+A. bluebird.pack(fs)
+B. bluebird.promisifyEach(fs)
+C. bluebird.promisifyAll(fs)
+D. bluebird.promise(fs)
+[答案： C]
+
+17-1 自我評量 3
+已知 mysql 連線物件有 query() 可以執行 SQL 敘述，經過 Bluebird 包裝後，該方法的包裝方法為？
+A. queryAsync()
+B. queryEach()
+C. queryBluebird()
+D. queryPromise()
+ [答案： A]
+
+
+
+17-2 自我評量 1
+已知 db 為 mysql 連線物件。下面程式碼，哪個位置已經取得所有 SQL query 的資料並可回應給前端？ 
+
+router.post('/my-route', (req, res)=>{
+	const sql1 = "SELECT * FROM `address_book` WHERE `sid`=2";
+	const sql2 = "SELECT * FROM `address_book` WHERE `mobile`='0918111222'";
+	db.query(sql1, (error, result1)=>{
+		// (A)
+	});
+	db.query(sql2, (error, result2)=>{
+		// (B)
+	});
+	// (C)
+});
+
+A. (A)
+B. (B)
+C. (C)
+D. (A)(B)(C)皆不適合
+ [答案： D]
+
+
+17-2 自我評量 2
+已知 db 為 mysql 連線物件。下面程式碼，哪個位置已經取得所有 SQL query 的資料並可回應給前端？ 
+
+router.post('/my-route', (req, res)=>{
+	const sql1 = "SELECT * FROM `address_book` WHERE `sid`=2";
+	const sql2 = "SELECT * FROM `address_book` WHERE `mobile`='0918111222'";
+	// (A)
+	db.query(sql1, (error, result1)=>{
+		// (B)
+		db.query(sql2, (error, result2)=>{
+			// (C)
+		});
+	});
+	// (D)
+});
+
+A. (A)
+B. (B)
+C. (C)
+D. (D)
+[答案： C]
+
+
+17-2 自我評量 3
+已知 db 為 Bluebird 包裝過的 mysql 連線物件。下面程式碼，哪個位置已經取得所有 SQL query 的資料並可回應給前端？  
+
+router.post('/my-route', (req, res)=>{
+	const sql1 = "SELECT * FROM `address_book` WHERE `sid`=2";
+	const sql2 = "SELECT * FROM `address_book` WHERE `mobile`='0918111222'";
+	// (A)
+	db.queryAsync(sql1)
+		.then(result1=>{
+			// (B)
+			return db.queryAsync(sql2);
+		})
+		.then(result2=>{
+			// (C)
+		})
+		.catch(ex=>{
+			// (D)
+		});
+});
+
+A. (A)
+B. (B)
+C. (C)
+D. (D)
+[答案： C]
+
+
+17-3 自我評量 1
+關於 Promise 的錯誤捕捉，可以使用哪個方法或結構敘述？ 
+A. catch() 方法的 callback function
+B. then() 方法的 callback function
+C. finally() 方法的 callback function
+D. try/catch 敘述
+[答案： A]
+
+
+17-3 自我評量 2
+下列程式片段的輸出結果為何？  
+
+new Promise((resolve, reject)=>{
+        setTimeout(function(){
+            reject('AA');
+        }, 100);
+    })
+    .then(r=>{
+        console.log('BB');
+        throw new Error('CC');
+    })
+    .catch(ex=>{
+        console.log(ex);
+    });
+
+A. "AA"
+B. "BB"
+C. "CC"
+D. "BB CC"
+[答案： A]
+
+
+17-3 自我評量 3
+下列程式片段的輸出結果為何？ 
+
+const p = (doReject=false)=> new Promise((r1,r2)=>{
+    doReject ? r2('reject') : r1('resolve');
+});
+let msg = '';
+p().then(r=>{
+        msg += 1;
+        return p(true);
+    })
+    .catch(ex=>{
+        msg += 2;
+    })
+    .then(r=>{
+        msg += 3;
+    })
+    .catch(ex=>{
+        msg += 4;
+    })
+    .finally(()=>{
+        console.log(msg);
+    });
+
+A. 1234
+B. 123
+C. 12
+D. 234
+
+[答案： B]

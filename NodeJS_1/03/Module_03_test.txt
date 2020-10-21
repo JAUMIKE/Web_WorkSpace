@@ -1,0 +1,62 @@
+
+3-1 自我評量 1
+JavaScript 能否拿來寫 Web API(後端)呢？
+(A) 可   (B) 否
+A
+
+3-1 自我評量 2
+JavaScript的副檔名通常是?
+(A) .js  (B) .ts (C) .jsx (D) 以上皆是
+A
+
+3-1 自我評量 3
+Node 使用哪個引擎來編譯及執行 JavaScript?
+(A) Smarty (B) V12 (C) V8 (D) V6
+C
+
+3-2 自我評量 1
+使用 Node 執行 JavaScript 檔案的指令？
+(A) $ nodejs 檔案名稱 (B) $ node 檔案名稱 (C) $ node -e 檔案名稱		
+B
+
+3-2 自我評量 2
+以下敘述，何者正確?
+(A) Node.js只是一個函式庫
+(B) Node.js只是一個執行環境，函式庫全部都要另外 require 進來
+(C) Node.js事實上既是一個運行時環境，同時又是一個函式庫
+(D) Node.js只是一個執行環境，函式庫全部都要另外 npm install 才行
+C
+
+3-2 自我評量 3
+下列何者指令可以成功執行程式？
+(A) $ node helloWorld.js 
+(B) $ node -e "console.log('Hello World')" 
+(C) $ node > console.log('Hello World') 
+(D) 以上皆是 
+D
+
+3-3 自我評量 1
+當要執行程式時，在指令中輸入錯誤檔名會出現哪種錯誤訊息？ 
+(A) Cannot find module '檔案路徑' 
+(B) Cannot find file '檔案路徑'
+(C) Cannot find program '檔案路徑' 
+(D) 以上皆非
+A
+
+3-3 自我評量 2
+2. 有一個變數 sum ，它的值為 10 ，想透過 console.log(sum) 印出來，但是卻不小心打錯打成 console.log(sun)，執行程式後，此時會出現何種訊息？	 
+(A) sum is not defined 
+(B) sun is not defined
+(C) 10 
+(D) 以上皆非
+B
+	
+3-3 自我評量 3
+3. 有一個變數 num 其值為 '10'，如何知道變數 num 的型態為何？
+(A) console.log(typeof(num)); 
+(B) console.log(typeof num); 
+(C) 以上皆是 
+(D) 以上皆非
+C
+
+

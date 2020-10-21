@@ -1,0 +1,68 @@
+使用ES6語法 自我評量
+
+5-1 自我評量 1
+建立物件要用 new 保留字?(單選)
+A. 正確
+B. 錯誤
+A
+
+5-1 自我評量 2
+可以透過以下哪個關鍵字產生物件?(單選)
+A. new
+B. create
+C. born
+D. give
+A
+
+5-1 自我評量 3
+子類別的物件是透過什麼屬性指向父類別的prototype?(單選)
+A. name
+B. has
+C. have
+D. __proto__
+D
+
+5-2 自我評量 1
+在物件裡頭，箭頭函式的this指向會指向到全域物件?(單選)
+A. 正確
+B. 錯誤
+B
+
+5-2 自我評量 2
+以下哪個選項無法用箭頭函式宣告? (單選)
+A. 類別的屬性方法
+B. 物件的屬性方法
+C. 立即函式
+D. 匿名函式
+A
+
+5-2 自我評量 3
+以下哪個選項可以在箭頭函式裡覆寫this?(單選)
+A. apply
+B. bind
+C. call
+D. 以上皆非
+D
+
+5-3 自我評量 1
+Node.js 的模組載入是非同步加載?(單選)
+A. 正確
+B. 錯誤
+B
+
+5-3 自我評量 2
+以下哪種為Node.js當前使用的模組規範?(單選)
+A. RequireJS
+B. ES6 Modules
+C. CommonJS
+D. Babel
+C
+
+5-3 自我評量 3
+module.exports與exports的描述，何者正確?(單選)
+A. 兩者是一種組合關係
+B. exports是module.exports的引用
+C. 只有module.exports可以輸出模組
+D. 只有exports可以輸出模組
+B
+
