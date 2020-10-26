@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h1>HomePage</h1>
+        <% if(userName == "Guest"){ %>
+            <a href="/login">login</a>
+        <% }else {%>
+            <a href="/logout">log out</a>
+        <% }%>        
+        <span>|</span>
+        <a href="/member">memberPage</a>
+        <hr>
+
+        <h3>Hello! <%= userName%> welcome to here! </h3>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../JS/bootstrap_js/jquery.min.js"></script>
+    <style>
+        table,th,td{
+
+            border:1px solid black;
+            border-collapse: collapse;
+            /* color:brown; */
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo1">
+        <table id="tableArea">
+            <tr>
+               <th>行政區</th> 
+               <th>里</th>
+               <th>街</th> 
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    $.ajax({
+        type:"get",
+        url:"../Taichung_garbage.json"
+    }).then(function(data){
+        $.each(data,function(key,obj){
+            // console.log(obj);
+            let cityArea = $("<td></td>").text(obj.area);
+            let cityVillage =  $("<td></td>").text(obj.village);
+            let cityCaption =  $("<td></td>").text(obj.caption);
+            let trTag = $("<tr></tr>").addClass("trArea")
+            $("#tableArea").append(trTag);
+            // $("trTag").addclass("trArea");
+            // $(".trArea").append(cityArea);
+            // $(".trArea").append(cityVillage);
+            // $(".trArea").append(cityCaption);
+            // $("#tableContent").append(cityArea)
+            // $("#tableContent").append(cityVillage)
+            // $("#tableContent").append(cityCaption)
+     
+        })
+        
+    })
+            // $("#tableArea").append("<tr></<tr>")
+            // tdTag1 = $("<td></td>").text("萬華區");
+            // tdTag2 = $("<td></td>").text("日善里");
+            // tdTag3 = $("<td></td>").text("東園街");
+
+            // $(".trArea").append(tdTag1);
+            // $(".trArea").append(tdTag2);
+            // $(".trArea").append(tdTag3);
+
+
+   
+</script>
+</html>
